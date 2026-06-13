@@ -1,0 +1,8 @@
+requests
+Pillow
+numpy
+imagehash
+rembg
+google-generativeai
+google-api-python-client
+google-auth

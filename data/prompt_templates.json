@@ -1,0 +1,233 @@
+{
+  "_comment": "규칙 기반 프롬프트 템플릿. subject + composition + variation 조합으로 뼈대를 만들고 Gemini가 보정합니다.",
+
+  "quality_keywords": {
+    "korean_food": "professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+    "korean_culture": "high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
+    "light_stock": "high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
+    "fantasy_animal": "digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
+    "abstract": "high resolution texture, seamless pattern, professional design asset, sharp details, print ready, commercial use"
+  },
+
+  "categories": {
+
+    "korean_food": {
+      "tag": "food",
+      "platform_form": "jpg",
+      "subjects": [
+        "Korean Tteokbokki spicy rice cakes in a white ceramic bowl",
+        "Korean Bibimbap in a stone Dolsot bowl with colorful vegetables",
+        "Korean Kimchi in a white ceramic dish, red fermented cabbage",
+        "Korean Doenjang Jjigae soybean paste stew in an earthenware Ttukbaegi pot",
+        "Korean Japchae glass noodles with colorful vegetables in a white bowl",
+        "Korean Samgyeopsal grilled pork belly slices with garlic and lettuce",
+        "Korean Sundubu Jjigae soft tofu stew in a red earthenware bowl",
+        "Korean Galbi grilled short ribs with charcoal grill marks",
+        "Korean Dakgalbi spicy stir-fried chicken with vegetables in a pan",
+        "Korean Hotteok sweet pancake cut in half showing brown sugar filling",
+        "Korean Bingsu shaved ice dessert with red beans in a ceramic bowl",
+        "Korean Yakgwa honey cookie traditional confection",
+        "Korean Gimbap rice rolls sliced showing colorful cross-section",
+        "Korean Haemul Pajeon seafood scallion pancake, golden and crispy",
+        "Korean Japgokbap multigrain rice in a stone bowl",
+        "Korean Yukgaejang spicy beef soup in a black bowl",
+        "Korean Banchan side dishes assortment on small plates",
+        "Korean Naengmyeon cold buckwheat noodles in a metal bowl",
+        "Korean Bulgogi marinated beef with vegetables on a plate",
+        "Korean Jeon savory pancakes stacked on a white plate"
+      ],
+      "compositions": [
+        "top-down view",
+        "overhead flat lay shot",
+        "45 degree angle view",
+        "close-up macro shot",
+        "slightly elevated angle view"
+      ],
+      "variations_light": [
+        "warm studio lighting",
+        "soft diffused lighting",
+        "natural window lighting",
+        "bright even lighting"
+      ],
+      "variations_detail": [
+        "steam rising gently",
+        "glossy sauce reflection",
+        "fresh garnish visible",
+        "rustic ceramic texture",
+        "subtle water droplets"
+      ],
+      "variations_strong": [
+        "earthenware bowl with rough texture",
+        "dramatic side lighting with shadow",
+        "modern minimalist white ceramic plating",
+        "traditional brass bowl setting"
+      ]
+    },
+
+    "korean_culture": {
+      "tag": "other",
+      "platform_form": "jpg",
+      "subjects": [
+        "traditional Korean Hanok roof tiles with curved eaves",
+        "Korean Hanbok fabric folded neatly, vibrant silk colors",
+        "traditional Korean lattice window pattern, Hanok architecture",
+        "Korean celadon pottery vase, jade green glaze",
+        "traditional Korean folding fan with painted design",
+        "Korean Dancheong traditional pattern on wooden beam",
+        "Korean traditional tea set, white ceramic teapot and cups",
+        "Korean Norigae traditional ornament with tassels",
+        "Korean traditional paper lantern, Hanji texture",
+        "Korean Hanok courtyard with stone pathway",
+        "traditional Korean brass spoon and chopsticks set",
+        "Korean Jokduri traditional headpiece with embroidery"
+      ],
+      "compositions": [
+        "top-down view",
+        "overhead flat lay shot",
+        "45 degree angle view",
+        "wide architectural view",
+        "close-up detail shot"
+      ],
+      "variations_light": [
+        "soft natural lighting",
+        "warm afternoon light",
+        "bright even studio lighting",
+        "gentle diffused light"
+      ],
+      "variations_detail": [
+        "intricate texture detail",
+        "vibrant traditional colors",
+        "elegant minimalist styling",
+        "authentic cultural craftsmanship"
+      ],
+      "variations_strong": [
+        "dramatic architectural perspective",
+        "rich textile texture close-up",
+        "ornate traditional decoration focus"
+      ]
+    },
+
+    "light_stock": {
+      "tag": "abstract",
+      "platform_form": "jpg_or_png",
+      "subjects": [
+        "minimalist watercolor texture background, soft pastel tones",
+        "simple gradient background, smooth color transition",
+        "paper texture background, subtle fiber detail",
+        "bokeh light background, soft blurred circles",
+        "simple geometric pattern, clean lines",
+        "polka dot pattern background, soft colors",
+        "stripe pattern background, minimal design",
+        "floral line pattern, delicate botanical illustration",
+        "simple ribbon and bow decoration element",
+        "minimalist leaf illustration element",
+        "simple frame border decoration element",
+        "abstract fluid art texture, marbled pattern"
+      ],
+      "compositions": [
+        "flat design view",
+        "centered composition",
+        "full frame texture view",
+        "seamless tileable pattern"
+      ],
+      "variations_light": [
+        "soft pastel color palette",
+        "vibrant bold color palette",
+        "muted earthy color palette",
+        "monochrome color palette"
+      ],
+      "variations_detail": [
+        "subtle texture detail",
+        "smooth clean finish",
+        "delicate fine detail",
+        "high resolution print quality"
+      ],
+      "variations_strong": [
+        "high contrast bold design",
+        "intricate layered pattern",
+        "dynamic flowing composition"
+      ]
+    },
+
+    "fantasy_animal": {
+      "tag": "fantasy",
+      "platform_form": "jpg_or_png",
+      "subjects": [
+        "cute baby dragon sleeping on a pile of gold coins",
+        "majestic white unicorn in a misty enchanted forest",
+        "friendly fox character wearing a business suit",
+        "small phoenix bird with glowing feathers",
+        "wise old owl wearing tiny glasses",
+        "cute baby fox sitting in autumn leaves",
+        "magical floating crystal with sparkles",
+        "small dragon curled around a treasure chest",
+        "rabbit character wearing a tiny crown",
+        "cat character in a wizard robe with a small hat",
+        "tiny fairy sitting on a mushroom",
+        "panda character in a business suit holding a briefcase"
+      ],
+      "compositions": [
+        "centered character portrait",
+        "45 degree angle view",
+        "full body view, isolated",
+        "close-up character shot"
+      ],
+      "variations_light": [
+        "soft magical glow lighting",
+        "warm golden hour lighting",
+        "cool fantasy blue lighting",
+        "bright cheerful lighting"
+      ],
+      "variations_detail": [
+        "detailed fur texture",
+        "sparkling magical particles",
+        "intricate scale detail",
+        "expressive cute features"
+      ],
+      "variations_strong": [
+        "dramatic cinematic atmosphere",
+        "whimsical storybook style",
+        "vibrant fantasy color scheme"
+      ]
+    },
+
+    "abstract": {
+      "tag": "abstract",
+      "platform_form": "jpg",
+      "subjects": [
+        "abstract fluid color texture, marbled paint pattern",
+        "abstract geometric shapes composition, modern design",
+        "abstract liquid gold texture background",
+        "abstract paper cut layered texture",
+        "abstract smoke texture, soft flowing forms",
+        "abstract crystal texture, faceted light reflections",
+        "abstract organic shapes pattern, modern minimalist",
+        "abstract gradient mesh background, soft colors"
+      ],
+      "compositions": [
+        "full frame texture view",
+        "centered abstract composition",
+        "diagonal flowing composition",
+        "seamless tileable pattern"
+      ],
+      "variations_light": [
+        "soft pastel color palette",
+        "vibrant bold color palette",
+        "metallic gold and bronze tones",
+        "cool blue and teal tones"
+      ],
+      "variations_detail": [
+        "high resolution fine texture",
+        "smooth gradient transitions",
+        "subtle light reflections",
+        "rich layered depth"
+      ],
+      "variations_strong": [
+        "dramatic high contrast composition",
+        "intricate complex pattern layering",
+        "dynamic energetic flow"
+      ]
+    }
+
+  }
+}

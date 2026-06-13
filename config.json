@@ -1,0 +1,101 @@
+{
+  "_comment": "Stock Pipeline 설정 파일. 코드 수정 없이 이 파일만 바꿔서 동작을 조정합니다.",
+
+  "daily_prompt_count": 20,
+  "target_upload_count": 10,
+
+  "image": {
+    "generator": "flux_schnell",
+    "fallback_generator": "sdxl",
+    "size": "1024x1024",
+    "steps": 8,
+    "guidance_scale": 0.0
+  },
+
+  "upscale": {
+    "tool": "realesrgan",
+    "model": "realesrgan-x4plus",
+    "scale": 4
+  },
+
+  "quality_filter": {
+    "min_brightness": 20,
+    "max_brightness": 235,
+    "min_sharpness": 50,
+    "min_color_variety": 15
+  },
+
+  "duplicate_filter": {
+    "phash_threshold": 0.8,
+    "max_retry": 3
+  },
+
+  "category_weights": {
+    "korean_food": 7,
+    "korean_culture": 4,
+    "light_stock": 4,
+    "fantasy_animal": 3,
+    "abstract": 2
+  },
+
+  "prompt_evolution": {
+    "rejection_limit": 3,
+    "approval_rate_window": 20
+  },
+
+  "storage": {
+    "thumbnail_retention_days": 30,
+    "phash_retention_days": 30,
+    "drive_backup_weekly": true
+  },
+
+  "metadata": {
+    "model": "gemini_flash",
+    "tag_count_adobe": 49,
+    "tag_count_shutterstock": 49,
+    "tag_count_freepik": 20
+  },
+
+  "platforms": {
+    "freepik": {
+      "enabled": true,
+      "format": "png_cutout",
+      "method": "api",
+      "unlock_threshold": 0,
+      "approval_rate": 0
+    },
+    "shutterstock": {
+      "enabled": false,
+      "format": "jpg",
+      "method": "ftp",
+      "unlock_threshold": 0.70,
+      "unlock_after": "freepik",
+      "approval_rate": 0
+    },
+    "adobe": {
+      "enabled": false,
+      "format": "jpg",
+      "method": "ftp",
+      "unlock_threshold": 0.70,
+      "unlock_after": "shutterstock",
+      "approval_rate": 0
+    }
+  },
+
+  "review_mode": "manual",
+
+  "modules": {
+    "image": true,
+    "video": false
+  },
+
+  "video": {
+    "generator": "cogvideox",
+    "source": "approved_images",
+    "eligible_categories": ["korean_food", "abstract", "light_stock", "nature"]
+  },
+
+  "notification": {
+    "method": "dashboard"
+  }
+}

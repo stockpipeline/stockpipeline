@@ -1,0 +1,90 @@
+name: Daily Pipeline
+
+on:
+  schedule:
+    # 매일 한국시간(KST) 03:00 = UTC 18:00 (전날)
+    - cron: '0 18 * * *'
+  workflow_dispatch:  # 관리 페이지의 "지금 재시도" 버튼이 이걸 호출
+
+permissions:
+  contents: write
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    env:
+      PIPELINE_WORK_DIR: ${{ github.workspace }}/work
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+      GOOGLE_DRIVE_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_FOLDER_ID }}
+      GMAIL_SERVICE_ACCOUNT_JSON: ${{ secrets.GMAIL_SERVICE_ACCOUNT_JSON }}
+      GMAIL_USER: ${{ secrets.GMAIL_USER }}
+      ADOBE_FTP_HOST: ${{ secrets.ADOBE_FTP_HOST }}
+      ADOBE_FTP_USER: ${{ secrets.ADOBE_FTP_USER }}
+      ADOBE_FTP_PASS: ${{ secrets.ADOBE_FTP_PASS }}
+      SHUTTERSTOCK_FTP_HOST: ${{ secrets.SHUTTERSTOCK_FTP_HOST }}
+      SHUTTERSTOCK_FTP_USER: ${{ secrets.SHUTTERSTOCK_FTP_USER }}
+      SHUTTERSTOCK_FTP_PASS: ${{ secrets.SHUTTERSTOCK_FTP_PASS }}
+      FREEPIK_API_KEY: ${{ secrets.FREEPIK_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install Real-ESRGAN (best-effort)
+        continue-on-error: true
+        run: |
+          wget -q https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesrgan-ncnn-vulkan-20220424-ubuntu.zip -O realesrgan.zip || true
+          if [ -f realesrgan.zip ]; then
+            unzip -o realesrgan.zip -d realesrgan_bin
+            sudo mv realesrgan_bin/realesrgan-ncnn-vulkan /usr/local/bin/ || true
+            sudo chmod +x /usr/local/bin/realesrgan-ncnn-vulkan || true
+          fi
+
+      - name: Step 1 - Generate prompts
+        run: python scripts/01_generate_prompts.py
+
+      - name: Step 2 - Generate images
+        run: python scripts/02_generate_images.py
+
+      - name: Step 3 - Upscale & cutout
+        if: success()
+        run: python scripts/03_upscale_cutout.py
+
+      - name: Step 4 - Generate metadata
+        if: success()
+        run: python scripts/04_generate_metadata.py
+
+      - name: Step 5 - Save to Drive & queue for review
+        if: success()
+        run: python scripts/05_save_and_queue.py
+
+      - name: Step 6 - Upload approved items
+        if: success()
+        run: python scripts/06_upload.py
+
+      - name: Step 7 - Check platform results (email parsing)
+        if: always()
+        run: python scripts/07_check_platform_results.py
+
+      - name: Commit results back to repo
+        if: always()
+        run: |
+          git config user.name "stock-pipeline-bot"
+          git config user.email "actions@github.com"
+          git add data/ thumbnails/ config.json
+          git diff --cached --quiet || git commit -m "chore: pipeline run $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push

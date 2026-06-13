@@ -1,0 +1,45 @@
+name: Weekly Tasks
+
+on:
+  schedule:
+    # 매주 월요일 한국시간 04:00 = UTC 일요일 19:00
+    - cron: '0 19 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  weekly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+      GOOGLE_DRIVE_BACKUP_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_BACKUP_FOLDER_ID }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run weekly tasks
+        run: python scripts/08_weekly_tasks.py
+
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name "stock-pipeline-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "chore: weekly tasks $(date -u +'%Y-%m-%d')"
+          git push

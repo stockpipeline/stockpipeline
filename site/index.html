@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stock Pipeline Dashboard</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+  :root {
+    --bg:#0f0f0f; --surface:#1a1a1a; --surface2:#161616; --border:#2a2a2a;
+    --accent:#7c6af7; --accent2:#4fd1c5;
+    --text:#e8e8e8; --muted:#666;
+    --green:#4ade80; --red:#f87171; --yellow:#fbbf24;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;line-height:1.6;min-height:100vh}
+  ::selection{background:rgba(124,106,247,.3)}
+
+  /* ── 로그인 화면 ── */
+  #loginScreen{
+    position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:1000;
+  }
+  .login-box{
+    background:var(--surface);border:1px solid var(--border);border-radius:14px;
+    padding:40px;width:320px;text-align:center;
+  }
+  .login-logo{font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:14px;letter-spacing:.1em;margin-bottom:24px}
+  .login-box input{
+    width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;
+    color:var(--text);font-family:'JetBrains Mono',monospace;font-size:14px;
+    padding:12px 14px;outline:none;margin-bottom:12px;transition:border-color .2s;text-align:center;
+  }
+  .login-box input:focus{border-color:var(--accent)}
+  .login-error{color:var(--red);font-size:12px;margin-bottom:12px;min-height:16px}
+
+  /* ── 헤더 ── */
+  header{border-bottom:1px solid var(--border);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;background:var(--bg);z-index:10}
+  .logo{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);letter-spacing:.08em}
+  .header-tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:3px}
+  .header-tab{padding:7px 16px;border-radius:6px;font-size:13px;cursor:pointer;color:var(--muted);transition:all .15s;user-select:none;white-space:nowrap}
+  .header-tab.active{background:var(--accent);color:#fff}
+  .header-tab:not(.active):hover{color:var(--text)}
+  .header-badge{
+    font-size:10px;padding:2px 6px;border-radius:10px;background:var(--red);color:#fff;
+    margin-left:6px;font-weight:600;
+  }
+
+  /* ── 메인 ── */
+  main{max-width:1080px;margin:0 auto;padding:28px 24px 80px}
+  .page{display:none}
+  .page.active{display:block}
+
+  /* ── 공통 카드 ── */
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:20px}
+  .card-title{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:14px}
+
+  /* ── 상태 배너 ── */
+  .status-banner{
+    border-radius:12px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;gap:14px;
+    border:1px solid var(--border);
+  }
+  .status-banner.ok{border-color:rgba(74,222,128,.3);background:rgba(74,222,128,.06)}
+  .status-banner.warn{border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.06)}
+  .status-banner.error{border-color:rgba(248,113,113,.3);background:rgba(248,113,113,.06)}
+  .status-icon{font-size:22px;flex-shrink:0}
+  .status-body{flex:1}
+  .status-title{font-size:13px;font-weight:600;margin-bottom:2px}
+  .status-detail{font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace}
+
+  /* ── 통계 그리드 ── */
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+  .stat-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+  .stat-box .num{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:600;color:var(--accent2)}
+  .stat-box .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+
+  /* ── 버튼 ── */
+  .btn{border:none;border-radius:7px;cursor:pointer;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;padding:9px 16px;transition:opacity .15s,transform .1s;white-space:nowrap}
+  .btn:hover{opacity:.85}
+  .btn:active{transform:scale(.97)}
+  .btn:disabled{opacity:.35;cursor:not-allowed}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-success{background:rgba(74,222,128,.15);color:var(--green);border:1px solid rgba(74,222,128,.3)}
+  .btn-danger{background:rgba(248,113,113,.15);color:var(--red);border:1px solid rgba(248,113,113,.3)}
+  .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--muted)}
+  .btn-ghost:hover{color:var(--text);border-color:var(--text)}
+  .btn-sm{padding:6px 12px;font-size:12px}
+
+  /* ── 검수 그리드 ── */
+  .review-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+  .review-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .2s}
+  .review-card.approved{border-color:rgba(74,222,128,.4)}
+  .review-card.rejected{border-color:rgba(248,113,113,.4);opacity:.5}
+  .review-thumb{width:100%;aspect-ratio:1;object-fit:cover;background:var(--surface2);display:block;cursor:zoom-in}
+  .review-thumb-placeholder{width:100%;aspect-ratio:1;background:var(--surface2);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:28px}
+  .review-body{padding:10px 12px}
+  .review-title{font-size:11px;color:var(--text);line-height:1.4;margin-bottom:6px;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .review-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+  .review-actions{display:flex;gap:6px}
+  .review-actions .btn{flex:1}
+  .tag{font-size:10px;padding:2px 8px;border-radius:20px;font-weight:500;letter-spacing:.04em}
+  .tag-food{background:rgba(251,191,36,.12);color:var(--yellow)}
+  .tag-fantasy{background:rgba(124,106,247,.15);color:var(--accent)}
+  .tag-nature{background:rgba(79,209,197,.12);color:var(--accent2)}
+  .tag-business{background:rgba(74,222,128,.12);color:var(--green)}
+  .tag-abstract{background:rgba(248,113,113,.12);color:var(--red)}
+  .tag-other{background:rgba(255,255,255,.06);color:var(--muted)}
+  .platform-pill{font-size:10px;padding:2px 6px;border-radius:4px;background:var(--surface2);color:var(--muted);font-family:'JetBrains Mono',monospace}
+
+  /* ── 반려 사유 모달 ── */
+  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:100}
+  .modal-overlay.show{display:flex}
+  .modal-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;width:320px}
+  .modal-title{font-size:14px;font-weight:600;margin-bottom:14px}
+  .reason-option{
+    display:block;width:100%;text-align:left;background:var(--bg);border:1px solid var(--border);
+    border-radius:8px;padding:10px 14px;margin-bottom:8px;color:var(--text);cursor:pointer;font-size:13px;
+    transition:border-color .15s;
+  }
+  .reason-option:hover{border-color:var(--accent)}
+
+  /* 이미지 확대 모달 */
+  .img-modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:200;cursor:zoom-out}
+  .img-modal.show{display:flex}
+  .img-modal img{max-width:90vw;max-height:90vh;border-radius:8px}
+
+  /* ── 프롬프트 목록 ── */
+  .prompt-list{display:flex;flex-direction:column;gap:8px}
+  .prompt-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;transition:border-color .2s}
+  .prompt-item:hover{border-color:#3a3a3a}
+  .prompt-item.disabled{opacity:.4}
+  .toggle{position:relative;width:36px;height:20px;flex-shrink:0;margin-top:2px}
+  .toggle input{opacity:0;width:0;height:0}
+  .toggle-slider{position:absolute;inset:0;background:var(--border);border-radius:20px;cursor:pointer;transition:background .2s}
+  .toggle-slider:before{content:'';position:absolute;width:14px;height:14px;left:3px;top:3px;background:var(--muted);border-radius:50%;transition:all .2s}
+  .toggle input:checked+.toggle-slider{background:var(--accent)}
+  .toggle input:checked+.toggle-slider:before{transform:translateX(16px);background:#fff}
+  .prompt-body{flex:1;min-width:0}
+  .prompt-text{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text);line-height:1.5;word-break:break-word;margin-bottom:6px}
+  .prompt-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:11px;color:var(--muted)}
+  .perf-bar-wrap{display:flex;align-items:center;gap:6px}
+  .perf-bar{width:60px;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+  .perf-bar-fill{height:100%;background:var(--green);border-radius:2px}
+  .prompt-actions{display:flex;gap:2px;flex-shrink:0}
+  .btn-icon{background:transparent;border:none;color:var(--muted);padding:4px 8px;font-size:16px;cursor:pointer}
+  .btn-icon:hover{color:var(--red)}
+
+  /* ── 추가 폼 ── */
+  .add-form{display:flex;gap:10px;align-items:flex-start;margin-bottom:16px}
+  .add-form textarea{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:12px;padding:10px 12px;resize:vertical;min-height:60px;outline:none;transition:border-color .2s}
+  .add-form textarea:focus{border-color:var(--accent)}
+  .add-form textarea::placeholder{color:var(--muted)}
+  .setting-input{background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:13px;padding:8px 12px;outline:none;transition:border-color .2s}
+  .setting-input:focus{border-color:var(--accent)}
+
+  /* ── 플랫폼 카드 ── */
+  .platform-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+  .platform-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px}
+  .platform-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .platform-name{font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px}
+  .platform-status{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600}
+  .platform-status.active{background:rgba(74,222,128,.15);color:var(--green)}
+  .platform-status.unlockable{background:rgba(251,191,36,.15);color:var(--yellow)}
+  .platform-status.locked{background:rgba(255,255,255,.06);color:var(--muted)}
+  .platform-progress{height:6px;background:var(--bg);border-radius:3px;overflow:hidden;margin:10px 0 6px}
+  .platform-progress-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .platform-detail{font-size:12px;color:var(--muted)}
+
+  /* ── 검수 화면 통계 ── */
+  .review-stats{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+  .review-stat{font-size:12px;color:var(--muted)}
+  .review-stat b{color:var(--text);font-family:'JetBrains Mono',monospace}
+
+  /* ── 빈 상태 ── */
+  .empty{text-align:center;padding:50px 20px;color:var(--muted)}
+  .empty-icon{font-size:32px;margin-bottom:12px}
+
+  /* ── 토스트 ── */
+  .toast{position:fixed;top:24px;right:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 18px;font-size:13px;opacity:0;transform:translateY(-8px);transition:all .25s;z-index:300}
+  .toast.show{opacity:1;transform:translateY(0)}
+  .toast.success{border-color:var(--green);color:var(--green)}
+  .toast.error{border-color:var(--red);color:var(--red)}
+
+  /* ── 실사 업로드 ── */
+  .upload-zone{
+    border:2px dashed var(--border);border-radius:12px;padding:40px;text-align:center;
+    cursor:pointer;transition:border-color .2s;margin-bottom:16px;
+  }
+  .upload-zone:hover{border-color:var(--accent)}
+  .upload-zone input{display:none}
+  .upload-preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:16px}
+  .upload-preview{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+  .upload-preview img{width:100%;aspect-ratio:1;object-fit:cover}
+  .upload-preview .upload-preview-body{padding:8px}
+
+  @media(max-width:600px){
+    header{padding:14px 16px}
+    main{padding:20px 14px 60px}
+    .header-tabs{overflow-x:auto;max-width:100%}
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ 로그인 화면 ══════════════ -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">▸ STOCK_PIPELINE</div>
+    <input type="password" id="pwInput" placeholder="비밀번호" onkeydown="if(event.key==='Enter') tryLogin()">
+    <div class="login-error" id="pwError"></div>
+    <button class="btn btn-primary" style="width:100%" onclick="tryLogin()">접속</button>
+  </div>
+</div>
+
+<!-- ══════════════ 메인 화면 ══════════════ -->
+<div id="appRoot" style="display:none">
+
+<header>
+  <div class="logo">▸ STOCK_PIPELINE</div>
+  <div class="header-tabs">
+    <div class="header-tab active" data-page="dashboard" onclick="switchPage('dashboard',this)">대시보드</div>
+    <div class="header-tab" data-page="review" onclick="switchPage('review',this)">검수<span class="header-badge" id="reviewBadge" style="display:none"></span></div>
+    <div class="header-tab" data-page="prompts" onclick="switchPage('prompts',this)">프롬프트</div>
+    <div class="header-tab" data-page="platforms" onclick="switchPage('platforms',this)">플랫폼</div>
+    <div class="header-tab" data-page="upload" onclick="switchPage('upload',this)">실사 업로드</div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ══════════ 대시보드 ══════════ -->
+  <div class="page active" id="page-dashboard">
+
+    <div id="statusBanner"></div>
+
+    <div class="stat-grid" id="dashboardStats"></div>
+
+    <div class="card">
+      <div class="card-title">정책 변경 현황</div>
+      <div id="policyStatus"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">최근 실행 로그</div>
+      <div id="recentLogs" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);line-height:1.8;max-height:200px;overflow-y:auto"></div>
+    </div>
+
+  </div>
+
+  <!-- ══════════ 검수 ══════════ -->
+  <div class="page" id="page-review">
+    <div class="review-stats" id="reviewStats"></div>
+    <div style="display:flex;gap:8px;margin-bottom:16px">
+      <button class="btn btn-success" onclick="bulkAction('approved')">전체 승인</button>
+      <button class="btn btn-danger" onclick="bulkAction('rejected')">전체 반려</button>
+    </div>
+    <div class="review-grid" id="reviewGrid"></div>
+  </div>
+
+  <!-- ══════════ 프롬프트 ══════════ -->
+  <div class="page" id="page-prompts">
+    <div class="card">
+      <div class="card-title">설정</div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px">일일 생성 수</div>
+          <input type="number" class="setting-input" id="settingDaily" min="5" max="50" style="width:100px">
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">프롬프트 추가</div>
+      <div class="add-form">
+        <textarea id="newPrompt" placeholder="새 프롬프트 입력 (영문)&#10;예: Top-down view of Korean Bibimbap in white bowl, isolated white background, commercial food photography, photorealistic"></textarea>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <select class="setting-input" id="newTag" style="width:120px;font-size:12px;padding:9px 10px">
+            <option value="food">🍜 음식</option>
+            <option value="fantasy">🐉 판타지</option>
+            <option value="nature">🌿 자연</option>
+            <option value="business">💼 비즈니스</option>
+            <option value="abstract">🎨 추상</option>
+            <option value="other">📦 기타</option>
+          </select>
+          <button class="btn btn-primary" onclick="addPrompt()">추가</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">프롬프트 목록</div>
+      <div class="prompt-list" id="promptList"></div>
+    </div>
+  </div>
+
+  <!-- ══════════ 플랫폼 ══════════ -->
+  <div class="page" id="page-platforms">
+    <div class="platform-grid" id="platformGrid"></div>
+  </div>
+
+  <!-- ══════════ 실사 업로드 ══════════ -->
+  <div class="page" id="page-upload">
+    <div class="card">
+      <div class="card-title">실사 사진 업로드</div>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:16px">
+        직접 촬영한 사진을 업로드하면 EXIF GPS 정보가 자동 제거되고, AI가 태그를 생성합니다.
+        업로드된 파일은 다음 파이프라인 실행 시 검수 대기열에 추가됩니다.
+      </p>
+      <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+        <div style="font-size:32px;margin-bottom:8px">📷</div>
+        <div>클릭해서 사진 선택 (여러 장 가능)</div>
+        <input type="file" id="fileInput" accept="image/*" multiple onchange="handleFiles(this.files)">
+      </div>
+      <div class="upload-preview-grid" id="uploadPreviewGrid"></div>
+      <button class="btn btn-primary" id="submitUploadBtn" style="display:none" onclick="submitUploads()">업로드 큐에 추가</button>
+    </div>
+  </div>
+
+</main>
+
+</div>
+
+<!-- 반려 사유 모달 -->
+<div class="modal-overlay" id="reasonModal">
+  <div class="modal-box">
+    <div class="modal-title">반려 사유 선택</div>
+    <div class="reason-option" onclick="confirmReject('ai_error')">AI 오류 (손가락, 형태 왜곡)</div>
+    <div class="reason-option" onclick="confirmReject('low_quality')">품질 낮음 (흐림, 노이즈)</div>
+    <div class="reason-option" onclick="confirmReject('cutout_edge')">누끼 경계 어색함</div>
+    <div class="reason-option" onclick="confirmReject('unnatural_color')">색상/질감 비현실적</div>
+    <div class="reason-option" onclick="confirmReject('other')">기타</div>
+    <button class="btn btn-ghost" style="width:100%;margin-top:8px" onclick="closeReasonModal()">취소</button>
+  </div>
+</div>
+
+<!-- 이미지 확대 모달 -->
+<div class="img-modal" id="imgModal" onclick="this.classList.remove('show')">
+  <img id="imgModalSrc" src="">
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const ADMIN_PASSWORD_HASH = "__ADMIN_PASSWORD_HASH__";
+
+// ── 로그인 ──────────────────────────────────
+async function sha256(text) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function tryLogin() {
+  const pw = document.getElementById('pwInput').value;
+  const hash = await sha256(pw);
+  if (hash === ADMIN_PASSWORD_HASH) {
+    sessionStorage.setItem('authed', '1');
+    showApp();
+  } else {
+    document.getElementById('pwError').textContent = '비밀번호가 올바르지 않습니다';
+  }
+}
+
+function showApp() {
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('appRoot').style.display = 'block';
+  initApp();
+}
+
+if (sessionStorage.getItem('authed') === '1') {
+  showApp();
+}
+
+// ── 데이터 로드 ──────────────────────────────
+let DATA = {
+  runLog: { history: [] },
+  reviewQueue: { items: [] },
+  prompts: { prompts: [] },
+  performance: {},
+  config: {},
+  policy: { pages: {} },
+};
+
+async function fetchJSON(path) {
+  try {
+    const res = await fetch(path + '?t=' + Date.now());
+    if (!res.ok) return null;
+    return await res.json();
+  } catch (e) {
+    return null;
+  }
+}
+
+async function loadAllData() {
+  const [runLog, reviewQueue, prompts, performance, config, policy] = await Promise.all([
+    fetchJSON('data/run_log.json'),
+    fetchJSON('data/review_queue.json'),
+    fetchJSON('data/prompts.json'),
+    fetchJSON('data/prompt_performance.json'),
+    fetchJSON('data/config.json'),
+    fetchJSON('data/policy_updates.json'),
+  ]);
+  if (runLog) DATA.runLog = runLog;
+  if (reviewQueue) DATA.reviewQueue = reviewQueue;
+  if (prompts) DATA.prompts = prompts;
+  if (performance) DATA.performance = performance;
+  if (config) DATA.config = config;
+  if (policy) DATA.policy = policy;
+}
+
+// ── 페이지 전환 ──────────────────────────────
+function switchPage(name, el) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.header-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  el.classList.add('active');
+  if (name === 'review') renderReview();
+  if (name === 'prompts') renderPrompts();
+  if (name === 'platforms') renderPlatforms();
+}
+
+// ── 초기화 ──────────────────────────────────
+async function initApp() {
+  await loadAllData();
+  renderDashboard();
+  updateReviewBadge();
+}
+
+// ══════════════ 대시보드 ══════════════
+function renderDashboard() {
+  const latest = DATA.runLog.latest;
+  const banner = document.getElementById('statusBanner');
+
+  if (!latest) {
+    banner.innerHTML = `
+      <div class="status-banner warn">
+        <div class="status-icon">⏳</div>
+        <div class="status-body">
+          <div class="status-title">아직 실행 기록이 없습니다</div>
+          <div class="status-detail">첫 자동 실행은 매일 새벽 03:00 (KST)에 시작됩니다</div>
+        </div>
+      </div>`;
+  } else {
+    const statusMap = {
+      success: { cls: 'ok', icon: '✅', title: '오늘 새벽 완료' },
+      partial: { cls: 'warn', icon: '⚠️', title: '오늘 새벽 완료 (일부 실패)' },
+      failed: { cls: 'error', icon: '🚨', title: '어젯밤 파이프라인 실패' },
+    };
+    const s = statusMap[latest.status] || statusMap.partial;
+    const time = new Date(latest.timestamp).toLocaleString('ko-KR');
+    const summary = latest.summary || {};
+
+    let detail = `실행 시각: ${time}`;
+    if (summary.stage) detail += ` · 단계: ${summary.stage}`;
+
+    let retryBtn = '';
+    if (latest.status === 'failed') {
+      retryBtn = `<button class="btn btn-primary btn-sm" onclick="triggerRetry()" style="margin-top:8px">지금 재시도</button>`;
+    }
+
+    banner.innerHTML = `
+      <div class="status-banner ${s.cls}">
+        <div class="status-icon">${s.icon}</div>
+        <div class="status-body">
+          <div class="status-title">${s.title}</div>
+          <div class="status-detail">${detail}</div>
+          ${retryBtn}
+        </div>
+      </div>`;
+  }
+
+  // 통계
+  const queue = DATA.reviewQueue.items || [];
+  const pending = queue.filter(i => i.review_status === 'pending').length;
+  const approved = queue.filter(i => i.review_status === 'approved' || i.review_status === 'uploaded').length;
+  const activePrompts = (DATA.prompts.prompts || []).filter(p => p.active).length;
+
+  let totalApproved = 0, totalRejected = 0;
+  Object.values(DATA.performance).forEach(p => {
+    totalApproved += p.approved || 0;
+    totalRejected += p.rejected || 0;
+  });
+  const total = totalApproved + totalRejected;
+  const approvalRate = total > 0 ? Math.round((totalApproved / total) * 100) : 0;
+
+  document.getElementById('dashboardStats').innerHTML = `
+    <div class="stat-box"><div class="num">${pending}</div><div class="label">검수 대기</div></div>
+    <div class="stat-box"><div class="num">${approved}</div><div class="label">업로드됨</div></div>
+    <div class="stat-box"><div class="num">${activePrompts}</div><div class="label">활성 프롬프트</div></div>
+    <div class="stat-box"><div class="num">${approvalRate}%</div><div class="label">전체 승인율</div></div>
+  `;
+
+  // 정책 현황
+  const pages = DATA.policy.pages || {};
+  const platformNames = { adobe: 'Adobe Stock', shutterstock: 'Shutterstock', freepik: 'Freepik' };
+  let policyHtml = '';
+  for (const [key, name] of Object.entries(platformNames)) {
+    const info = pages[key];
+    if (!info) {
+      policyHtml += `<div style="font-size:12px;color:var(--muted);margin-bottom:6px">${name}: 확인 전</div>`;
+      continue;
+    }
+    if (info.status === 'changed') {
+      policyHtml += `<div style="font-size:12px;color:var(--yellow);margin-bottom:6px">⚠️ ${name}: 정책 변경 감지 — <a href="${info.url}" target="_blank" style="color:var(--accent2)">확인하기 →</a></div>`;
+    } else if (info.status === 'fetch_failed') {
+      policyHtml += `<div style="font-size:12px;color:var(--muted);margin-bottom:6px">❓ ${name}: 확인 불가 — <a href="${info.url}" target="_blank" style="color:var(--accent2)">직접 확인 →</a></div>`;
+    } else {
+      policyHtml += `<div style="font-size:12px;color:var(--green);margin-bottom:6px">✅ ${name}: 변경 없음</div>`;
+    }
+  }
+  document.getElementById('policyStatus').innerHTML = policyHtml || '<div style="color:var(--muted);font-size:12px">아직 확인된 정보가 없습니다</div>';
+
+  // 최근 로그
+  const logs = latest ? (latest.logs || []) : [];
+  document.getElementById('recentLogs').innerHTML = logs.length
+    ? logs.map(l => `<div>[${l.time}] ${esc(l.message)}</div>`).join('')
+    : '<div>로그 없음</div>';
+}
+
+function triggerRetry() {
+  showToast('GitHub Actions API 연동이 필요합니다. 저장소 Actions 탭에서 "Run workflow"로 수동 실행할 수 있습니다.', 'error');
+}
+
+function updateReviewBadge() {
+  const pending = (DATA.reviewQueue.items || []).filter(i => i.review_status === 'pending').length;
+  const badge = document.getElementById('reviewBadge');
+  if (pending > 0) {
+    badge.textContent = pending;
+    badge.style.display = 'inline-block';
+  } else {
+    badge.style.display = 'none';
+  }
+}
+
+// ══════════════ 검수 ══════════════
+function renderReview() {
+  const items = DATA.reviewQueue.items || [];
+  const pending = items.filter(i => i.review_status === 'pending');
+  const approved = items.filter(i => i.review_status === 'approved' || i.review_status === 'uploaded');
+  const rejected = items.filter(i => i.review_status === 'rejected');
+
+  document.getElementById('reviewStats').innerHTML = `
+    <div class="review-stat">대기 <b>${pending.length}</b></div>
+    <div class="review-stat">승인 <b>${approved.length}</b></div>
+    <div class="review-stat">반려 <b>${rejected.length}</b></div>
+  `;
+
+  const grid = document.getElementById('reviewGrid');
+  if (!pending.length) {
+    grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="empty-icon">📭</div><div>검수 대기 항목이 없습니다</div></div>`;
+    return;
+  }
+
+  const tagLabels = {food:'🍜 음식',fantasy:'🐉 판타지',nature:'🌿 자연',business:'💼 비즈니스',abstract:'🎨 추상',other:'📦 기타'};
+
+  grid.innerHTML = pending.map((item, idx) => {
+    const thumb = item.thumb_orig
+      ? `thumbnails/${item.thumb_orig}`
+      : null;
+    const thumbHtml = thumb
+      ? `<img class="review-thumb" src="${thumb}" onclick="openImgModal('${thumb}')" onerror="this.outerHTML='<div class=\\'review-thumb-placeholder\\'>🖼</div>'">`
+      : `<div class="review-thumb-placeholder">🖼</div>`;
+
+    return `
+    <div class="review-card" id="review-${idx}">
+      ${thumbHtml}
+      <div class="review-body">
+        <div class="review-title">${esc(item.title || item.prompt_id)}</div>
+        <div class="review-meta">
+          <span class="tag tag-${item.tag}">${tagLabels[item.tag]||item.tag}</span>
+          <span class="platform-pill">Adobe/SS: 원본</span>
+          <span class="platform-pill">Freepik: 누끼</span>
+        </div>
+        <div class="review-actions">
+          <button class="btn btn-success btn-sm" onclick="reviewAction(${idx},'approved')">✓ 승인</button>
+          <button class="btn btn-danger btn-sm" onclick="openReasonModal(${idx})">✗ 반려</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+let currentRejectIdx = null;
+
+function openReasonModal(idx) {
+  currentRejectIdx = idx;
+  document.getElementById('reasonModal').classList.add('show');
+}
+function closeReasonModal() {
+  document.getElementById('reasonModal').classList.remove('show');
+  currentRejectIdx = null;
+}
+function confirmReject(reason) {
+  if (currentRejectIdx !== null) {
+    reviewAction(currentRejectIdx, 'rejected', reason);
+  }
+  closeReasonModal();
+}
+
+function openImgModal(src) {
+  document.getElementById('imgModalSrc').src = src;
+  document.getElementById('imgModal').classList.add('show');
+}
+
+function reviewAction(idx, status, reason = null) {
+  const pending = (DATA.reviewQueue.items || []).filter(i => i.review_status === 'pending');
+  const item = pending[idx];
+  if (!item) return;
+
+  item.review_status = status;
+  if (reason) item.reject_reason = reason;
+
+  showToast(status === 'approved' ? '승인됨' : '반려됨', status === 'approved' ? 'success' : 'error');
+  updateReviewBadge();
+  renderReview();
+  renderDashboard();
+
+  showToast('변경사항은 GitHub에 자동 저장되지 않습니다 — "변경사항 저장" 안내 참고', 'success');
+}
+
+function bulkAction(status) {
+  const items = DATA.reviewQueue.items || [];
+  items.forEach(i => {
+    if (i.review_status === 'pending') {
+      i.review_status = status;
+      if (status === 'rejected') i.reject_reason = 'other';
+    }
+  });
+  updateReviewBadge();
+  renderReview();
+  renderDashboard();
+  showToast(status === 'approved' ? '전체 승인됨' : '전체 반려됨', 'success');
+}
+
+// ══════════════ 프롬프트 ══════════════
+function renderPrompts() {
+  document.getElementById('settingDaily').value = DATA.config.daily_prompt_count || 20;
+  document.getElementById('settingDaily').onchange = (e) => {
+    DATA.config.daily_prompt_count = parseInt(e.target.value);
+    showToast('설정이 변경되었습니다 (저장 필요)', 'success');
+  };
+
+  const prompts = DATA.prompts.prompts || [];
+  const list = document.getElementById('promptList');
+
+  if (!prompts.length) {
+    list.innerHTML = `<div class="empty"><div class="empty-icon">📭</div><div>프롬프트가 없습니다. 위에서 추가해주세요.</div></div>`;
+    return;
+  }
+
+  const tagLabels = {food:'🍜 음식',fantasy:'🐉 판타지',nature:'🌿 자연',business:'💼 비즈니스',abstract:'🎨 추상',other:'📦 기타'};
+
+  list.innerHTML = prompts.map((p, idx) => {
+    const perf = DATA.performance[p.id] || {};
+    const approved = perf.approved || 0;
+    const rejected = perf.rejected || 0;
+    const total = approved + rejected;
+    const rate = total > 0 ? Math.round((approved/total)*100) : null;
+
+    const perfHtml = total > 0
+      ? `<div class="perf-bar-wrap">
+           <div class="perf-bar"><div class="perf-bar-fill" style="width:${rate}%"></div></div>
+           <span>${rate}% (${approved}/${total})</span>
+         </div>`
+      : `<span>데이터 없음</span>`;
+
+    return `
+    <div class="prompt-item ${p.active?'':'disabled'}">
+      <label class="toggle">
+        <input type="checkbox" ${p.active?'checked':''} onchange="togglePrompt(${idx})">
+        <span class="toggle-slider"></span>
+      </label>
+      <div class="prompt-body">
+        <div class="prompt-text">${esc(p.text)}</div>
+        <div class="prompt-meta">
+          <span class="tag tag-${p.tag}">${tagLabels[p.tag]||p.tag}</span>
+          ${perfHtml}
+          ${rejected >= 3 ? '<span style="color:var(--red)">⚠ 반려 누적</span>' : ''}
+        </div>
+      </div>
+      <div class="prompt-actions">
+        <button class="btn-icon" onclick="deletePrompt(${idx})">×</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function addPrompt() {
+  const text = document.getElementById('newPrompt').value.trim();
+  const tag = document.getElementById('newTag').value;
+  if (!text) { showToast('프롬프트를 입력해주세요', 'error'); return; }
+
+  if (!DATA.prompts.prompts) DATA.prompts.prompts = [];
+  const id = 'p' + Date.now().toString(36);
+  DATA.prompts.prompts.unshift({ id, text, tag, active: true });
+
+  document.getElementById('newPrompt').value = '';
+  renderPrompts();
+  showToast('추가됨 (저장 필요)', 'success');
+}
+
+function togglePrompt(idx) {
+  DATA.prompts.prompts[idx].active = !DATA.prompts.prompts[idx].active;
+  renderPrompts();
+}
+
+function deletePrompt(idx) {
+  DATA.prompts.prompts.splice(idx, 1);
+  renderPrompts();
+  showToast('삭제됨 (저장 필요)', 'success');
+}
+
+// ══════════════ 플랫폼 ══════════════
+function renderPlatforms() {
+  const platforms = DATA.config.platforms || {};
+  const names = { freepik: 'Freepik', shutterstock: 'Shutterstock', adobe: 'Adobe Stock' };
+  const grid = document.getElementById('platformGrid');
+
+  grid.innerHTML = Object.entries(names).map(([key, name]) => {
+    const p = platforms[key] || {};
+    const rate = p.approval_rate || 0;
+    const threshold = p.unlock_threshold || 0;
+
+    let statusCls = 'locked', statusText = '대기 중';
+    if (p.enabled) { statusCls = 'active'; statusText = '운영 중'; }
+    else if (p.unlock_ready) { statusCls = 'unlockable'; statusText = '해금 가능'; }
+
+    let detail = '';
+    let actionBtn = '';
+
+    if (p.enabled) {
+      detail = `승인율 ${Math.round(rate*100)}%`;
+    } else if (p.unlock_after) {
+      const prevRate = (platforms[p.unlock_after] || {}).approval_rate || 0;
+      detail = `${names[p.unlock_after]} 승인율 ${Math.round(threshold*100)}% 달성 시 해금 (현재 ${Math.round(prevRate*100)}%)`;
+      if (p.unlock_ready) {
+        actionBtn = `<button class="btn btn-primary btn-sm" onclick="activatePlatform('${key}')" style="margin-top:10px">지금 활성화</button>`;
+      }
+    } else {
+      detail = '항상 활성';
+    }
+
+    const progressPct = p.enabled ? Math.round(rate*100) : Math.round(((platforms[p.unlock_after]||{}).approval_rate||0) / (threshold||1) * 100);
+
+    return `
+    <div class="platform-card">
+      <div class="platform-head">
+        <div class="platform-name">${name}</div>
+        <div class="platform-status ${statusCls}">${statusText}</div>
+      </div>
+      <div class="platform-progress"><div class="platform-progress-fill" style="width:${Math.min(progressPct,100)}%"></div></div>
+      <div class="platform-detail">${detail}</div>
+      ${actionBtn}
+    </div>`;
+  }).join('');
+}
+
+function activatePlatform(key) {
+  DATA.config.platforms[key].enabled = true;
+  DATA.config.platforms[key].unlock_ready = false;
+  renderPlatforms();
+  showToast(`${key} 활성화됨 (저장 필요)`, 'success');
+}
+
+// ══════════════ 실사 업로드 ══════════════
+let uploadFiles = [];
+
+function handleFiles(fileList) {
+  uploadFiles = Array.from(fileList);
+  const grid = document.getElementById('uploadPreviewGrid');
+  grid.innerHTML = '';
+
+  uploadFiles.forEach((file, idx) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const div = document.createElement('div');
+      div.className = 'upload-preview';
+      div.innerHTML = `
+        <img src="${e.target.result}">
+        <div class="upload-preview-body">
+          <div style="font-size:11px;color:var(--muted);word-break:break-all">${esc(file.name)}</div>
+        </div>`;
+      grid.appendChild(div);
+    };
+    reader.readAsDataURL(file);
+  });
+
+  document.getElementById('submitUploadBtn').style.display = uploadFiles.length ? 'inline-block' : 'none';
+}
+
+function submitUploads() {
+  showToast(`${uploadFiles.length}장 업로드 큐에 추가됨 (저장 필요)`, 'success');
+  uploadFiles = [];
+  document.getElementById('uploadPreviewGrid').innerHTML = '';
+  document.getElementById('submitUploadBtn').style.display = 'none';
+  document.getElementById('fileInput').value = '';
+}
+
+// ══════════════ 유틸 ══════════════
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function showToast(msg, type='success') {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.className = `toast show ${type}`;
+  setTimeout(() => t.className = 'toast', 3000);
+}
+</script>
+</body>
+</html>

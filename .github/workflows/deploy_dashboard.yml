@@ -1,0 +1,76 @@
+name: Deploy Dashboard
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'data/**'
+      - 'thumbnails/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Inject password hash into dashboard
+        run: |
+          python3 - <<'EOF'
+          import hashlib, os, re
+
+          pw = os.environ["ADMIN_PASSWORD"]
+          pw_hash = hashlib.sha256(pw.encode()).hexdigest()
+
+          with open("site/index.html", "r", encoding="utf-8") as f:
+              html = f.read()
+
+          html = re.sub(
+              r"__ADMIN_PASSWORD_HASH__",
+              pw_hash,
+              html
+          )
+
+          with open("site/index.html", "w", encoding="utf-8") as f:
+              f.write(html)
+
+          print("Password hash injected.")
+          EOF
+
+      - name: Copy data files into site
+        run: |
+          mkdir -p site/data site/thumbnails
+          cp -r data/*.json site/data/ 2>/dev/null || true
+          cp -r thumbnails/* site/thumbnails/ 2>/dev/null || true
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
