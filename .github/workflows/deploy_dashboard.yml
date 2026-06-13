@@ -1,12 +1,6 @@
 name: Deploy Dashboard
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'site/**'
-      - 'data/**'
-      - 'thumbnails/**'
   workflow_dispatch:
 
 permissions:
