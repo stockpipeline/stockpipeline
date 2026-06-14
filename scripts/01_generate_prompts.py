@@ -69,6 +69,7 @@ def build_skeleton(category: str, templates: dict, variation_level: int = 0) -> 
 
 # ── Gemini 보정 ────────────────────────────────────────
 def refine_with_gemini(model, skeleton: str, category: str, logger=None) -> str:
+    """단일 보정 (배치 실패 시 폴백용)"""
     system = (
         "You are an expert Adobe Stock / Freepik prompt engineer. "
         "You will receive a draft image generation prompt (a 'skeleton'). "
@@ -84,19 +85,84 @@ def refine_with_gemini(model, skeleton: str, category: str, logger=None) -> str:
     user = f"Category: {category}\nDraft skeleton: {skeleton}\n\nRefine this into the final prompt."
 
     try:
-        time.sleep(4)  # 분당 요청 수 제한 완화
+        time.sleep(4)
         resp = gemini_generate_with_retry(
             model,
             [{"role": "user", "parts": [system + "\n\n" + user]}],
             logger=logger, max_retries=2, base_wait=65,
         )
         text = resp.text.strip().strip('"')
-        # 너무 짧거나 비어있으면 원본 사용
         if len(text) < 20:
             return skeleton
         return text
     except Exception:
         return skeleton
+
+
+def refine_batch_with_gemini(model, items: list, logger=None) -> list:
+    """
+    여러 스켈레톤을 한 번의 Gemini 호출로 보정.
+    items: [{"id": ..., "skeleton": ..., "category": ...}, ...]
+    반환: items와 같은 순서의 보정된 텍스트 리스트.
+    실패 시 원본 skeleton을 그대로 반환 (개별 폴백).
+    """
+    if not items:
+        return []
+
+    numbered = "\n".join(
+        f'{i+1}. [category={it["category"]}] {it["skeleton"]}'
+        for i, it in enumerate(items)
+    )
+
+    system = (
+        "You are an expert Adobe Stock / Freepik prompt engineer. "
+        "Below is a numbered list of draft image generation prompts ('skeletons') "
+        "for an AI image generator (Flux.1 Schnell).\n\n"
+        "For EACH item, refine it into a polished, highly commercial English prompt.\n\n"
+        "Rules:\n"
+        "- Do NOT change the core subject, background, or category of each item.\n"
+        "- You MAY adjust adjectives, lighting words, composition wording, "
+        "and minor decorative details.\n"
+        "- Keep it isolated on a white background unless the skeleton says otherwise.\n"
+        "- Each output prompt must be ONE line.\n\n"
+        f"Items:\n{numbered}\n\n"
+        'Respond ONLY with JSON: {"prompts": ["refined prompt 1", "refined prompt 2", ...]} '
+        f"with exactly {len(items)} items in the same order, no extra text."
+    )
+
+    try:
+        time.sleep(2)
+        resp = gemini_generate_with_retry(
+            model,
+            [{"role": "user", "parts": [system]}],
+            logger=logger, max_retries=3, base_wait=65,
+        )
+        text = resp.text.strip()
+        if text.startswith("```"):
+            text = text.split("```")[1]
+            if text.startswith("json"):
+                text = text[4:]
+        data = json.loads(text.strip())
+        refined_list = data.get("prompts", [])
+
+        if len(refined_list) != len(items):
+            if logger:
+                logger.warn(f"배치 보정 결과 개수 불일치({len(refined_list)}/{len(items)}) - 부족분은 원본 사용")
+            while len(refined_list) < len(items):
+                refined_list.append(None)
+
+        results = []
+        for it, refined in zip(items, refined_list):
+            if refined and len(refined.strip()) >= 20:
+                results.append(refined.strip())
+            else:
+                results.append(it["skeleton"])
+        return results
+
+    except Exception as e:
+        if logger:
+            logger.warn(f"배치 보정 실패({e}) - 원본 스켈레톤 그대로 사용")
+        return [it["skeleton"] for it in items]
 
 
 # ── 변형 레벨 결정 ──────────────────────────────────────
@@ -167,26 +233,26 @@ def main():
     user_selected = select_active_prompts(prompts, performance, daily_count)
     logger.info(f"사용자 프롬프트 {len(user_selected)}개 선택됨")
 
-    final_prompts = []
+    skeleton_items = []  # [{"prompt_id", "skeleton", "category", "source", "platform_form"}]
+
     for p in user_selected:
-        var_level = get_variation_level(p["id"], performance)
         skeleton = p["text"]
         category = p.get("tag", "other")
         quality_kw = templates.get("quality_keywords", {}).get(category, "")
         if quality_kw and quality_kw not in skeleton:
             skeleton = f"{skeleton}, {quality_kw}"
 
-        refined = refine_with_gemini(model, skeleton, category, logger)
-        final_prompts.append({
+        skeleton_items.append({
             "prompt_id": p["id"],
-            "text": refined,
-            "tag": category,
+            "skeleton": skeleton,
+            "category": category,
             "source": "user",
             "platform_form": "jpg_or_png",
+            "tag": category,
         })
 
     # 2) 부족하면 규칙 기반 템플릿으로 채움
-    remaining = daily_count - len(final_prompts)
+    remaining = daily_count - len(skeleton_items)
     if remaining > 0 and templates:
         logger.info(f"템플릿 기반으로 {remaining}개 추가 생성")
         quota = compute_category_quota(config["category_weights"], remaining)
@@ -199,15 +265,29 @@ def main():
                 idx += 1
                 var_level = random.choice([0, 0, 1])  # 기본 위주, 가끔 중간
                 sk = build_skeleton(category, templates, var_level)
-                refined = refine_with_gemini(model, sk["skeleton"], category, logger)
                 prompt_id = f"auto_{category}_{idx:03d}"
-                final_prompts.append({
+                skeleton_items.append({
                     "prompt_id": prompt_id,
-                    "text": refined,
-                    "tag": sk["tag"],
+                    "skeleton": sk["skeleton"],
+                    "category": category,
                     "source": "template",
                     "platform_form": sk["platform_form"],
+                    "tag": sk["tag"],
                 })
+
+    # 3) 전체를 배치로 한 번에 Gemini 보정 (Gemini 호출 횟수를 최소화)
+    logger.info(f"Gemini 배치 보정 시작 ({len(skeleton_items)}개, 1회 호출)")
+    refined_texts = refine_batch_with_gemini(model, skeleton_items, logger)
+
+    final_prompts = []
+    for item, refined in zip(skeleton_items, refined_texts):
+        final_prompts.append({
+            "prompt_id": item["prompt_id"],
+            "text": refined,
+            "tag": item["tag"],
+            "source": item["source"],
+            "platform_form": item["platform_form"],
+        })
 
     logger.info(f"총 {len(final_prompts)}개 프롬프트 준비 완료")
 
