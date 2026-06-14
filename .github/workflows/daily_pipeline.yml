@@ -86,5 +86,7 @@ jobs:
           git config user.name "stock-pipeline-bot"
           git config user.email "actions@github.com"
           git add data/ thumbnails/ config.json
-          git diff --cached --quiet || git commit -m "chore: pipeline run $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git push
+          git diff --cached --quiet && echo "no changes" && exit 0
+          git commit -m "chore: pipeline run $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase --autostash origin main
+          git push origin main

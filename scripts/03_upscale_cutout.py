@@ -65,9 +65,8 @@ def upscale_image(input_path: Path, output_path: Path, config: dict, logger) -> 
 # ── EXIF 정리 ────────────────────────────────────────────
 def strip_exif(img: Image.Image) -> Image.Image:
     """AI 생성 메타데이터(EXIF/C2PA 등) 제거. 픽셀 데이터만 남긴 새 이미지를 만든다."""
-    data = list(img.getdata())
     clean = Image.new(img.mode, img.size)
-    clean.putdata(data)
+    clean.paste(img)
     return clean
 
 
@@ -75,12 +74,11 @@ def strip_exif(img: Image.Image) -> Image.Image:
 def remove_background(img: Image.Image, logger) -> Image.Image:
     try:
         from rembg import remove
-        return remove(img)
-    except ImportError:
-        logger.warn("rembg 미설치 - 누끼 생성 스킵, 원본을 그대로 사용")
-        return img.convert("RGBA")
-    except Exception as e:
-        logger.warn(f"rembg 처리 실패({e}) - 원본을 그대로 사용")
+        result = remove(img)
+        return result
+    except BaseException as e:
+        # onnxruntime 미설치 등 어떤 예외든 파이프라인을 막지 않도록 처리
+        logger.warn(f"rembg 처리 실패({type(e).__name__}: {e}) - 원본을 그대로 사용")
         return img.convert("RGBA")
 
 
@@ -141,7 +139,11 @@ def main():
 
     results = []
     for item in generated:
-        r = process_one_image(item, config, logger)
+        try:
+            r = process_one_image(item, config, logger)
+        except Exception as e:
+            logger.error(f"[{item.get('filename')}] 처리 중 예외: {e}")
+            r = None
         if r:
             results.append(r)
 
