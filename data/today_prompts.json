@@ -1,0 +1,144 @@
+{
+  "prompts": [
+    {
+      "prompt_id": "auto_korean_food_001",
+      "text": "Professional studio food photography of sliced Korean gimbap rice rolls, showcasing a vibrant and colorful cross-section of fresh ingredients. Elegant three-quarter angle view, premium food styling, glossy seaweed wrap, delicate moisture droplets on the fresh fillings. Soft professional lighting with natural window reflections, crisp details, shot on an 85mm lens, shallow depth of field, commercial stock photo quality, isolated on a seamless white background.",
+      "tag": "food",
+      "source": "template",
+      "platform_form": "jpg"
+    },
+    {
+      "prompt_id": "auto_korean_food_002",
+      "text": "Premium food photography of Korean Japgokbap multigrain rice in a traditional black stone bowl, overhead flat lay shot, isolated on a clean white background with a soft drop shadow. Glistening, moist texture on the grains of purple rice, beans, and barley. Bright and clean commercial studio lighting, soft window light highlights, 85mm lens, sharp focus, high-end culinary styling, minimalist aesthetic, commercial stock photo.",
+      "tag": "food",
+      "source": "template",
+      "platform_form": "jpg"
+    },
+    {
+      "prompt_id": "auto_korean_food_003",
+      "text": "Top-down professional food photography of Korean Doenjang Jjigae soybean paste stew in a traditional black earthenware Ttukbaegi pot, glistening rich broth filled with soft tofu cubes, sliced zucchini, and vibrant green scallions, gentle realistic steam rising, subtle moisture droplets on the glazed rim, bright even studio lighting, tack-sharp focus, shallow depth of field, commercial-grade stock photo, 85mm lens, isolated on a seamless pure white background.",
+      "tag": "food",
+      "source": "template",
+      "platform_form": "jpg"
+    },
+    {
+      "prompt_id": "auto_korean_food_004",
+      "text": "High-end commercial food photography of Korean beef bulgogi, tender marinated grilled beef slices with caramelized onions and fresh scallions, sprinkled with toasted sesame seeds, artfully arranged on a clean white plate. Flat lay, top-down view, sharp focus on the glistening savory glaze and rich textures. Soft, bright diffused studio lighting, professional culinary styling, isolated on a seamless pure white background.",
+      "tag": "food",
+      "source": "template",
+      "platform_form": "jpg"
+    },
+    {
+      "prompt_id": "auto_korean_food_005",
+      "text": "Professional commercial food photography of freshly sliced Korean gimbap rice rolls arranged on a rustic ceramic plate, showcasing a vibrant, colorful cross-section of fresh ingredients. 45-degree close-up angle, shot on an 85mm lens with a shallow depth of field. Bright, natural studio lighting simulating soft window light, highlighting the glossy seaweed texture and subtle moisture droplets on the fresh vegetables. Ultra-sharp focus, clean minimalist composition, isolated on a solid white background.",
+      "tag": "food",
+      "source": "template",
+      "platform_form": "jpg"
+    },
+    {
+      "prompt_id": "auto_korean_food_006",
+      "text": "Professional food photography of Korean Naengmyeon cold buckwheat noodles served in a traditional stainless steel bowl, garnished with julienned cucumber, a boiled egg half, and sesame seeds in a clear chilled broth. Close-up macro shot, realistic condensation moisture droplets on the glossy metal surface of the bowl. Soft diffused studio lighting, 85mm lens, shallow depth of field, vivid colors, crisp details, isolated on a pure white background.",
+      "tag": "food",
+      "source": "template",
+      "platform_form": "jpg"
+    },
+    {
+      "prompt_id": "auto_korean_food_007",
+      "text": "Korean Jeon savory pancakes stacked on a white plate, close-up macro shot, bright even lighting, steam rising gently, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "tag": "food",
+      "source": "template",
+      "platform_form": "jpg"
+    },
+    {
+      "prompt_id": "auto_korean_culture_008",
+      "text": "traditional Korean lattice window pattern, Hanok architecture, wide architectural view, bright even studio lighting, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
+      "tag": "other",
+      "source": "template",
+      "platform_form": "jpg"
+    },
+    {
+      "prompt_id": "auto_korean_culture_009",
+      "text": "traditional Korean Hanok roof tiles with curved eaves, top-down view, gentle diffused light, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
+      "tag": "other",
+      "source": "template",
+      "platform_form": "jpg"
+    },
+    {
+      "prompt_id": "auto_korean_culture_010",
+      "text": "traditional Korean Hanok roof tiles with curved eaves, overhead flat lay shot, warm afternoon light, vibrant traditional colors, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
+      "tag": "other",
+      "source": "template",
+      "platform_form": "jpg"
+    },
+    {
+      "prompt_id": "auto_korean_culture_011",
+      "text": "Korean Jokduri traditional headpiece with embroidery, wide architectural view, gentle diffused light, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
+      "tag": "other",
+      "source": "template",
+      "platform_form": "jpg"
+    },
+    {
+      "prompt_id": "auto_light_stock_012",
+      "text": "abstract fluid art texture, marbled pattern, flat design view, monochrome color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
+      "tag": "abstract",
+      "source": "template",
+      "platform_form": "jpg_or_png"
+    },
+    {
+      "prompt_id": "auto_light_stock_013",
+      "text": "simple ribbon and bow decoration element, seamless tileable pattern, soft pastel color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
+      "tag": "abstract",
+      "source": "template",
+      "platform_form": "jpg_or_png"
+    },
+    {
+      "prompt_id": "auto_light_stock_014",
+      "text": "bokeh light background, soft blurred circles, seamless tileable pattern, muted earthy color palette, subtle texture detail, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
+      "tag": "abstract",
+      "source": "template",
+      "platform_form": "jpg_or_png"
+    },
+    {
+      "prompt_id": "auto_light_stock_015",
+      "text": "abstract fluid art texture, marbled pattern, centered composition, monochrome color palette, delicate fine detail, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
+      "tag": "abstract",
+      "source": "template",
+      "platform_form": "jpg_or_png"
+    },
+    {
+      "prompt_id": "auto_fantasy_animal_016",
+      "text": "tiny fairy sitting on a mushroom, full body view, isolated, cool fantasy blue lighting, digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
+      "tag": "fantasy",
+      "source": "template",
+      "platform_form": "jpg_or_png"
+    },
+    {
+      "prompt_id": "auto_fantasy_animal_017",
+      "text": "cute baby dragon sleeping on a pile of gold coins, full body view, isolated, warm golden hour lighting, digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
+      "tag": "fantasy",
+      "source": "template",
+      "platform_form": "jpg_or_png"
+    },
+    {
+      "prompt_id": "auto_fantasy_animal_018",
+      "text": "wise old owl wearing tiny glasses, centered character portrait, bright cheerful lighting, expressive cute features, digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
+      "tag": "fantasy",
+      "source": "template",
+      "platform_form": "jpg_or_png"
+    },
+    {
+      "prompt_id": "auto_abstract_019",
+      "text": "abstract paper cut layered texture, centered abstract composition, cool blue and teal tones, high resolution texture, seamless pattern, professional design asset, sharp details, print ready, commercial use",
+      "tag": "abstract",
+      "source": "template",
+      "platform_form": "jpg"
+    },
+    {
+      "prompt_id": "auto_abstract_020",
+      "text": "abstract organic shapes pattern, modern minimalist, centered abstract composition, soft pastel color palette, high resolution texture, seamless pattern, professional design asset, sharp details, print ready, commercial use",
+      "tag": "abstract",
+      "source": "template",
+      "platform_form": "jpg"
+    }
+  ]
+}
