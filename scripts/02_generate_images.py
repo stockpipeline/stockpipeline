@@ -133,36 +133,47 @@ def gemini_vision_check(img: Image.Image, logger) -> tuple:
     """
     Gemini Vision으로 명백한 AI 생성 오류를 체크한다.
     실패해도 파이프라인을 막지 않도록 예외 시 통과 처리.
+    429(rate limit)는 짧게 대기 후 1회 재시도.
     """
-    try:
-        import google.generativeai as genai
-        genai.configure(api_key=GEMINI_API_KEY)
-        model = genai.GenerativeModel("gemini-flash-latest")
+    import google.generativeai as genai
+    genai.configure(api_key=GEMINI_API_KEY)
+    model = genai.GenerativeModel("gemini-flash-latest")
 
-        buf = io.BytesIO()
-        img.save(buf, format="PNG")
-        buf.seek(0)
+    buf = io.BytesIO()
+    img.save(buf, format="PNG")
+    buf.seek(0)
+    img_bytes = buf.getvalue()
 
-        prompt = (
-            "Look at this AI-generated stock image candidate. "
-            "Check for obvious AI generation errors: malformed hands/fingers, "
-            "distorted faces, broken text, anatomical errors, unnatural "
-            "textures or colors for the subject, or a messed-up/incomplete "
-            "white background.\n\n"
-            "Reply with ONLY one word: PASS if no obvious errors, "
-            "or FAIL if there is a clear AI error."
-        )
+    prompt = (
+        "Look at this AI-generated stock image candidate. "
+        "Check for obvious AI generation errors: malformed hands/fingers, "
+        "distorted faces, broken text, anatomical errors, unnatural "
+        "textures or colors for the subject, or a messed-up/incomplete "
+        "white background.\n\n"
+        "Reply with ONLY one word: PASS if no obvious errors, "
+        "or FAIL if there is a clear AI error."
+    )
 
-        resp = model.generate_content([
-            {"role": "user", "parts": [prompt, {"mime_type": "image/png", "data": buf.getvalue()}]}
-        ])
-        text = resp.text.strip().upper()
-        if "FAIL" in text:
-            return False, "gemini vision flagged AI artifact"
-        return True, "ok"
-    except Exception as e:
-        logger.warn(f"Gemini Vision 체크 실패(통과 처리): {e}")
-        return True, "vision check skipped"
+    for attempt in range(2):
+        try:
+            # 분당 요청 수 제한 완화를 위한 짧은 간격
+            time.sleep(2)
+            resp = model.generate_content([
+                {"role": "user", "parts": [prompt, {"mime_type": "image/png", "data": img_bytes}]}
+            ])
+            text = resp.text.strip().upper()
+            if "FAIL" in text:
+                return False, "gemini vision flagged AI artifact"
+            return True, "ok"
+        except Exception as e:
+            if "429" in str(e) and attempt == 0:
+                logger.warn("Gemini 429 - 15초 대기 후 1회 재시도")
+                time.sleep(15)
+                continue
+            logger.warn(f"Gemini Vision 체크 실패(통과 처리): {e}")
+            return True, "vision check skipped"
+
+    return True, "vision check skipped"
 
 
 # ── pHash 중복 체크 ──────────────────────────────────────
