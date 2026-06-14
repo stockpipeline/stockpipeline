@@ -48,7 +48,21 @@ PERF_PATH = DATA_DIR / "prompt_performance.json"
 
 
 # ── Pollinations 이미지 생성 ─────────────────────────────
+class PollinationsFatalError(Exception):
+    """재시도해도 해결되지 않는 오류 (잔액부족/인증실패 등). 파이프라인 전체를 멈춰야 함."""
+    pass
+
+
+# 재시도해도 의미 없는 상태 코드: 401(인증실패), 402(결제필요/잔액부족), 403(권한없음)
+FATAL_STATUS_CODES = {401, 402, 403}
+
+
 def call_pollinations(model: str, prompt: str, size: str, logger, seed: int = None):
+    """
+    반환: (image_bytes, None) 성공
+          (None, None) 일시적 실패 (재시도 가능했지만 모두 실패)
+    PollinationsFatalError를 raise하면 잔액부족/인증오류 등 재시도 불가 상태.
+    """
     w, h = (int(x) for x in size.split("x"))
     encoded_prompt = urllib.parse.quote(prompt[:2000])  # URL 길이 제한 대비
     url = f"{POLLINATIONS_IMAGE_URL}{encoded_prompt}"
@@ -58,8 +72,10 @@ def call_pollinations(model: str, prompt: str, size: str, logger, seed: int = No
         "width": w,
         "height": h,
         "nologo": "true",
-        "safe": "true",
     }
+    # 'safe' 파라미터는 일부 모델(turbo 등)에서 지원되지 않아 400을 유발할 수 있음
+    if model == FLUX_MODEL:
+        params["safe"] = "true"
     if seed is not None:
         params["seed"] = seed
     if POLLINATIONS_API_KEY:
@@ -75,8 +91,20 @@ def call_pollinations(model: str, prompt: str, size: str, logger, seed: int = No
             res = requests.get(url, params=params, headers=headers, timeout=(15, 180))
             if res.status_code == 200 and res.headers.get("content-type", "").startswith("image"):
                 return res.content
+
+            if res.status_code in FATAL_STATUS_CODES:
+                logger.error(f"Pollinations 치명적 오류 {res.status_code}: {res.text[:200]}")
+                raise PollinationsFatalError(f"{res.status_code}: {res.text[:200]}")
+
+            if res.status_code == 400:
+                logger.warn(f"Pollinations 400 (시도 {attempt+1}/3): {res.text[:400]}")
+                time.sleep(10)
+                continue
+
             logger.warn(f"Pollinations 응답 오류 {res.status_code} (시도 {attempt+1}/3): {res.text[:150]}")
             time.sleep(10)
+        except PollinationsFatalError:
+            raise
         except requests.exceptions.RequestException as e:
             logger.warn(f"Pollinations 요청 예외 (시도 {attempt+1}/3): {e}")
             time.sleep(10)
@@ -85,6 +113,11 @@ def call_pollinations(model: str, prompt: str, size: str, logger, seed: int = No
 
 
 def generate_image_bytes(prompt: str, config: dict, logger):
+    """
+    반환: (image_bytes, source_model)
+    PollinationsFatalError는 그대로 propagate되어 상위(main)에서
+    파이프라인 전체를 즉시 멈추는 신호로 쓰인다.
+    """
     img_cfg = config["image"]
     size = img_cfg["size"]
     seed = random.randint(1, 999_999_999)
@@ -303,8 +336,14 @@ def main():
         logger.warn("POLLINATIONS_API_KEY가 설정되지 않았습니다 (키 없이도 동작하지만 nologo/rate limit에 영향 가능)")
 
     results = []
+    fatal_error = None
     for p in today_prompts:
-        r = process_one_prompt(p, config, phash_db, performance, logger)
+        try:
+            r = process_one_prompt(p, config, phash_db, performance, logger)
+        except PollinationsFatalError as e:
+            logger.error(f"Pollinations 치명적 오류로 파이프라인 중단: {e}")
+            fatal_error = str(e)
+            break
         if r:
             results.append(r)
 
@@ -315,6 +354,15 @@ def main():
     success_count = len(results)
     total_count = len(today_prompts)
     logger.info(f"이미지 생성 완료: {success_count}/{total_count}")
+
+    if fatal_error:
+        logger.finalize("failed", {
+            "stage": "image_generation",
+            "generated": success_count,
+            "attempted": total_count,
+            "error": f"Pollinations 계정 문제 (잔액/인증) - 확인 필요: {fatal_error}",
+        })
+        sys.exit(1)
 
     if success_count == 0 and total_count > 0:
         logger.finalize("failed", {
