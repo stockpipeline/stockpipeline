@@ -20,7 +20,10 @@
     "min_sharpness": 50,
     "min_color_variety": 15,
     "category_overrides": {
-      "abstract": { "max_brightness": 253, "min_color_variety": 8 }
+      "abstract": {
+        "max_brightness": 253,
+        "min_color_variety": 8
+      }
     }
   },
   "duplicate_filter": {

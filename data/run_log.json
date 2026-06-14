@@ -1,6 +1,156 @@
 {
   "history": [
     {
+      "timestamp": "2026-06-14T12:18:29.747347+09:00",
+      "status": "success",
+      "summary": {
+        "stage": "platform_results",
+        "gmail_connected": false,
+        "approved": 0,
+        "rejected": 0,
+        "deactivated_prompts": []
+      },
+      "logs": [
+        {
+          "time": "12:18:29",
+          "level": "warn",
+          "message": "Gmail 연동 정보 없음 - 결과 자동 확인 스킵"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-06-14T12:03:37.538898+09:00",
+      "status": "success",
+      "summary": {
+        "stage": "prompt_generation",
+        "total_prompts": 20,
+        "from_user": 0,
+        "from_template": 20
+      },
+      "logs": [
+        {
+          "time": "11:40:34",
+          "level": "info",
+          "message": "오늘의 프롬프트 20개 생성 시작"
+        },
+        {
+          "time": "11:40:34",
+          "level": "info",
+          "message": "사용자 프롬프트 0개 선택됨"
+        },
+        {
+          "time": "11:40:34",
+          "level": "info",
+          "message": "템플릿 기반으로 20개 추가 생성"
+        },
+        {
+          "time": "11:40:38",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "11:41:47",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "11:42:56",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "11:44:05",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "11:45:14",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "11:46:24",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "11:47:33",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "11:48:42",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "11:49:51",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "11:51:00",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "11:52:09",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "11:53:19",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "11:54:28",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "11:55:37",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "11:56:46",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "11:57:55",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "11:59:04",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "12:00:14",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "12:01:23",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "12:02:32",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
+        },
+        {
+          "time": "12:03:37",
+          "level": "info",
+          "message": "총 20개 프롬프트 준비 완료"
+        }
+      ]
+    },
+    {
       "timestamp": "2026-06-14T11:38:00.234139+09:00",
       "status": "success",
       "summary": {
@@ -102,7 +252,7 @@
     }
   ],
   "latest": {
-    "timestamp": "2026-06-14T11:38:00.234139+09:00",
+    "timestamp": "2026-06-14T12:18:29.747347+09:00",
     "status": "success",
     "summary": {
       "stage": "platform_results",
@@ -113,7 +263,7 @@
     },
     "logs": [
       {
-        "time": "11:38:00",
+        "time": "12:18:29",
         "level": "warn",
         "message": "Gmail 연동 정보 없음 - 결과 자동 확인 스킵"
       }
