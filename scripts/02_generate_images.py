@@ -71,7 +71,8 @@ def call_pollinations(model: str, prompt: str, size: str, logger, seed: int = No
 
     for attempt in range(3):
         try:
-            res = requests.get(url, params=params, headers=headers, timeout=120)
+            logger.info(f"Pollinations 요청 전송 ({model}, 시도 {attempt+1}/3)...")
+            res = requests.get(url, params=params, headers=headers, timeout=(15, 180))
             if res.status_code == 200 and res.headers.get("content-type", "").startswith("image"):
                 return res.content
             logger.warn(f"Pollinations 응답 오류 {res.status_code} (시도 {attempt+1}/3): {res.text[:150]}")

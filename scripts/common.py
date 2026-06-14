@@ -87,7 +87,7 @@ class Logger:
     def log(self, message: str, level: str = "info"):
         ts = now_kst().strftime("%H:%M:%S")
         line = f"[{ts}] {message}"
-        print(line)
+        print(line, flush=True)
         self.entries.append({"time": ts, "level": level, "message": message})
 
     def info(self, msg): self.log(msg, "info")
