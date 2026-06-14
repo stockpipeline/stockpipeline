@@ -1,9 +1,11 @@
 name: Daily Pipeline
 
 on:
-  schedule:
-    # 매일 한국시간(KST) 03:00 = UTC 18:00 (전날)
-    - cron: '0 18 * * *'
+  # ⚠️ 자동 스케줄 임시 비활성화 (Colab 기반 이미지 생성으로 전환 작업 중)
+  # 02단계가 Imagen 4 -> Colab/SDXL-Turbo 체계로 바뀌면서
+  # 워크플로우 구조 자체가 재설계되어야 함. 안정화 후 재활성화.
+  # schedule:
+  #   - cron: '0 18 * * *'
   workflow_dispatch:  # 관리 페이지의 "지금 재시도" 버튼이 이걸 호출
 
 permissions:
