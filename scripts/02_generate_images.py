@@ -36,8 +36,10 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 POLLINATIONS_API_KEY = os.environ.get("POLLINATIONS_API_KEY", "")
 
 # Pollinations.ai: Flux 모델은 무료/무제한 (MIT 라이선스 오픈소스 플랫폼)
-# https://image.pollinations.ai/prompt/{prompt}?...
-POLLINATIONS_IMAGE_URL = "https://image.pollinations.ai/prompt/"
+# 신규 통합 엔드포인트(gen.pollinations.ai)는 enter.pollinations.ai 게이트웨이를
+# 경유하여 sk_ 키 인증 시 IP당 rate limit이 적용되지 않는다.
+# (구 image.pollinations.ai/prompt/ 는 인증 없이 처리되어 IP당 큐 1개로 제한됨)
+POLLINATIONS_IMAGE_URL = "https://gen.pollinations.ai/image/"
 FLUX_MODEL = "flux"
 TURBO_MODEL = "turbo"  # 1차 실패 시 폴백 모델
 
@@ -60,6 +62,8 @@ def call_pollinations(model: str, prompt: str, size: str, logger, seed: int = No
     }
     if seed is not None:
         params["seed"] = seed
+    if POLLINATIONS_API_KEY:
+        params["key"] = POLLINATIONS_API_KEY
 
     headers = {}
     if POLLINATIONS_API_KEY:
