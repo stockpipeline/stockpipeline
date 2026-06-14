@@ -21,8 +21,9 @@ import time
 from pathlib import Path
 
 import numpy as np
-import requests
 from PIL import Image
+from huggingface_hub import InferenceClient
+from huggingface_hub.errors import HfHubHTTPError
 
 sys.path.insert(0, str(Path(__file__).parent))
 from common import (
@@ -33,47 +34,47 @@ from common import (
 HF_TOKEN = os.environ.get("HF_TOKEN", "")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 
-HF_FLUX_URL = "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell"
-HF_SDXL_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0"
+# Hugging Face Inference Providers 라우터 경유
+# (구 api-inference.huggingface.co 엔드포인트는 폐지됨)
+FLUX_MODEL = "black-forest-labs/FLUX.1-schnell"
+SDXL_MODEL = "stabilityai/stable-diffusion-xl-base-1.0"
 
 PHASH_DB_PATH = DATA_DIR / "phash_db.json"
 PERF_PATH = DATA_DIR / "prompt_performance.json"
 
 
 # ── HF 이미지 생성 ──────────────────────────────────────
-def call_hf(url: str, prompt: str, size: str, steps: int, guidance: float, logger):
+def call_hf(model: str, prompt: str, size: str, steps: int, guidance: float, logger):
     w, h = (int(x) for x in size.split("x"))
-    headers = {"Authorization": f"Bearer {HF_TOKEN}"}
-    payload = {
-        "inputs": prompt,
-        "parameters": {
-            "width": w,
-            "height": h,
-            "num_inference_steps": steps,
-            "guidance_scale": guidance,
-        },
-    }
+    # provider를 지정하지 않으면 해당 모델을 서빙하는 provider 중
+    # 사용 가능한 곳으로 자동 라우팅된다 (Flux.1-schnell은 여러 provider가 무료로 서빙)
+    client = InferenceClient(api_key=HF_TOKEN)
 
     for attempt in range(3):
         try:
-            res = requests.post(url, headers=headers, json=payload, timeout=120)
-            if res.status_code == 200:
-                return res.content
-            elif res.status_code == 503:
-                wait = 20
-                try:
-                    wait = min(res.json().get("estimated_time", 20), 40)
-                except Exception:
-                    pass
-                logger.warn(f"모델 로딩 중 ({wait}초 대기, 시도 {attempt+1}/3)")
-                time.sleep(wait)
-            elif res.status_code == 429:
+            image = client.text_to_image(
+                prompt,
+                model=model,
+                width=w,
+                height=h,
+                num_inference_steps=steps,
+                guidance_scale=guidance,
+            )
+            buf = io.BytesIO()
+            image.save(buf, format="PNG")
+            return buf.getvalue()
+        except HfHubHTTPError as e:
+            status = getattr(e.response, "status_code", None)
+            if status == 503:
+                logger.warn(f"모델 로딩 중 (20초 대기, 시도 {attempt+1}/3)")
+                time.sleep(20)
+            elif status == 429:
                 logger.warn(f"Rate limit (60초 대기, 시도 {attempt+1}/3)")
                 time.sleep(60)
             else:
-                logger.warn(f"HF 응답 오류 {res.status_code}: {res.text[:100]}")
+                logger.warn(f"HF 응답 오류 {status}: {e}")
                 time.sleep(5)
-        except requests.exceptions.RequestException as e:
+        except Exception as e:
             logger.warn(f"HF 요청 예외: {e}")
             time.sleep(5)
 
@@ -88,13 +89,13 @@ def generate_image_bytes(prompt: str, config: dict, logger):
 
     # 1차: Flux.1 Schnell
     logger.info("Flux.1 Schnell 생성 시도")
-    data = call_hf(HF_FLUX_URL, prompt, size, steps, guidance, logger)
+    data = call_hf(FLUX_MODEL, prompt, size, steps, guidance, logger)
     if data:
         return data, "flux_schnell"
 
     # 2차: SDXL 폴백
     logger.warn("Flux 실패 → SDXL 폴백")
-    data = call_hf(HF_SDXL_URL, prompt, size, 25, 7.5, logger)
+    data = call_hf(SDXL_MODEL, prompt, size, 25, 7.5, logger)
     if data:
         return data, "sdxl"
 
