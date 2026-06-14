@@ -1,6 +1,56 @@
 {
   "history": [
     {
+      "timestamp": "2026-06-14T11:38:00.234139+09:00",
+      "status": "success",
+      "summary": {
+        "stage": "platform_results",
+        "gmail_connected": false,
+        "approved": 0,
+        "rejected": 0,
+        "deactivated_prompts": []
+      },
+      "logs": [
+        {
+          "time": "11:38:00",
+          "level": "warn",
+          "message": "Gmail 연동 정보 없음 - 결과 자동 확인 스킵"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-06-14T11:30:44.259145+09:00",
+      "status": "success",
+      "summary": {
+        "stage": "prompt_generation",
+        "total_prompts": 20,
+        "from_user": 0,
+        "from_template": 20
+      },
+      "logs": [
+        {
+          "time": "11:30:37",
+          "level": "info",
+          "message": "오늘의 프롬프트 20개 생성 시작"
+        },
+        {
+          "time": "11:30:37",
+          "level": "info",
+          "message": "사용자 프롬프트 0개 선택됨"
+        },
+        {
+          "time": "11:30:37",
+          "level": "info",
+          "message": "템플릿 기반으로 20개 추가 생성"
+        },
+        {
+          "time": "11:30:44",
+          "level": "info",
+          "message": "총 20개 프롬프트 준비 완료"
+        }
+      ]
+    },
+    {
       "timestamp": "2026-06-14T11:12:45.553898+09:00",
       "status": "success",
       "summary": {
@@ -52,7 +102,7 @@
     }
   ],
   "latest": {
-    "timestamp": "2026-06-14T11:12:45.553898+09:00",
+    "timestamp": "2026-06-14T11:38:00.234139+09:00",
     "status": "success",
     "summary": {
       "stage": "platform_results",
@@ -63,7 +113,7 @@
     },
     "logs": [
       {
-        "time": "11:12:45",
+        "time": "11:38:00",
         "level": "warn",
         "message": "Gmail 연동 정보 없음 - 결과 자동 확인 스킵"
       }
