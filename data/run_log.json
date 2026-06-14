@@ -1,6 +1,32 @@
 {
   "history": [
     {
+      "timestamp": "2026-06-15T07:55:57.846450+09:00",
+      "status": "success",
+      "summary": {
+        "stage": "weekly_tasks",
+        "backup_ok": false,
+        "policy_changed": []
+      },
+      "logs": [
+        {
+          "time": "07:55:36",
+          "level": "warn",
+          "message": "Drive 백업 실패: <HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id&alt=json&uploadType=multipart returned \"Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.\". Details: \"[{'message': 'Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.', 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
+        },
+        {
+          "time": "07:55:56",
+          "level": "warn",
+          "message": "adobe 정책 페이지 확인 실패: HTTPSConnectionPool(host='helpx.adobe.com', port=443): Read timed out. (read timeout=20)"
+        },
+        {
+          "time": "07:55:57",
+          "level": "info",
+          "message": "freepik 정책 페이지 변경 없음"
+        }
+      ]
+    },
+    {
       "timestamp": "2026-06-15T07:23:18.838262+09:00",
       "status": "success",
       "summary": {
@@ -903,20 +929,28 @@
     }
   ],
   "latest": {
-    "timestamp": "2026-06-15T07:23:18.838262+09:00",
+    "timestamp": "2026-06-15T07:55:57.846450+09:00",
     "status": "success",
     "summary": {
-      "stage": "platform_results",
-      "gmail_connected": false,
-      "approved": 0,
-      "rejected": 0,
-      "deactivated_prompts": []
+      "stage": "weekly_tasks",
+      "backup_ok": false,
+      "policy_changed": []
     },
     "logs": [
       {
-        "time": "07:23:18",
+        "time": "07:55:36",
         "level": "warn",
-        "message": "Gmail 연동 정보 없음 - 결과 자동 확인 스킵"
+        "message": "Drive 백업 실패: <HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id&alt=json&uploadType=multipart returned \"Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.\". Details: \"[{'message': 'Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.', 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
+      },
+      {
+        "time": "07:55:56",
+        "level": "warn",
+        "message": "adobe 정책 페이지 확인 실패: HTTPSConnectionPool(host='helpx.adobe.com', port=443): Read timed out. (read timeout=20)"
+      },
+      {
+        "time": "07:55:57",
+        "level": "info",
+        "message": "freepik 정책 페이지 변경 없음"
       }
     ]
   }
