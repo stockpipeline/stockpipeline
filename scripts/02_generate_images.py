@@ -2,8 +2,8 @@
 2단계: 이미지 생성 모듈
 
 흐름 (프롬프트 1개당):
-  1. Flux.1 Schnell로 생성 시도 (최대 3회, 503/429 시 대기 후 재시도)
-  2. 실패 시 SDXL로 폴백
+  1. Pollinations.ai Flux 모델로 생성 시도 (무료/무제한, 최대 3회)
+  2. 실패 시 Pollinations Turbo 모델로 폴백
   3. 기술적 품질 필터 (밝기/흐림/색상 다양성)
   4. Gemini Vision으로 AI 오류 체크
   5. pHash 중복 체크
@@ -18,12 +18,12 @@ import os
 import random
 import sys
 import time
+import urllib.parse
 from pathlib import Path
 
 import numpy as np
+import requests
 from PIL import Image
-from huggingface_hub import InferenceClient
-from huggingface_hub.errors import HfHubHTTPError
 
 sys.path.insert(0, str(Path(__file__).parent))
 from common import (
@@ -32,52 +32,49 @@ from common import (
     gemini_generate_with_retry
 )
 
-HF_TOKEN = os.environ.get("HF_TOKEN", "")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+POLLINATIONS_API_KEY = os.environ.get("POLLINATIONS_API_KEY", "")
 
-# Hugging Face Inference Providers 라우터 경유
-# (구 api-inference.huggingface.co 엔드포인트는 폐지됨)
-FLUX_MODEL = "black-forest-labs/FLUX.1-schnell"
-SDXL_MODEL = "stabilityai/stable-diffusion-xl-base-1.0"
+# Pollinations.ai: Flux 모델은 무료/무제한 (MIT 라이선스 오픈소스 플랫폼)
+# https://image.pollinations.ai/prompt/{prompt}?...
+POLLINATIONS_IMAGE_URL = "https://image.pollinations.ai/prompt/"
+FLUX_MODEL = "flux"
+TURBO_MODEL = "turbo"  # 1차 실패 시 폴백 모델
 
 PHASH_DB_PATH = DATA_DIR / "phash_db.json"
 PERF_PATH = DATA_DIR / "prompt_performance.json"
 
 
-# ── HF 이미지 생성 ──────────────────────────────────────
-def call_hf(model: str, prompt: str, size: str, steps: int, guidance: float, logger):
+# ── Pollinations 이미지 생성 ─────────────────────────────
+def call_pollinations(model: str, prompt: str, size: str, logger, seed: int = None):
     w, h = (int(x) for x in size.split("x"))
-    # provider를 지정하지 않으면 해당 모델을 서빙하는 provider 중
-    # 사용 가능한 곳으로 자동 라우팅된다 (Flux.1-schnell은 여러 provider가 무료로 서빙)
-    client = InferenceClient(api_key=HF_TOKEN)
+    encoded_prompt = urllib.parse.quote(prompt[:2000])  # URL 길이 제한 대비
+    url = f"{POLLINATIONS_IMAGE_URL}{encoded_prompt}"
+
+    params = {
+        "model": model,
+        "width": w,
+        "height": h,
+        "nologo": "true",
+        "safe": "true",
+    }
+    if seed is not None:
+        params["seed"] = seed
+
+    headers = {}
+    if POLLINATIONS_API_KEY:
+        headers["Authorization"] = f"Bearer {POLLINATIONS_API_KEY}"
 
     for attempt in range(3):
         try:
-            image = client.text_to_image(
-                prompt,
-                model=model,
-                width=w,
-                height=h,
-                num_inference_steps=steps,
-                guidance_scale=guidance,
-            )
-            buf = io.BytesIO()
-            image.save(buf, format="PNG")
-            return buf.getvalue()
-        except HfHubHTTPError as e:
-            status = getattr(e.response, "status_code", None)
-            if status == 503:
-                logger.warn(f"모델 로딩 중 (20초 대기, 시도 {attempt+1}/3)")
-                time.sleep(20)
-            elif status == 429:
-                logger.warn(f"Rate limit (60초 대기, 시도 {attempt+1}/3)")
-                time.sleep(60)
-            else:
-                logger.warn(f"HF 응답 오류 {status}: {e}")
-                time.sleep(5)
-        except Exception as e:
-            logger.warn(f"HF 요청 예외: {e}")
-            time.sleep(5)
+            res = requests.get(url, params=params, headers=headers, timeout=120)
+            if res.status_code == 200 and res.headers.get("content-type", "").startswith("image"):
+                return res.content
+            logger.warn(f"Pollinations 응답 오류 {res.status_code} (시도 {attempt+1}/3): {res.text[:150]}")
+            time.sleep(10)
+        except requests.exceptions.RequestException as e:
+            logger.warn(f"Pollinations 요청 예외 (시도 {attempt+1}/3): {e}")
+            time.sleep(10)
 
     return None
 
@@ -85,20 +82,19 @@ def call_hf(model: str, prompt: str, size: str, steps: int, guidance: float, log
 def generate_image_bytes(prompt: str, config: dict, logger):
     img_cfg = config["image"]
     size = img_cfg["size"]
-    steps = img_cfg["steps"]
-    guidance = img_cfg["guidance_scale"]
+    seed = random.randint(1, 999_999_999)
 
-    # 1차: Flux.1 Schnell
-    logger.info("Flux.1 Schnell 생성 시도")
-    data = call_hf(FLUX_MODEL, prompt, size, steps, guidance, logger)
+    # 1차: Flux
+    logger.info("Pollinations Flux 생성 시도")
+    data = call_pollinations(FLUX_MODEL, prompt, size, logger, seed=seed)
     if data:
-        return data, "flux_schnell"
+        return data, "flux"
 
-    # 2차: SDXL 폴백
-    logger.warn("Flux 실패 → SDXL 폴백")
-    data = call_hf(SDXL_MODEL, prompt, size, 25, 7.5, logger)
+    # 2차: Turbo 폴백
+    logger.warn("Flux 실패 → Turbo 폴백")
+    data = call_pollinations(TURBO_MODEL, prompt, size, logger, seed=seed)
     if data:
-        return data, "sdxl"
+        return data, "turbo"
 
     return None, None
 
@@ -298,10 +294,8 @@ def main():
 
     phash_db = cleanup_old_phashes(phash_db, config["storage"]["phash_retention_days"])
 
-    if not HF_TOKEN:
-        logger.error("HF_TOKEN이 설정되지 않았습니다")
-        logger.finalize("failed", {"stage": "image_generation", "error": "missing HF_TOKEN"})
-        sys.exit(1)
+    if not POLLINATIONS_API_KEY:
+        logger.warn("POLLINATIONS_API_KEY가 설정되지 않았습니다 (키 없이도 동작하지만 nologo/rate limit에 영향 가능)")
 
     results = []
     for p in today_prompts:

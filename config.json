@@ -3,11 +3,9 @@
   "daily_prompt_count": 20,
   "target_upload_count": 10,
   "image": {
-    "generator": "flux_schnell",
-    "fallback_generator": "sdxl",
-    "size": "1024x1024",
-    "steps": 8,
-    "guidance_scale": 0.0
+    "generator": "pollinations_flux",
+    "fallback_generator": "pollinations_turbo",
+    "size": "1024x1024"
   },
   "upscale": {
     "tool": "realesrgan",
