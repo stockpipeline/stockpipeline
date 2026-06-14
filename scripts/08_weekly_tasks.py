@@ -30,8 +30,8 @@ BACKUP_FILES = [
 
 POLICY_URLS = {
     "adobe": "https://helpx.adobe.com/stock/contributor/help/generative-ai-content.html",
-    "shutterstock": "https://supportforcontributors.shutterstock.com/s/article/Submitting-AI-Generated-Content",
     "freepik": "https://support.freepik.com/s/article/AI-generated-content-policy",
+    # shutterstock: 2025-07-16부터 AI 생성 콘텐츠를 전면 거부 (정책 모니터링 불필요)
 }
 
 
