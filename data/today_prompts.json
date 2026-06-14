@@ -2,140 +2,140 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "Professional food photography of Korean Yukgaejang spicy beef soup in a rustic black ceramic bowl, 45-degree angle view, rich red broth with scallions and beef, glistening surface, warm studio lighting, 85mm lens, shallow depth of field, ultra-sharp detail, commercial grade, isolated on a pure white background.",
+      "text": "Professional food photography of Korean Bingsu shaved ice dessert topped with sweet red beans and condensed milk, served in an elegant ceramic bowl, overhead flat-lay composition, soft diffused studio lighting, glistening ice crystals, shallow depth of field, 85mm lens, crisp details, commercial stock photo, isolated on a pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "Macro food photography of Korean Yakgwa honey cookies, traditional flower-shaped confections, glossy honey glaze glistening, close-up shot, warm soft studio lighting, 85mm lens, shallow depth of field, ultra-sharp details, high-end commercial style, isolated on a pure white background.",
+      "text": "High-end commercial food photography of Korean Bulgogi, tender marinated beef slices grilled with savory vegetables and sesame seeds, served on a modern ceramic plate, 45-degree angle view, warm professional studio lighting, glistening savory glaze, 85mm lens, sharp focus, isolated on a pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "High-end commercial food photography of an assortment of Korean Banchan side dishes in small ceramic plates, close-up macro view, vibrant colors, glistening textures, bright even studio lighting, 85mm lens, shallow depth of field, ultra-sharp details, isolated on a pure white background.",
+      "text": "Premium studio food photography of a traditional Korean Yakgwa honey cookie, featuring an intricate floral pattern and a glossy, sticky sweet glaze, elegant 45-degree angle close-up, soft diffused studio lighting, shallow depth of field, commercial grade, sharp details, isolated on a clean white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_004",
-      "text": "Professional food photography of Korean Dakgalbi, spicy stir-fried chicken with vibrant vegetables in a traditional black iron pan, slightly elevated angle, glistening red sauce, steam rising, bright studio lighting, 85mm lens, shallow depth of field, commercial grade, ultra-sharp, isolated on a pure white background.",
+      "text": "Exquisite food photography of Korean Naengmyeon, cold buckwheat noodles in a clear icy broth topped with a boiled egg, cucumber slices, and radish, served in a traditional stainless steel bowl with realistic condensation droplets, slightly elevated angle, bright inviting studio lighting, sharp 85mm focus, isolated on a pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_005",
-      "text": "Macro food photography of Korean Dakgalbi, close-up of spicy stir-fried chicken and tender vegetables glistening with oil, natural soft window lighting, 85mm lens, shallow depth of field, ultra-sharp textures, commercial grade, isolated on a pure white background.",
+      "text": "Close-up macro food photography of a golden, crispy Korean Haemul Pajeon seafood scallion pancake, showing rich textures of green onions, shrimp, and squid, warm inviting studio lighting, shallow depth of field, crisp 85mm lens capture, high commercial grade quality, isolated on a pristine white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_006",
-      "text": "Macro photography of a golden-brown Korean Hotteok sweet pancake, cut in half to reveal oozing, glossy melted brown sugar and nut filling, warm inviting studio lighting, 85mm lens, shallow depth of field, crisp texture, commercial grade, isolated on a pure white background.",
+      "text": "Vibrant top-down flat lay food photography of traditional Korean Bibimbap in a hot stone Dolsot bowl, beautifully arranged with colorful seasoned vegetables and a bright egg yolk in the center, soft diffused studio lighting, glistening fresh textures, commercial stock image, ultra-sharp focus, isolated on a solid white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_007",
-      "text": "Commercial food photography of Korean Sundubu Jjigae, bubbling soft tofu stew in a traditional red earthenware bowl, 45-degree angle view, glistening red chili oil broth, warm cozy studio lighting, 85mm lens, shallow depth of field, ultra-sharp, isolated on a pure white background.",
+      "text": "Professional food photography of bubbling Korean Doenjang Jjigae soybean paste stew containing tofu, zucchini, and mushrooms in a traditional dark earthenware Ttukbaegi pot, 45-degree angle view, soft natural window lighting, gentle rising steam, shallow depth of field, commercial food styling, ultra-sharp focus, isolated on a white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_008",
-      "text": "A minimalist top-down shot of a traditional Korean brass spoon and chopsticks set (Sujeo), elegant metallic sheen, soft natural studio lighting, ultra-high detail, sharp focus, culturally authentic design, commercial stock photo, isolated on a pure white background.",
+      "text": "High-detail commercial studio photography of an authentic Korean traditional tea set with a minimalist white ceramic teapot and delicate matching tea cups, close-up shot emphasizing the smooth porcelain texture, soft natural side lighting, elegant styling, sharp focus, isolated on a pure white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_009",
-      "text": "Neatly folded premium Korean Hanbok silk fabrics in vibrant traditional colors, showing delicate embroidered details and luxurious texture, bright even studio lighting, sharp focus, commercial cultural photography, isolated on a pure white background.",
+      "text": "Minimalist and elegant commercial product shot of a traditional Korean white ceramic tea set, featuring a beautifully crafted teapot and cups, close-up detail view, bright even studio lighting, pristine porcelain texture, sharp focus, cultural authenticity, isolated on a seamless white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_010",
-      "text": "An exquisite Korean celadon pottery vase with a smooth, glossy jade green glaze and traditional cloud crane patterns, clean minimalist studio shot, gentle diffused lighting, high detail, sharp focus, isolated on a pure white background.",
+      "text": "Fine art commercial photography of an authentic Korean celadon pottery vase with a glossy jade green crackle glaze, minimalist elegant composition, soft natural lighting highlighting the graceful curves, high detail, sharp focus, cultural heritage showcase, isolated on a clean white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_011",
-      "text": "Close-up commercial shot of a traditional Korean Norigae, featuring intricate silver filigree, a polished jade gemstone, and flowing colorful silk tassels, gentle diffused lighting, ultra-sharp details, isolated on a pure white background.",
+      "text": "Commercial catalog photography of a traditional Korean celadon ceramic vase, showcasing its exquisite jade green glaze and elegant crane inlay details, wide architectural-style presentation, bright and soft diffused lighting, ultra-sharp detail, isolated on a pure white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_light_stock_012",
-      "text": "A minimalist modern gradient background with a smooth, seamless transition of soft monochrome grey to white, ultra-high resolution texture, clean and elegant professional design asset, print-ready, isolated on a pure white background.",
+      "text": "A high-resolution graphic design asset of a centered abstract fluid art swirl, featuring an elegant marbled pattern in a soft pastel color palette of blush pink, mint, and lavender, sharp fine details, print-ready, modern aesthetic, isolated on a pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_013",
-      "text": "Elegant bokeh light background featuring soft, blurred golden and earthy circles, centered composition, high-resolution clean texture, professional design asset, ideal for overlays, isolated on a pure white background.",
+      "text": "High-resolution professional design asset of soft, ethereal bokeh light circles, gentle pastel color palette of pale gold, rose, and cream, seamless texture design, print-ready, elegant and airy, naturally transitioning into a pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_014",
-      "text": "Full-frame high-resolution texture of minimalist handmade white paper, showing subtle organic fiber details, clean monochrome palette, professional design asset, print-ready, isolated on a pure white background.",
+      "text": "Minimalist commercial design background of premium fine-textured handmade cotton paper, showcasing subtle organic fiber details and grain, monochrome off-white color palette, flat lay high-resolution macro texture, sharp and clean, print-ready, pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_015",
-      "text": "A clean, minimalist stripe pattern background featuring soft pastel stripes, flat design view, seamless repeating high-resolution texture, elegant and professional graphic asset, isolated on a pure white background.",
+      "text": "Seamless vector-style tileable polka dot pattern featuring charming soft pastel-colored circles arranged in a modern playful layout, high-resolution texture, sharp vector details, clean professional design asset, print-ready, set against a solid pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_016",
-      "text": "Adorable 3D render of a cute panda character wearing a sharp professional business suit and holding a tiny leather briefcase, close-up character portrait, bright cheerful studio lighting, vivid colors, highly detailed digital art, isolated on a pure white background.",
+      "text": "Majestic white fantasy unicorn with a shimmering silver horn and elegant flowing mane, soft magical glow and subtle misty sparkles fading into the clean studio background, highly detailed digital concept art, 45-degree angle view, vivid colors, sharp focus, isolated on a pure white background",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_017",
-      "text": "An enchanting tiny fairy with delicate translucent wings sitting gracefully on a spotted woodland mushroom, full body view, cool magical blue lighting, intricate details, vivid fantasy colors, high-end digital art, isolated on a pure white background.",
+      "text": "Highly detailed digital art of a wise old owl with fluffy feathers wearing a pair of tiny round gold reading glasses perched on its beak, intelligent eyes, cool fantasy blue accent lighting, cinematic lighting, sharp focus, concept art quality, isolated on a solid white background",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_018",
-      "text": "A whimsical tiny fairy with glowing wings sitting on a wild forest mushroom, full body view, warm golden hour lighting with sparkling magical dust particles, highly detailed fantasy digital art, isolated on a pure white background.",
+      "text": "Cute 3D digital illustration of a cheerful panda character dressed in a sharp, dapper business suit, holding a tiny leather briefcase, expressive friendly eyes, bright professional studio lighting, highly detailed textures, sharp focus, isolated on a clean white background",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_abstract_019",
-      "text": "Luxurious abstract liquid gold texture, full-frame view, shimmering metallic gold and bronze swirls, rich layered depth with glossy reflections, high-resolution seamless design asset, print-ready, professional commercial background.",
+      "text": "Full frame texture of an abstract 3D layered paper-cut design, featuring soft flowing curves and deep shadows in a pastel color palette of peach, cream, and soft teal, high-resolution seamless texture, professional design asset, sharp print-ready details",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_abstract_020",
-      "text": "Elegant abstract liquid gold background with a dynamic diagonal flowing wave composition, smooth metallic gold and warm bronze gradients, high-resolution seamless texture, professional graphic design asset.",
+      "text": "High-resolution full frame texture of abstract fluid acrylic paint with a vibrant marbled pattern, featuring bold swirls of royal blue, magenta, and gold, highly detailed liquid movement, professional design asset, sharp and print-ready",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg"
