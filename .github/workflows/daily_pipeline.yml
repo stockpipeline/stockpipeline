@@ -57,20 +57,70 @@ jobs:
       - name: Step 1 - Generate prompts
         run: python scripts/01_generate_prompts.py
 
+      - name: Commit after Step 1
+        if: always()
+        run: |
+          git config user.name "stock-pipeline-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "chore: step1 prompts $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase --autostash origin main || true
+          git push origin main || true
+
       - name: Step 2 - Generate images
         run: python scripts/02_generate_images.py
+
+      - name: Commit after Step 2
+        if: always()
+        run: |
+          git config user.name "stock-pipeline-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "chore: step2 images $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase --autostash origin main || true
+          git push origin main || true
 
       - name: Step 3 - Upscale & cutout
         if: success()
         run: python scripts/03_upscale_cutout.py
 
+      - name: Commit after Step 3
+        if: always()
+        run: |
+          git config user.name "stock-pipeline-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "chore: step3 upscale/cutout $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase --autostash origin main || true
+          git push origin main || true
+
       - name: Step 4 - Generate metadata
         if: success()
         run: python scripts/04_generate_metadata.py
 
+      - name: Commit after Step 4
+        if: always()
+        run: |
+          git config user.name "stock-pipeline-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "chore: step4 metadata $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase --autostash origin main || true
+          git push origin main || true
+
       - name: Step 5 - Save to Drive & queue for review
         if: success()
         run: python scripts/05_save_and_queue.py
+
+      - name: Commit after Step 5
+        if: always()
+        run: |
+          git config user.name "stock-pipeline-bot"
+          git config user.email "actions@github.com"
+          git add data/ thumbnails/
+          git diff --cached --quiet || git commit -m "chore: step5 review queue $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase --autostash origin main || true
+          git push origin main || true
 
       - name: Step 6 - Upload approved items
         if: success()
@@ -80,7 +130,7 @@ jobs:
         if: always()
         run: python scripts/07_check_platform_results.py
 
-      - name: Commit results back to repo
+      - name: Final commit (config + remaining data)
         if: always()
         run: |
           git config user.name "stock-pipeline-bot"
