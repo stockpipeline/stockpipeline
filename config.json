@@ -3,8 +3,8 @@
   "daily_prompt_count": 20,
   "target_upload_count": 10,
   "image": {
-    "generator": "pollinations_flux",
-    "fallback_generator": "pollinations_turbo",
+    "generator": "imagen4",
+    "fallback_chain": ["imagen4", "imagen4_fast", "imagen4_ultra"],
     "size": "1024x1024"
   },
   "upscale": {

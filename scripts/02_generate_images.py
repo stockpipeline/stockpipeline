@@ -2,23 +2,22 @@
 2단계: 이미지 생성 모듈
 
 흐름 (프롬프트 1개당):
-  1. Pollinations.ai Flux 모델로 생성 시도 (무료/무제한, 최대 3회)
-  2. 실패 시 Pollinations Turbo 모델로 폴백
-  3. 기술적 품질 필터 (밝기/흐림/색상 다양성)
-  4. Gemini Vision으로 AI 오류 체크
-  5. pHash 중복 체크
-  6. 품질/중복 실패 시 변형 폭을 늘려 재생성 (최대 3회)
-  7. 3회 모두 실패하면 해당 프롬프트는 건너뜀 (반려 카운트는 올리지 않음 - 이건 업로드 전 단계)
+  1. Imagen 4 (Generate → Fast → Ultra) 순으로 생성 시도
+     (Gemini API 무료 티어, 모델당 RPD 25, 합산 75/일)
+  2. 기술적 품질 필터 (밝기/흐림/색상 다양성)
+  3. Gemini Vision으로 AI 오류 체크
+  4. pHash 중복 체크
+  5. 품질/중복 실패 시 변형 폭을 늘려 재생성 (최대 3회)
+  6. 3회 모두 실패하면 해당 프롬프트는 건너뜀 (반려 카운트는 올리지 않음 - 이건 업로드 전 단계)
 
 성공한 이미지는 RAW_DIR에 저장되고 manifest.json에 메타가 기록된다.
 """
 
+import base64
 import io
 import os
-import random
 import sys
 import time
-import urllib.parse
 from pathlib import Path
 
 import numpy as np
@@ -33,80 +32,82 @@ from common import (
 )
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
-POLLINATIONS_API_KEY = os.environ.get("POLLINATIONS_API_KEY", "")
-
-# Pollinations.ai: Flux 모델은 무료/무제한 (MIT 라이선스 오픈소스 플랫폼)
-# 신규 통합 엔드포인트(gen.pollinations.ai)는 enter.pollinations.ai 게이트웨이를
-# 경유하여 sk_ 키 인증 시 IP당 rate limit이 적용되지 않는다.
-# (구 image.pollinations.ai/prompt/ 는 인증 없이 처리되어 IP당 큐 1개로 제한됨)
-POLLINATIONS_IMAGE_URL = "https://gen.pollinations.ai/image/"
-FLUX_MODEL = "flux"
-TURBO_MODEL = "turbo"  # 1차 실패 시 폴백 모델
 
 PHASH_DB_PATH = DATA_DIR / "phash_db.json"
 PERF_PATH = DATA_DIR / "prompt_performance.json"
 
 
-# ── Pollinations 이미지 생성 ─────────────────────────────
-class PollinationsFatalError(Exception):
-    """재시도해도 해결되지 않는 오류 (잔액부족/인증실패 등). 파이프라인 전체를 멈춰야 함."""
+# ── Imagen 4 이미지 생성 (Gemini API) ────────────────────
+class ImageGenFatalError(Exception):
+    """재시도해도 해결되지 않는 오류 (인증실패/권한오류 등). 파이프라인 전체를 멈춰야 함."""
     pass
 
 
-# 재시도해도 의미 없는 상태 코드: 401(인증실패), 402(결제필요/잔액부족), 403(권한없음)
-FATAL_STATUS_CODES = {401, 402, 403}
+# 재시도해도 의미 없는 상태 코드: 400(요청오류), 401/403(인증/권한)
+FATAL_STATUS_CODES = {400, 401, 403}
+
+IMAGEN_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models"
+
+# 무료 티어 RPD: 각 모델 25/일, 총 75/일.
+# 1차→2차→3차 순서로 폴백하며, 각 모델의 일일 한도를 넘으면 429가 발생해
+# 다음 모델로 넘어간다.
+IMAGEN_MODELS = [
+    ("imagen-4.0-generate-001", "imagen4"),
+    ("imagen-4.0-fast-generate-001", "imagen4_fast"),
+    ("imagen-4.0-ultra-generate-001", "imagen4_ultra"),
+]
 
 
-def call_pollinations(model: str, prompt: str, size: str, logger, seed: int = None):
+def call_imagen(model: str, prompt: str, size: str, logger):
     """
-    반환: (image_bytes, None) 성공
-          (None, None) 일시적 실패 (재시도 가능했지만 모두 실패)
-    PollinationsFatalError를 raise하면 잔액부족/인증오류 등 재시도 불가 상태.
+    반환: image_bytes (성공) 또는 None (해당 모델 사용 불가/일시적 실패)
+    ImageGenFatalError를 raise하면 모든 모델에서 동일하게 실패할
+    근본적 문제(인증 등)로, 파이프라인 전체를 멈춰야 함.
     """
     w, h = (int(x) for x in size.split("x"))
-    encoded_prompt = urllib.parse.quote(prompt[:2000])  # URL 길이 제한 대비
-    url = f"{POLLINATIONS_IMAGE_URL}{encoded_prompt}"
+    aspect_ratio = "1:1" if w == h else ("4:3" if w > h else "3:4")
 
-    params = {
-        "model": model,
-        "width": w,
-        "height": h,
-        "nologo": "true",
+    url = f"{IMAGEN_BASE_URL}/{model}:predict"
+    headers = {
+        "x-goog-api-key": GEMINI_API_KEY,
+        "Content-Type": "application/json",
     }
-    # 'safe' 파라미터는 일부 모델(turbo 등)에서 지원되지 않아 400을 유발할 수 있음
-    if model == FLUX_MODEL:
-        params["safe"] = "true"
-    if seed is not None:
-        params["seed"] = seed
-    if POLLINATIONS_API_KEY:
-        params["key"] = POLLINATIONS_API_KEY
+    body = {
+        "instances": [{"prompt": prompt[:1800]}],  # 480 토큰 제한 대비 여유
+        "parameters": {
+            "sampleCount": 1,
+            "aspectRatio": aspect_ratio,
+        },
+    }
 
-    headers = {}
-    if POLLINATIONS_API_KEY:
-        headers["Authorization"] = f"Bearer {POLLINATIONS_API_KEY}"
-
-    for attempt in range(3):
+    for attempt in range(2):
         try:
-            logger.info(f"Pollinations 요청 전송 ({model}, 시도 {attempt+1}/3)...")
-            res = requests.get(url, params=params, headers=headers, timeout=(15, 180))
-            if res.status_code == 200 and res.headers.get("content-type", "").startswith("image"):
-                return res.content
+            logger.info(f"Imagen 요청 전송 ({model}, 시도 {attempt+1}/2)...")
+            res = requests.post(url, headers=headers, json=body, timeout=(15, 180))
+
+            if res.status_code == 200:
+                data = res.json()
+                predictions = data.get("predictions", [])
+                if predictions and "bytesBase64Encoded" in predictions[0]:
+                    return base64.b64decode(predictions[0]["bytesBase64Encoded"])
+                logger.warn(f"Imagen 응답에 이미지 없음: {str(data)[:200]}")
+                return None
+
+            if res.status_code == 429:
+                # 해당 모델의 일일/분당 한도 초과 - 다음 모델로 폴백
+                logger.warn(f"Imagen {model} 429 (한도 초과) - 다음 모델로 폴백: {res.text[:150]}")
+                return None
 
             if res.status_code in FATAL_STATUS_CODES:
-                logger.error(f"Pollinations 치명적 오류 {res.status_code}: {res.text[:200]}")
-                raise PollinationsFatalError(f"{res.status_code}: {res.text[:200]}")
+                logger.error(f"Imagen 치명적 오류 {res.status_code}: {res.text[:300]}")
+                raise ImageGenFatalError(f"{model} {res.status_code}: {res.text[:300]}")
 
-            if res.status_code == 400:
-                logger.warn(f"Pollinations 400 (시도 {attempt+1}/3): {res.text[:400]}")
-                time.sleep(10)
-                continue
-
-            logger.warn(f"Pollinations 응답 오류 {res.status_code} (시도 {attempt+1}/3): {res.text[:150]}")
+            logger.warn(f"Imagen 응답 오류 {res.status_code} (시도 {attempt+1}/2): {res.text[:200]}")
             time.sleep(10)
-        except PollinationsFatalError:
+        except ImageGenFatalError:
             raise
         except requests.exceptions.RequestException as e:
-            logger.warn(f"Pollinations 요청 예외 (시도 {attempt+1}/3): {e}")
+            logger.warn(f"Imagen 요청 예외 (시도 {attempt+1}/2): {e}")
             time.sleep(10)
 
     return None
@@ -115,24 +116,20 @@ def call_pollinations(model: str, prompt: str, size: str, logger, seed: int = No
 def generate_image_bytes(prompt: str, config: dict, logger):
     """
     반환: (image_bytes, source_model)
-    PollinationsFatalError는 그대로 propagate되어 상위(main)에서
+    ImageGenFatalError는 그대로 propagate되어 상위(main)에서
     파이프라인 전체를 즉시 멈추는 신호로 쓰인다.
+
+    Imagen 4 Generate -> Fast -> Ultra 순서로 폴백.
+    각 모델은 무료 티어 RPD 25 (합산 75/일).
     """
     img_cfg = config["image"]
     size = img_cfg["size"]
-    seed = random.randint(1, 999_999_999)
 
-    # 1차: Flux
-    logger.info("Pollinations Flux 생성 시도")
-    data = call_pollinations(FLUX_MODEL, prompt, size, logger, seed=seed)
-    if data:
-        return data, "flux"
-
-    # 2차: Turbo 폴백
-    logger.warn("Flux 실패 → Turbo 폴백")
-    data = call_pollinations(TURBO_MODEL, prompt, size, logger, seed=seed)
-    if data:
-        return data, "turbo"
+    for model, source_name in IMAGEN_MODELS:
+        logger.info(f"Imagen 생성 시도 ({source_name})")
+        data = call_imagen(model, prompt, size, logger)
+        if data:
+            return data, source_name
 
     return None, None
 
@@ -332,16 +329,18 @@ def main():
 
     phash_db = cleanup_old_phashes(phash_db, config["storage"]["phash_retention_days"])
 
-    if not POLLINATIONS_API_KEY:
-        logger.warn("POLLINATIONS_API_KEY가 설정되지 않았습니다 (키 없이도 동작하지만 nologo/rate limit에 영향 가능)")
+    if not GEMINI_API_KEY:
+        logger.error("GEMINI_API_KEY가 설정되지 않았습니다")
+        logger.finalize("failed", {"stage": "image_generation", "error": "missing GEMINI_API_KEY"})
+        sys.exit(1)
 
     results = []
     fatal_error = None
     for p in today_prompts:
         try:
             r = process_one_prompt(p, config, phash_db, performance, logger)
-        except PollinationsFatalError as e:
-            logger.error(f"Pollinations 치명적 오류로 파이프라인 중단: {e}")
+        except ImageGenFatalError as e:
+            logger.error(f"Imagen 치명적 오류로 파이프라인 중단: {e}")
             fatal_error = str(e)
             break
         if r:
@@ -360,7 +359,7 @@ def main():
             "stage": "image_generation",
             "generated": success_count,
             "attempted": total_count,
-            "error": f"Pollinations 계정 문제 (잔액/인증) - 확인 필요: {fatal_error}",
+            "error": f"Imagen API 인증/요청 오류 - 확인 필요: {fatal_error}",
         })
         sys.exit(1)
 
