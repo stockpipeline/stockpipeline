@@ -136,6 +136,27 @@ def make_filename(prompt_id: str, variant: str, seq: int, ext: str) -> str:
     return f"img_{today_str()}_{prompt_id}_{variant}_{seq:03d}.{ext}"
 
 
+# ── Gemini 호출 공통 재시도 헬퍼 ──────────────────────────
+def gemini_generate_with_retry(model, contents, logger=None, max_retries=3, base_wait=65):
+    """
+    Gemini 무료 티어 분당 요청 한도(429) 대응.
+    429 발생 시 base_wait초 대기 후 재시도, max_retries회까지.
+    그 외 예외는 즉시 raise (호출부에서 처리).
+    """
+    import time as _time
+
+    for attempt in range(max_retries):
+        try:
+            return model.generate_content(contents)
+        except Exception as e:
+            if "429" in str(e) and attempt < max_retries - 1:
+                if logger:
+                    logger.warn(f"Gemini 429 (분당 한도) - {base_wait}초 대기 후 재시도 ({attempt+1}/{max_retries})")
+                _time.sleep(base_wait)
+                continue
+            raise
+
+
 if __name__ == "__main__":
     cfg = load_config()
     print("Config loaded OK. daily_prompt_count =", cfg["daily_prompt_count"])

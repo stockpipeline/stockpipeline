@@ -28,7 +28,8 @@ from huggingface_hub.errors import HfHubHTTPError
 sys.path.insert(0, str(Path(__file__).parent))
 from common import (
     DATA_DIR, RAW_DIR, load_config, load_json, save_json,
-    get_logger, prepare_work_dirs, make_filename, today_str
+    get_logger, prepare_work_dirs, make_filename, today_str,
+    gemini_generate_with_retry
 )
 
 HF_TOKEN = os.environ.get("HF_TOKEN", "")
@@ -156,20 +157,20 @@ def gemini_vision_check(img: Image.Image, logger) -> tuple:
 
     for attempt in range(2):
         try:
-            # 분당 요청 수 제한 완화를 위한 짧은 간격
-            time.sleep(2)
-            resp = model.generate_content([
-                {"role": "user", "parts": [prompt, {"mime_type": "image/png", "data": img_bytes}]}
-            ])
+            # 분당 요청 수 제한 완화를 위한 기본 간격
+            time.sleep(4)
+            resp = gemini_generate_with_retry(
+                model,
+                [{"role": "user", "parts": [prompt, {"mime_type": "image/png", "data": img_bytes}]}],
+                logger=logger,
+                max_retries=2,
+                base_wait=65,
+            )
             text = resp.text.strip().upper()
             if "FAIL" in text:
                 return False, "gemini vision flagged AI artifact"
             return True, "ok"
         except Exception as e:
-            if "429" in str(e) and attempt == 0:
-                logger.warn("Gemini 429 - 15초 대기 후 1회 재시도")
-                time.sleep(15)
-                continue
             logger.warn(f"Gemini Vision 체크 실패(통과 처리): {e}")
             return True, "vision check skipped"
 

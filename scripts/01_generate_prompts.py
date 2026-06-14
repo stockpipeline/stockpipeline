@@ -12,13 +12,15 @@ import json
 import random
 import re
 import sys
+import time
 from pathlib import Path
 
 import google.generativeai as genai
 
 sys.path.insert(0, str(Path(__file__).parent))
 from common import (
-    DATA_DIR, load_config, load_json, save_json, get_logger
+    DATA_DIR, load_config, load_json, save_json, get_logger,
+    gemini_generate_with_retry
 )
 
 TEMPLATES_PATH = DATA_DIR / "prompt_templates.json"
@@ -66,7 +68,7 @@ def build_skeleton(category: str, templates: dict, variation_level: int = 0) -> 
 
 
 # ── Gemini 보정 ────────────────────────────────────────
-def refine_with_gemini(model, skeleton: str, category: str) -> str:
+def refine_with_gemini(model, skeleton: str, category: str, logger=None) -> str:
     system = (
         "You are an expert Adobe Stock / Freepik prompt engineer. "
         "You will receive a draft image generation prompt (a 'skeleton'). "
@@ -82,7 +84,12 @@ def refine_with_gemini(model, skeleton: str, category: str) -> str:
     user = f"Category: {category}\nDraft skeleton: {skeleton}\n\nRefine this into the final prompt."
 
     try:
-        resp = model.generate_content([{"role": "user", "parts": [system + "\n\n" + user]}])
+        time.sleep(4)  # 분당 요청 수 제한 완화
+        resp = gemini_generate_with_retry(
+            model,
+            [{"role": "user", "parts": [system + "\n\n" + user]}],
+            logger=logger, max_retries=2, base_wait=65,
+        )
         text = resp.text.strip().strip('"')
         # 너무 짧거나 비어있으면 원본 사용
         if len(text) < 20:
@@ -169,7 +176,7 @@ def main():
         if quality_kw and quality_kw not in skeleton:
             skeleton = f"{skeleton}, {quality_kw}"
 
-        refined = refine_with_gemini(model, skeleton, category)
+        refined = refine_with_gemini(model, skeleton, category, logger)
         final_prompts.append({
             "prompt_id": p["id"],
             "text": refined,
@@ -192,7 +199,7 @@ def main():
                 idx += 1
                 var_level = random.choice([0, 0, 1])  # 기본 위주, 가끔 중간
                 sk = build_skeleton(category, templates, var_level)
-                refined = refine_with_gemini(model, sk["skeleton"], category)
+                refined = refine_with_gemini(model, sk["skeleton"], category, logger)
                 prompt_id = f"auto_{category}_{idx:03d}"
                 final_prompts.append({
                     "prompt_id": prompt_id,

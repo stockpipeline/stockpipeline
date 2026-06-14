@@ -17,6 +17,7 @@ import csv
 import io
 import os
 import sys
+import time
 from pathlib import Path
 
 import google.generativeai as genai
@@ -25,7 +26,8 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).parent))
 from common import (
     DATA_DIR, UPSCALED_DIR, CUTOUT_DIR,
-    load_config, load_json, save_json, get_logger, today_str
+    load_config, load_json, save_json, get_logger, today_str,
+    gemini_generate_with_retry
 )
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
@@ -47,7 +49,7 @@ def ensure_blacklist():
 
 
 # ── Gemini로 메타데이터 생성 ─────────────────────────────
-def generate_metadata(image_path: Path, prompt_text: str, category: str, model) -> dict:
+def generate_metadata(image_path: Path, prompt_text: str, category: str, model, logger=None) -> dict:
     img = Image.open(image_path).convert("RGB")
     buf = io.BytesIO()
     img.save(buf, format="JPEG", quality=85)
@@ -74,9 +76,12 @@ def generate_metadata(image_path: Path, prompt_text: str, category: str, model) 
     )
 
     try:
-        resp = model.generate_content([
-            {"role": "user", "parts": [system, {"mime_type": "image/jpeg", "data": buf.getvalue()}]}
-        ])
+        time.sleep(4)  # 분당 요청 수 제한 완화
+        resp = gemini_generate_with_retry(
+            model,
+            [{"role": "user", "parts": [system, {"mime_type": "image/jpeg", "data": buf.getvalue()}]}],
+            logger=logger, max_retries=2, base_wait=65,
+        )
         text = resp.text.strip()
         if text.startswith("```"):
             text = text.split("```")[1]
@@ -86,6 +91,8 @@ def generate_metadata(image_path: Path, prompt_text: str, category: str, model) 
         data = json.loads(text.strip())
         return data
     except Exception as e:
+        if logger:
+            logger.warn(f"메타데이터 생성 실패, 기본값 사용: {e}")
         # 폴백: 최소한의 기본 메타데이터
         return {
             "title": f"{category.replace('_', ' ').title()} - AI Generated Stock Image",
@@ -190,7 +197,7 @@ def main():
             logger.warn(f"파일 없음: {item['orig_jpg']}")
             continue
 
-        meta = generate_metadata(jpg_path, item.get("prompt_text", ""), item["tag"], model)
+        meta = generate_metadata(jpg_path, item.get("prompt_text", ""), item["tag"], model, logger)
         keywords = filter_keywords(meta.get("keywords", []), blacklist)
         title = meta.get("title", "AI Generated Stock Image")
 
