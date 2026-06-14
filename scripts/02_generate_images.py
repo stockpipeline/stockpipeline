@@ -104,8 +104,11 @@ def generate_image_bytes(prompt: str, config: dict, logger):
 
 
 # ── 기술적 품질 필터 ─────────────────────────────────────
-def technical_quality_check(img: Image.Image, config: dict) -> tuple:
-    qf = config["quality_filter"]
+def technical_quality_check(img: Image.Image, config: dict, category: str = None) -> tuple:
+    qf = dict(config["quality_filter"])
+    overrides = qf.get("category_overrides", {}).get(category, {})
+    qf.update(overrides)
+
     arr = np.array(img.convert("L"), dtype=np.float32)
 
     brightness = float(arr.mean())
@@ -226,7 +229,7 @@ def process_one_prompt(prompt_obj: dict, config: dict, phash_db: dict, performan
             continue
 
         # 1차 품질 필터
-        ok, reason = technical_quality_check(img, config)
+        ok, reason = technical_quality_check(img, config, prompt_obj.get("tag"))
         if not ok:
             logger.warn(f"[{prompt_id}] 품질 필터 탈락: {reason}")
             continue
