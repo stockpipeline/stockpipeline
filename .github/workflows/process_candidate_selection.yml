@@ -1,4 +1,4 @@
-name: Process Candidate Selection
+name: Process Dashboard Issues
 
 on:
   issues:
@@ -128,4 +128,64 @@ jobs:
               repo: context.repo.repo,
               issue_number: context.issue.number,
               body: '❌ 즐겨찾기 추가 중 오류가 발생했습니다. Actions 로그를 확인해주세요.'
+            });
+
+  process_review_decision:
+    if: contains(github.event.issue.labels.*.name, 'review-decision')
+    runs-on: ubuntu-latest
+    env:
+      ISSUE_BODY: ${{ github.event.issue.body }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt --break-system-packages
+
+      - name: Parse issue and update review_queue.json
+        run: python scripts/parse_review_issue.py
+
+      - name: Commit review_queue.json
+        if: success()
+        run: |
+          git config user.name "stock-pipeline-bot"
+          git config user.email "actions@github.com"
+          git add data/review_queue.json data/run_log.json
+          git diff --cached --quiet && echo "no changes" && exit 0
+          git commit -m "chore: review decisions from issue #${ISSUE_NUMBER}"
+          git pull --rebase --autostash origin main
+          git push origin main
+
+      - name: Comment and close issue (success)
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '✅ 검수 결과를 반영했습니다. "업로드" 워크플로우를 실행하면 승인된 항목이 업로드됩니다.'
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed'
+            });
+
+      - name: Comment on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '❌ 검수 결과 처리 중 오류가 발생했습니다. Actions 로그를 확인해주세요.'
             });

@@ -284,6 +284,9 @@
       <button class="btn btn-danger" onclick="bulkAction('rejected')">전체 반려</button>
     </div>
     <div class="review-grid" id="reviewGrid"></div>
+    <div style="display:flex;justify-content:center;margin:20px 0">
+      <button class="btn btn-primary" onclick="submitReviewDecisions()">검수 완료 → GitHub Issue 생성</button>
+    </div>
   </div>
 
   <!-- ══════════ 프롬프트 ══════════ -->
@@ -412,6 +415,9 @@ let DATA = {
 
 // 후보 선택 상태: { [prompt_id]: filename | 'skip' }
 let candidateSelections = {};
+
+// 검수 결정 상태: { [orig_jpg]: {status, reject_reason} }
+let reviewDecisions = {};
 
 async function fetchJSON(path) {
   try {
@@ -773,12 +779,12 @@ function reviewAction(idx, status, reason = null) {
   item.review_status = status;
   if (reason) item.reject_reason = reason;
 
-  showToast(status === 'approved' ? '승인됨' : '반려됨', status === 'approved' ? 'success' : 'error');
+  reviewDecisions[item.orig_jpg] = { status, reject_reason: reason };
+
+  showToast(status === 'approved' ? '승인됨 (아래 "검수 완료" 버튼으로 제출하세요)' : '반려됨 (아래 "검수 완료" 버튼으로 제출하세요)', status === 'approved' ? 'success' : 'error');
   updateReviewBadge();
   renderReview();
   renderDashboard();
-
-  showToast('변경사항은 GitHub에 자동 저장되지 않습니다 — "변경사항 저장" 안내 참고', 'success');
 }
 
 function bulkAction(status) {
@@ -786,13 +792,38 @@ function bulkAction(status) {
   items.forEach(i => {
     if (i.review_status === 'pending') {
       i.review_status = status;
-      if (status === 'rejected') i.reject_reason = 'other';
+      const reason = status === 'rejected' ? 'other' : null;
+      if (reason) i.reject_reason = reason;
+      reviewDecisions[i.orig_jpg] = { status, reject_reason: reason };
     }
   });
   updateReviewBadge();
   renderReview();
   renderDashboard();
-  showToast(status === 'approved' ? '전체 승인됨' : '전체 반려됨', 'success');
+  showToast((status === 'approved' ? '전체 승인됨' : '전체 반려됨') + ' (아래 "검수 완료" 버튼으로 제출하세요)', 'success');
+}
+
+function submitReviewDecisions() {
+  const decisions = Object.entries(reviewDecisions).map(([orig_jpg, d]) => ({
+    orig_jpg,
+    status: d.status,
+    ...(d.reject_reason ? { reject_reason: d.reject_reason } : {}),
+  }));
+
+  if (!decisions.length) {
+    showToast('아직 승인/반려 처리한 항목이 없습니다', 'error');
+    return;
+  }
+
+  const payload = { decisions };
+  const jsonText = '```json\n' + JSON.stringify(payload, null, 2) + '\n```';
+  const title = encodeURIComponent('[review-decision] 검수 결과');
+  const body = encodeURIComponent(jsonText);
+  const labels = encodeURIComponent('review-decision');
+
+  const url = `https://github.com/stockpipeline/stockpipeline/issues/new?title=${title}&body=${body}&labels=${labels}`;
+  window.open(url, '_blank');
+  showToast('새 탭에서 GitHub Issue 내용을 확인하고 Submit 버튼을 눌러주세요', 'success');
 }
 
 // ══════════════ 프롬프트 ══════════════

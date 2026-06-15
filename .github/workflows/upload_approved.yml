@@ -1,0 +1,61 @@
+name: Upload Approved Items
+
+# review-decision Issue가 처리되어 review_queue.json의 일부 항목이
+# "approved"가 된 후, 수동으로 실행합니다.
+#   Actions 탭 -> "Upload Approved Items" -> Run workflow
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      PIPELINE_WORK_DIR: ${{ github.workspace }}/work
+      ADOBE_FTP_HOST: ${{ secrets.ADOBE_FTP_HOST }}
+      ADOBE_FTP_USER: ${{ secrets.ADOBE_FTP_USER }}
+      ADOBE_FTP_PASS: ${{ secrets.ADOBE_FTP_PASS }}
+      FREEPIK_API_KEY: ${{ secrets.FREEPIK_API_KEY }}
+      GMAIL_SERVICE_ACCOUNT_JSON: ${{ secrets.GMAIL_SERVICE_ACCOUNT_JSON }}
+      GMAIL_USER: ${{ secrets.GMAIL_USER }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt --break-system-packages
+
+      - name: Step 6 - Upload approved items
+        run: python scripts/06_upload.py
+
+      - name: Commit after Step 6
+        if: always()
+        run: |
+          git config user.name "stock-pipeline-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "chore: step6 upload $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase --autostash origin main || true
+          git push origin main || true
+
+      - name: Step 7 - Check platform results (email parsing)
+        if: always()
+        run: python scripts/07_check_platform_results.py
+
+      - name: Final commit
+        if: always()
+        run: |
+          git config user.name "stock-pipeline-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --cached --quiet && echo "no changes" && exit 0
+          git commit -m "chore: upload run $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase --autostash origin main
+          git push origin main

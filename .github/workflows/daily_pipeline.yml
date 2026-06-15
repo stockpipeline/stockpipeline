@@ -1,35 +1,26 @@
-name: Daily Pipeline
+name: Daily Prompts
+
+# 01단계(프롬프트 생성)만 담당한다.
+# 이미지 생성은 Colab(colab/generate_images.ipynb, 사람이 실행)에서,
+# 03~05단계는 postprocess_selected.yml에서,
+# 06~07단계(업로드)는 upload_approved.yml에서 처리한다.
 
 on:
-  # ⚠️ 자동 스케줄 임시 비활성화 (Colab 기반 이미지 생성으로 전환 작업 중)
-  # 02단계가 Imagen 4 -> Colab/SDXL-Turbo 체계로 바뀌면서
-  # 워크플로우 구조 자체가 재설계되어야 함. 안정화 후 재활성화.
-  # schedule:
-  #   - cron: '0 18 * * *'
-  workflow_dispatch:  # 관리 페이지의 "지금 재시도" 버튼이 이걸 호출
+  schedule:
+    # 매일 한국시간(KST) 03:00 = UTC 18:00 (전날)
+    - cron: '0 18 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  run-pipeline:
+  generate-prompts:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 30
 
     env:
-      PIPELINE_WORK_DIR: ${{ github.workspace }}/work
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-      GOOGLE_DRIVE_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_FOLDER_ID }}
-      GMAIL_SERVICE_ACCOUNT_JSON: ${{ secrets.GMAIL_SERVICE_ACCOUNT_JSON }}
-      GMAIL_USER: ${{ secrets.GMAIL_USER }}
-      ADOBE_FTP_HOST: ${{ secrets.ADOBE_FTP_HOST }}
-      ADOBE_FTP_USER: ${{ secrets.ADOBE_FTP_USER }}
-      ADOBE_FTP_PASS: ${{ secrets.ADOBE_FTP_PASS }}
-      SHUTTERSTOCK_FTP_HOST: ${{ secrets.SHUTTERSTOCK_FTP_HOST }}
-      SHUTTERSTOCK_FTP_USER: ${{ secrets.SHUTTERSTOCK_FTP_USER }}
-      SHUTTERSTOCK_FTP_PASS: ${{ secrets.SHUTTERSTOCK_FTP_PASS }}
-      FREEPIK_API_KEY: ${{ secrets.FREEPIK_API_KEY }}
 
     steps:
       - name: Checkout
@@ -45,99 +36,16 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Install Real-ESRGAN (best-effort)
-        continue-on-error: true
-        run: |
-          wget -q https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesrgan-ncnn-vulkan-20220424-ubuntu.zip -O realesrgan.zip || true
-          if [ -f realesrgan.zip ]; then
-            unzip -o realesrgan.zip -d realesrgan_bin
-            sudo mv realesrgan_bin/realesrgan-ncnn-vulkan /usr/local/bin/ || true
-            sudo chmod +x /usr/local/bin/realesrgan-ncnn-vulkan || true
-          fi
-
       - name: Step 1 - Generate prompts
         run: python scripts/01_generate_prompts.py
 
-      - name: Commit after Step 1
+      - name: Commit results
         if: always()
         run: |
           git config user.name "stock-pipeline-bot"
           git config user.email "actions@github.com"
           git add data/
-          git diff --cached --quiet || git commit -m "chore: step1 prompts $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git pull --rebase --autostash origin main || true
-          git push origin main || true
-
-      - name: Step 2 - Generate images
-        run: python scripts/02_generate_images.py
-
-      - name: Commit after Step 2
-        if: always()
-        run: |
-          git config user.name "stock-pipeline-bot"
-          git config user.email "actions@github.com"
-          git add data/
-          git diff --cached --quiet || git commit -m "chore: step2 images $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git pull --rebase --autostash origin main || true
-          git push origin main || true
-
-      - name: Step 3 - Upscale & cutout
-        if: success()
-        run: python scripts/03_upscale_cutout.py
-
-      - name: Commit after Step 3
-        if: always()
-        run: |
-          git config user.name "stock-pipeline-bot"
-          git config user.email "actions@github.com"
-          git add data/
-          git diff --cached --quiet || git commit -m "chore: step3 upscale/cutout $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git pull --rebase --autostash origin main || true
-          git push origin main || true
-
-      - name: Step 4 - Generate metadata
-        if: success()
-        run: python scripts/04_generate_metadata.py
-
-      - name: Commit after Step 4
-        if: always()
-        run: |
-          git config user.name "stock-pipeline-bot"
-          git config user.email "actions@github.com"
-          git add data/
-          git diff --cached --quiet || git commit -m "chore: step4 metadata $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git pull --rebase --autostash origin main || true
-          git push origin main || true
-
-      - name: Step 5 - Save to Drive & queue for review
-        if: success()
-        run: python scripts/05_save_and_queue.py
-
-      - name: Commit after Step 5
-        if: always()
-        run: |
-          git config user.name "stock-pipeline-bot"
-          git config user.email "actions@github.com"
-          git add data/ thumbnails/
-          git diff --cached --quiet || git commit -m "chore: step5 review queue $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git pull --rebase --autostash origin main || true
-          git push origin main || true
-
-      - name: Step 6 - Upload approved items
-        if: success()
-        run: python scripts/06_upload.py
-
-      - name: Step 7 - Check platform results (email parsing)
-        if: always()
-        run: python scripts/07_check_platform_results.py
-
-      - name: Final commit (config + remaining data)
-        if: always()
-        run: |
-          git config user.name "stock-pipeline-bot"
-          git config user.email "actions@github.com"
-          git add data/ thumbnails/ config.json
           git diff --cached --quiet && echo "no changes" && exit 0
-          git commit -m "chore: pipeline run $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git commit -m "chore: daily prompts $(date -u +'%Y-%m-%d %H:%M UTC')"
           git pull --rebase --autostash origin main
           git push origin main
