@@ -1,0 +1,19 @@
+name: 정밀 재생성 요청
+description: 대시보드의 Candidates 탭에서 "🔍 정밀 재생성"을 누르면 이 양식이 자동으로 채워집니다. 내용을 확인하고 그대로 Submit 하세요.
+title: "[refine-request] 정밀 재생성 요청"
+labels:
+  - refine-request
+body:
+  - type: markdown
+    attributes:
+      value: |
+        대시보드에서 자동으로 채워진 JSON입니다. 직접 수정하지 말고 그대로 제출해주세요.
+        같은 프롬프트와 시드로, step 수를 높여서 더 정밀하게 다시 생성합니다.
+  - type: textarea
+    id: refine
+    attributes:
+      label: 재생성 요청 (JSON)
+      description: 자동으로 채워집니다.
+      render: json
+    validations:
+      required: true

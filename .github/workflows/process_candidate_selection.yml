@@ -189,3 +189,63 @@ jobs:
               issue_number: context.issue.number,
               body: '❌ 검수 결과 처리 중 오류가 발생했습니다. Actions 로그를 확인해주세요.'
             });
+
+  process_refine_request:
+    if: contains(github.event.issue.labels.*.name, 'refine-request')
+    runs-on: ubuntu-latest
+    env:
+      ISSUE_BODY: ${{ github.event.issue.body }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt --break-system-packages
+
+      - name: Parse issue and update refine_requests.json
+        run: python scripts/parse_refine_issue.py
+
+      - name: Commit refine_requests.json
+        if: success()
+        run: |
+          git config user.name "stock-pipeline-bot"
+          git config user.email "actions@github.com"
+          git add data/refine_requests.json data/run_log.json
+          git diff --cached --quiet && echo "no changes" && exit 0
+          git commit -m "chore: refine request from issue #${ISSUE_NUMBER}"
+          git pull --rebase --autostash origin main
+          git push origin main
+
+      - name: Comment and close issue (success)
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '🔍 정밀 재생성 요청을 등록했습니다. Colab 노트북의 "정밀 재생성" 셀을 실행해주세요.'
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed'
+            });
+
+      - name: Comment on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '❌ 정밀 재생성 요청 처리 중 오류가 발생했습니다. Actions 로그를 확인해주세요.'
+            });
