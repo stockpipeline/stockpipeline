@@ -105,6 +105,9 @@
   .candidate-option img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:var(--surface2)}
   .candidate-option input[type=radio]{position:absolute;top:6px;right:6px;width:18px;height:18px}
   .candidate-option.selected{border-color:var(--accent)}
+  .candidate-fav-btn{position:absolute;top:6px;left:6px;width:26px;height:26px;border:none;border-radius:6px;
+    background:rgba(0,0,0,.45);color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+  .candidate-fav-btn:hover{background:rgba(0,0,0,.7)}
   .candidate-skip{display:flex;align-items:center;justify-content:center;background:var(--surface2)}
   .candidate-skip-label{font-size:13px;color:var(--muted);padding:20px 0}
   .tag{font-size:10px;padding:2px 8px;border-radius:20px;font-weight:500;letter-spacing:.04em}
@@ -606,10 +609,19 @@ function renderCandidates() {
 
     const optionsHtml = images.map(img => {
       const isSelected = selected === img.filename;
+      const favData = {
+        prompt_id: g.prompt_id,
+        prompt_text: g.prompt_text || '',
+        tag: g.tag,
+        seed: img.seed,
+        inference_steps: img.inference_steps,
+        source_filename: img.filename,
+      };
       return `
         <label class="candidate-option ${isSelected ? 'selected' : ''}" onclick="selectCandidate('${esc(g.prompt_id)}','${esc(img.filename)}')">
           <img src="thumbnails/candidates/${esc(img.filename)}" loading="lazy" onclick="event.stopPropagation();openImgModal('thumbnails/candidates/${esc(img.filename)}')">
           <input type="radio" name="cand-${esc(g.prompt_id)}" ${isSelected ? 'checked' : ''}>
+          <button type="button" class="candidate-fav-btn" title="즐겨찾기에 추가 (프롬프트+시드 저장)" data-fav='${esc(JSON.stringify(favData))}' onclick="event.preventDefault();event.stopPropagation();addFavorite(this.dataset.fav)">⭐</button>
         </label>`;
     }).join('');
 
@@ -633,6 +645,25 @@ function renderCandidates() {
 function selectCandidate(promptId, filename) {
   candidateSelections[promptId] = filename;
   renderCandidates();
+}
+
+function addFavorite(favDataJson) {
+  let favData;
+  try {
+    favData = JSON.parse(favDataJson);
+  } catch (e) {
+    showToast('즐겨찾기 데이터 오류', 'error');
+    return;
+  }
+
+  const jsonText = '```json\n' + JSON.stringify(favData, null, 2) + '\n```';
+  const title = encodeURIComponent('[favorite-add] 즐겨찾기 추가');
+  const body = encodeURIComponent(jsonText);
+  const labels = encodeURIComponent('favorite-add');
+
+  const url = `https://github.com/stockpipeline/stockpipeline/issues/new?title=${title}&body=${body}&labels=${labels}`;
+  window.open(url, '_blank');
+  showToast('새 탭에서 GitHub Issue를 확인하고 Submit 버튼을 눌러주세요', 'success');
 }
 
 function submitCandidateSelections() {
@@ -930,7 +961,7 @@ function submitUploads() {
 
 // ══════════════ 유틸 ══════════════
 function esc(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 function showToast(msg, type='success') {
   const t = document.getElementById('toast');

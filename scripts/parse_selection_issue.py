@@ -79,17 +79,20 @@ def main():
             logger.warn(f"[{prompt_id}] candidates.json에 없는 prompt_id - 스킵")
             continue
 
-        valid_filenames = {img["filename"] for img in group.get("images", [])}
-        if filename not in valid_filenames:
+        valid_images = {img["filename"]: img for img in group.get("images", [])}
+        if filename not in valid_images:
             logger.warn(f"[{prompt_id}] {filename}이 후보 목록에 없음 - 스킵")
             continue
 
+        img_meta = valid_images[filename]
         enriched.append({
             "prompt_id": prompt_id,
             "filename": filename,
             "tag": group.get("tag"),
             "prompt_text": group.get("prompt_text", ""),
             "platform_form": group.get("platform_form", "jpg_or_png"),
+            "seed": img_meta.get("seed"),
+            "inference_steps": img_meta.get("inference_steps"),
         })
 
     save_json(DATA_DIR / "selections.json", {
