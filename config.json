@@ -25,6 +25,10 @@
       "abstract": {
         "max_brightness": 253,
         "min_color_variety": 8
+      },
+      "illustration": {
+        "max_brightness": 253,
+        "min_color_variety": 8
       }
     }
   },
@@ -33,10 +37,11 @@
     "max_retry": 3
   },
   "category_weights": {
-    "korean_food": 7,
+    "korean_food": 6,
     "korean_culture": 4,
-    "light_stock": 4,
-    "fantasy_animal": 3,
+    "korean_illustration": 3,
+    "light_stock": 3,
+    "fantasy_animal": 2,
     "abstract": 2
   },
   "prompt_evolution": {

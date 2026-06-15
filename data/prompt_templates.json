@@ -1,16 +1,14 @@
 {
   "_comment": "규칙 기반 프롬프트 템플릿. subject + composition + variation 조합으로 뼈대를 만들고 Gemini가 보정합니다.",
-
   "quality_keywords": {
     "korean_food": "professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
     "korean_culture": "high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
     "light_stock": "high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
     "fantasy_animal": "digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
-    "abstract": "high resolution texture, seamless pattern, professional design asset, sharp details, print ready, commercial use"
+    "abstract": "high resolution texture, seamless pattern, professional design asset, sharp details, print ready, commercial use",
+    "korean_illustration": "flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background"
   },
-
   "categories": {
-
     "korean_food": {
       "tag": "food",
       "platform_form": "jpg",
@@ -63,7 +61,6 @@
         "traditional brass bowl setting"
       ]
     },
-
     "korean_culture": {
       "tag": "other",
       "platform_form": "jpg",
@@ -106,7 +103,6 @@
         "ornate traditional decoration focus"
       ]
     },
-
     "light_stock": {
       "tag": "abstract",
       "platform_form": "jpg_or_png",
@@ -148,7 +144,6 @@
         "dynamic flowing composition"
       ]
     },
-
     "fantasy_animal": {
       "tag": "fantasy",
       "platform_form": "jpg_or_png",
@@ -190,7 +185,6 @@
         "vibrant fantasy color scheme"
       ]
     },
-
     "abstract": {
       "tag": "abstract",
       "platform_form": "jpg",
@@ -227,7 +221,48 @@
         "intricate complex pattern layering",
         "dynamic energetic flow"
       ]
+    },
+    "korean_illustration": {
+      "tag": "illustration",
+      "platform_form": "jpg_or_png",
+      "subjects": [
+        "A single bowl of Korean bibimbap, one dish only",
+        "A single plate of Korean kimchi, one dish only",
+        "A single bowl of Korean tteokbokki spicy rice cakes, one dish only",
+        "A single Korean hanbok dress on a hanger, one item only",
+        "A single Korean traditional tea cup with green tea, one item only",
+        "A single Korean palace gate (Gyeongbokgung style), one building",
+        "A single Korean fan (hanji paper fan), one item only",
+        "A single Korean lantern, one item only",
+        "A single bowl of Korean japchae noodles, one dish only",
+        "A single Korean mask (tal) for traditional dance, one item only",
+        "A single Korean celadon ceramic vase, one item only",
+        "A single Korean street food cart with tteokbokki, one subject"
+      ],
+      "compositions": [
+        "centered composition",
+        "flat lay from directly above",
+        "simple side view",
+        "three-quarter view"
+      ],
+      "variations_light": [
+        "flat design illustration style",
+        "minimalist flat vector illustration",
+        "modern flat icon style illustration",
+        "clean line art illustration with flat colors"
+      ],
+      "variations_detail": [
+        "soft pastel color palette",
+        "bold simple color blocks",
+        "subtle geometric shapes in background",
+        "thin outline strokes"
+      ],
+      "variations_strong": [
+        "retro flat illustration style with limited color palette",
+        "playful cartoon-flat illustration style",
+        "modern corporate flat illustration style",
+        "Scandinavian-inspired minimalist flat illustration"
+      ]
     }
-
   }
 }
