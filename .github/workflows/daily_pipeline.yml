@@ -10,6 +10,23 @@ on:
     # 매일 한국시간(KST) 03:00 = UTC 18:00 (전날)
     - cron: '0 18 * * *'
   workflow_dispatch:
+    inputs:
+      custom_topic:
+        description: '즉석 주제 (한글/영문 모두 가능, 비워두면 평소처럼 자동 선택만 진행)'
+        required: false
+        type: string
+      custom_topic_tag:
+        description: '즉석 주제의 카테고리 (메타데이터/필터에 사용)'
+        required: false
+        type: choice
+        default: 'other'
+        options:
+          - food
+          - korean_culture
+          - illustration
+          - fantasy
+          - abstract
+          - other
 
 permissions:
   contents: write
@@ -21,6 +38,8 @@ jobs:
 
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      CUSTOM_TOPIC: ${{ github.event.inputs.custom_topic }}
+      CUSTOM_TOPIC_TAG: ${{ github.event.inputs.custom_topic_tag }}
 
     steps:
       - name: Checkout

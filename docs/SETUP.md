@@ -71,11 +71,22 @@ Actions 탭 → "Deploy Dashboard" → Run workflow (수동 1회 실행)
 
 ## 5. 파이프라인 1회 테스트
 
-Actions 탭 → "Daily Pipeline" → Run workflow
+전체 흐름: Daily Prompts(자동) → Colab(이미지 생성) → 대시보드에서 후보 선택
+→ Post-process Selected Images(03~05단계) → 검수 → Upload Approved Items(06~07단계)
 
-처음에는 Secrets가 일부만 있으므로 이미지 생성까지만 진행되고
-업로드 단계는 자동 스킵됩니다 (로그에 "계정 정보 없음 - 스킵" 표시).
 review_queue.json에 항목이 쌓이는지 대시보드 "검수" 탭에서 확인하세요.
+
+### 검수 방법 2가지 (둘 다 사용 가능, 같은 review_queue.json을 갱신함)
+
+```
+A. 대시보드 "검수" 탭
+   - 썸네일을 보고 승인/반려 클릭 → "검수 완료" → GitHub Issue 제출
+
+B. GitHub Issue 알림 (모바일 친화적)
+   - postprocess 실행 시 항목별로 "[검수] ..." Issue가 자동 생성됨
+   - Issue에 이미지+제목+키워드가 표시됨
+   - 댓글에 `approve` 또는 `reject [이유]` 입력 → 자동 반영 + Issue 닫힘
+```
 
 ## 6. Google 서비스 계정 만들기 (Drive/Gmail 연동용)
 

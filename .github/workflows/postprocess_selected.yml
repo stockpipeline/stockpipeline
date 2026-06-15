@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   postprocess:
@@ -19,6 +20,8 @@ jobs:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
       GOOGLE_DRIVE_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_FOLDER_ID }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_REPOSITORY: ${{ github.repository }}
     steps:
       - uses: actions/checkout@v4
 
@@ -71,6 +74,20 @@ jobs:
       - name: Step 5 - Save to Drive & queue for review
         if: success()
         run: python scripts/05_save_and_queue.py
+
+      - name: Commit after Step 5
+        if: always()
+        run: |
+          git config user.name "stock-pipeline-bot"
+          git config user.email "actions@github.com"
+          git add data/ thumbnails/
+          git diff --cached --quiet || git commit -m "chore: step5 review queue (post-process) $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase --autostash origin main || true
+          git push origin main || true
+
+      - name: Create review Issues (optional, mobile-friendly review)
+        if: success()
+        run: python scripts/create_review_issues.py
 
       - name: Final commit
         if: always()

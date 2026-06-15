@@ -9,6 +9,7 @@
 """
 
 import json
+import os
 import random
 import re
 import sys
@@ -124,6 +125,10 @@ def refine_batch_with_gemini(model, items: list, logger=None) -> list:
         "- You MAY adjust adjectives, lighting words, composition wording, "
         "and minor decorative details.\n"
         "- Keep it isolated on a white background unless the skeleton says otherwise.\n"
+        "- If an item is written in Korean or is a short topic/keyword (not a full "
+        "English prompt), treat it as a subject description: translate/interpret it "
+        "and expand it into a full commercial English stock-photo prompt for that "
+        "subject (composition, lighting, isolated background, etc.).\n"
         "- Each output prompt must be ONE line.\n\n"
         f"Items:\n{numbered}\n\n"
         'Respond ONLY with JSON: {"prompts": ["refined prompt 1", "refined prompt 2", ...]} '
@@ -234,6 +239,21 @@ def main():
     logger.info(f"사용자 프롬프트 {len(user_selected)}개 선택됨")
 
     skeleton_items = []  # [{"prompt_id", "skeleton", "category", "source", "platform_form"}]
+
+    # 0) 즉석 주제 입력 (workflow_dispatch의 custom_topic) - 최우선 처리
+    custom_topic = os.environ.get("CUSTOM_TOPIC", "").strip()
+    if custom_topic:
+        custom_tag = os.environ.get("CUSTOM_TOPIC_TAG", "other").strip() or "other"
+        skeleton_items.append({
+            "prompt_id": "custom_topic_001",
+            "skeleton": custom_topic,
+            "category": custom_tag,
+            "source": "custom_topic",
+            "platform_form": "jpg_or_png",
+            "tag": custom_tag,
+        })
+        logger.info(f"즉석 주제 추가: {custom_topic[:60]} (tag={custom_tag})")
+
 
     for p in user_selected:
         skeleton = p["text"]

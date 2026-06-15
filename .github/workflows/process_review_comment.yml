@@ -1,0 +1,70 @@
+name: Process Review Comment
+
+# review-decision-item 라벨이 붙은 Issue에 'approve' 또는 'reject [이유]'
+# 댓글이 달리면, review_queue.json을 갱신하고 Issue를 닫는다.
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  process:
+    if: |
+      contains(github.event.issue.labels.*.name, 'review-decision-item') &&
+      (startsWith(github.event.comment.body, 'approve') ||
+       startsWith(github.event.comment.body, 'reject') ||
+       startsWith(github.event.comment.body, 'Approve') ||
+       startsWith(github.event.comment.body, 'Reject'))
+    runs-on: ubuntu-latest
+    env:
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+      COMMENT_BODY: ${{ github.event.comment.body }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt --break-system-packages
+
+      - name: Parse comment and update review_queue.json
+        run: python scripts/process_review_comment.py
+
+      - name: Commit review_queue.json
+        if: success()
+        run: |
+          git config user.name "stock-pipeline-bot"
+          git config user.email "actions@github.com"
+          git add data/review_queue.json data/run_log.json
+          git diff --cached --quiet && echo "no changes" && exit 0
+          git commit -m "chore: review decision via comment on issue #${ISSUE_NUMBER}"
+          git pull --rebase --autostash origin main
+          git push origin main
+
+      - name: React and close issue
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.comment.body.toLowerCase();
+            const isApprove = body.startsWith('approve');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: isApprove
+                ? '✅ 승인되었습니다. "Upload Approved Items" 워크플로우 실행 시 업로드됩니다.'
+                : '🚫 반려되었습니다.'
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed'
+            });

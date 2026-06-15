@@ -162,6 +162,7 @@ def main():
             "prompt_id": item["prompt_id"],
             "tag": item["tag"],
             "title": item["title"],
+            "keywords": item.get("keywords", []),
             "orig_jpg": item["orig_jpg"],
             "cutout_png": item["cutout_png"],
             "thumb_orig": f"{date_str}/{thumb_jpg}" if thumb_jpg else None,
@@ -175,6 +176,7 @@ def main():
             "review_status": "pending",  # pending | approved | rejected
             "reject_reason": None,
             "date": date_str,
+            "review_issue_number": None,  # Issue 알림 방식 사용 시 채워짐
         })
 
     # 30일 지난 썸네일 정리
