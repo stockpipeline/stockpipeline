@@ -1,6 +1,9 @@
 """
 3단계: 업스케일 + 누끼(배경 제거) + EXIF 정리
 
+입력: data/selections.json (대시보드에서 선택된 후보 이미지 목록)
+      원본 파일은 data/candidates_raw/ 에 있음 (Colab이 push한 것)
+
 흐름 (이미지 1장당):
   1. Real-ESRGAN으로 4배 업스케일 (1024 -> 4096, 16MP)
      - realesrgan-ncnn-vulkan 바이너리가 없으면 Pillow 리사이즈로 폴백
@@ -19,9 +22,10 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).parent))
 from common import (
     DATA_DIR, RAW_DIR, UPSCALED_DIR, CUTOUT_DIR,
-    load_config, load_json, save_json, get_logger, today_str
+    load_config, load_json, save_json, get_logger, today_str, prepare_work_dirs
 )
 
+CANDIDATES_RAW_DIR = DATA_DIR / "candidates_raw"
 REALESRGAN_BIN = "realesrgan-ncnn-vulkan"  # PATH에 있으면 사용, 없으면 폴백
 
 
@@ -84,14 +88,23 @@ def remove_background(img: Image.Image, logger) -> Image.Image:
 
 # ── 메인 처리: 이미지 1장 ───────────────────────────────
 def process_one_image(item: dict, config: dict, logger) -> dict:
+    """
+    item: selections.json의 한 항목
+          {"prompt_id":..., "filename":"img_{date}_{prompt_id}_cand_{seq}.png",
+           "tag":..., "prompt_text":..., "platform_form":...}
+    """
     filename = item["filename"]
-    raw_path = RAW_DIR / filename
+    raw_path = CANDIDATES_RAW_DIR / filename
     if not raw_path.exists():
-        logger.warn(f"원본 파일 없음: {filename}")
+        logger.warn(f"후보 원본 파일 없음: {filename}")
         return None
 
-    base_name = filename.rsplit("_orig_", 1)[0]  # img_YYYYMMDD_promptID
-    seq = filename.rsplit("_", 1)[1].split(".")[0]  # 001
+    # img_{date}_{prompt_id}_cand_{seq}.png -> base_name, seq
+    stem = filename.rsplit(".", 1)[0]
+    if "_cand_" not in stem:
+        logger.warn(f"예상치 못한 파일명 형식: {filename}")
+        return None
+    base_name, seq = stem.rsplit("_cand_", 1)
 
     # 1) 업스케일
     upscaled_png = UPSCALED_DIR / f"{base_name}_orig_{seq}.png"
@@ -129,16 +142,17 @@ def process_one_image(item: dict, config: dict, logger) -> dict:
 def main():
     logger = get_logger()
     config = load_config()
+    prepare_work_dirs()
 
-    generated = load_json(DATA_DIR / "generated_images.json", default={"images": []})["images"]
+    selections = load_json(DATA_DIR / "selections.json", default={"selections": []})["selections"]
 
-    if not generated:
-        logger.warn("처리할 이미지가 없습니다")
+    if not selections:
+        logger.warn("처리할 선택 항목이 없습니다 (data/selections.json)")
         logger.finalize("partial", {"stage": "upscale_cutout", "processed": 0})
         return
 
     results = []
-    for item in generated:
+    for item in selections:
         try:
             r = process_one_image(item, config, logger)
         except Exception as e:
@@ -150,7 +164,7 @@ def main():
     save_json(DATA_DIR / "processed_images.json", {"images": results})
 
     success = len(results)
-    total = len(generated)
+    total = len(selections)
     logger.info(f"업스케일/누끼 완료: {success}/{total}")
 
     status = "success" if success == total else "partial"

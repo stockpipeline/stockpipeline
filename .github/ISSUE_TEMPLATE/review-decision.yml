@@ -1,0 +1,18 @@
+name: 최종 검수 결과 제출
+description: 대시보드의 Review 탭에서 "검수 완료"를 누르면 이 양식이 자동으로 채워집니다. 내용을 확인하고 그대로 Submit 하세요.
+title: "[review-decision] 검수 결과"
+labels:
+  - review-decision
+body:
+  - type: markdown
+    attributes:
+      value: |
+        대시보드에서 자동으로 채워진 JSON입니다. 직접 수정하지 말고 그대로 제출해주세요.
+  - type: textarea
+    id: decisions
+    attributes:
+      label: 검수 결과 (JSON)
+      description: 자동으로 채워집니다.
+      render: json
+    validations:
+      required: true

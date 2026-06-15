@@ -98,6 +98,15 @@
   .review-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
   .review-actions{display:flex;gap:6px}
   .review-actions .btn{flex:1}
+
+  /* ── 후보 선택 ── */
+  .candidate-options{display:flex;gap:10px;flex-wrap:wrap}
+  .candidate-option{position:relative;width:140px;border:2px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;transition:border-color .15s}
+  .candidate-option img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:var(--surface2)}
+  .candidate-option input[type=radio]{position:absolute;top:6px;right:6px;width:18px;height:18px}
+  .candidate-option.selected{border-color:var(--accent)}
+  .candidate-skip{display:flex;align-items:center;justify-content:center;background:var(--surface2)}
+  .candidate-skip-label{font-size:13px;color:var(--muted);padding:20px 0}
   .tag{font-size:10px;padding:2px 8px;border-radius:20px;font-weight:500;letter-spacing:.04em}
   .tag-food{background:rgba(251,191,36,.12);color:var(--yellow)}
   .tag-fantasy{background:rgba(124,106,247,.15);color:var(--accent)}
@@ -219,6 +228,7 @@
   <div class="logo">▸ STOCK_PIPELINE</div>
   <div class="header-tabs">
     <div class="header-tab active" data-page="dashboard" onclick="switchPage('dashboard',this)">대시보드</div>
+    <div class="header-tab" data-page="candidates" onclick="switchPage('candidates',this)">후보 선택<span class="header-badge" id="candidatesBadge" style="display:none"></span></div>
     <div class="header-tab" data-page="review" onclick="switchPage('review',this)">검수<span class="header-badge" id="reviewBadge" style="display:none"></span></div>
     <div class="header-tab" data-page="prompts" onclick="switchPage('prompts',this)">프롬프트</div>
     <div class="header-tab" data-page="platforms" onclick="switchPage('platforms',this)">플랫폼</div>
@@ -245,6 +255,22 @@
       <div id="recentLogs" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);line-height:1.8;max-height:200px;overflow-y:auto"></div>
     </div>
 
+  </div>
+
+  <!-- ══════════ 후보 선택 ══════════ -->
+  <div class="page" id="page-candidates">
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-title">후보 선택 안내</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.6">
+        Colab에서 생성된 후보 이미지들입니다. 프롬프트별로 가장 좋은 것을 하나 선택하거나,
+        마음에 드는 게 없으면 "스킵"을 선택하세요. 선택을 마치면 아래 "선택 완료" 버튼을 눌러
+        GitHub Issue를 생성합니다 (새 탭에서 내용 확인 후 Submit 버튼만 누르면 됩니다).
+      </div>
+    </div>
+    <div id="candidatesGrid"></div>
+    <div style="display:flex;justify-content:center;margin:20px 0">
+      <button class="btn btn-primary" onclick="submitCandidateSelections()">선택 완료 → GitHub Issue 생성</button>
+    </div>
   </div>
 
   <!-- ══════════ 검수 ══════════ -->
@@ -374,11 +400,15 @@ if (sessionStorage.getItem('authed') === '1') {
 let DATA = {
   runLog: { history: [] },
   reviewQueue: { items: [] },
+  candidates: { groups: [] },
   prompts: { prompts: [] },
   performance: {},
   config: {},
   policy: { pages: {} },
 };
+
+// 후보 선택 상태: { [prompt_id]: filename | 'skip' }
+let candidateSelections = {};
 
 async function fetchJSON(path) {
   try {
@@ -391,9 +421,10 @@ async function fetchJSON(path) {
 }
 
 async function loadAllData() {
-  const [runLog, reviewQueue, prompts, performance, config, policy] = await Promise.all([
+  const [runLog, reviewQueue, candidates, prompts, performance, config, policy] = await Promise.all([
     fetchJSON('data/run_log.json'),
     fetchJSON('data/review_queue.json'),
+    fetchJSON('data/candidates.json'),
     fetchJSON('data/prompts.json'),
     fetchJSON('data/prompt_performance.json'),
     fetchJSON('data/config.json'),
@@ -401,6 +432,7 @@ async function loadAllData() {
   ]);
   if (runLog) DATA.runLog = runLog;
   if (reviewQueue) DATA.reviewQueue = reviewQueue;
+  if (candidates) DATA.candidates = candidates;
   if (prompts) DATA.prompts = prompts;
   if (performance) DATA.performance = performance;
   if (config) DATA.config = config;
@@ -413,6 +445,7 @@ function switchPage(name, el) {
   document.querySelectorAll('.header-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
   el.classList.add('active');
+  if (name === 'candidates') renderCandidates();
   if (name === 'review') renderReview();
   if (name === 'prompts') renderPrompts();
   if (name === 'platforms') renderPlatforms();
@@ -423,6 +456,7 @@ async function initApp() {
   await loadAllData();
   renderDashboard();
   updateReviewBadge();
+  updateCandidatesBadge();
 }
 
 // ══════════════ 대시보드 ══════════════
@@ -531,6 +565,105 @@ function updateReviewBadge() {
   }
 }
 
+// ══════════════ 후보 선택 ══════════════
+const TAG_LABELS_ALL = {food:'🍜 음식',fantasy:'🐉 판타지',nature:'🌿 자연',business:'💼 비즈니스',abstract:'🎨 추상',illustration:'🎨 일러스트',other:'📦 기타'};
+
+function updateCandidatesBadge() {
+  const groups = DATA.candidates.groups || [];
+  const withCandidates = groups.filter(g => (g.images || []).length > 0).length;
+  const badge = document.getElementById('candidatesBadge');
+  if (withCandidates > 0) {
+    badge.textContent = withCandidates;
+    badge.style.display = 'inline-block';
+  } else {
+    badge.style.display = 'none';
+  }
+}
+
+function renderCandidates() {
+  const groups = DATA.candidates.groups || [];
+  const grid = document.getElementById('candidatesGrid');
+
+  if (!groups.length) {
+    grid.innerHTML = `<div class="empty"><div class="empty-icon">🖼</div><div>아직 생성된 후보가 없습니다. Colab 노트북을 실행해주세요.</div></div>`;
+    return;
+  }
+
+  grid.innerHTML = groups.map(g => {
+    const images = g.images || [];
+    const tagLabel = TAG_LABELS_ALL[g.tag] || g.tag;
+
+    if (!images.length) {
+      return `
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-title">${esc(g.prompt_id)} <span class="tag tag-${g.tag}">${tagLabel}</span></div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:8px">${esc(g.prompt_text || '')}</div>
+        <div class="empty" style="padding:20px"><div>이 프롬프트는 필터를 통과한 후보가 없습니다 (자동 스킵)</div></div>
+      </div>`;
+    }
+
+    const selected = candidateSelections[g.prompt_id];
+
+    const optionsHtml = images.map(img => {
+      const isSelected = selected === img.filename;
+      return `
+        <label class="candidate-option ${isSelected ? 'selected' : ''}" onclick="selectCandidate('${esc(g.prompt_id)}','${esc(img.filename)}')">
+          <img src="thumbnails/candidates/${esc(img.filename)}" loading="lazy" onclick="event.stopPropagation();openImgModal('thumbnails/candidates/${esc(img.filename)}')">
+          <input type="radio" name="cand-${esc(g.prompt_id)}" ${isSelected ? 'checked' : ''}>
+        </label>`;
+    }).join('');
+
+    const skipSelected = selected === 'skip';
+
+    return `
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-title">${esc(g.prompt_id)} <span class="tag tag-${g.tag}">${tagLabel}</span></div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:8px">${esc(g.prompt_text || '')}</div>
+      <div class="candidate-options">
+        ${optionsHtml}
+        <label class="candidate-option candidate-skip ${skipSelected ? 'selected' : ''}" onclick="selectCandidate('${esc(g.prompt_id)}','skip')">
+          <div class="candidate-skip-label">스킵</div>
+          <input type="radio" name="cand-${esc(g.prompt_id)}" ${skipSelected ? 'checked' : ''}>
+        </label>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function selectCandidate(promptId, filename) {
+  candidateSelections[promptId] = filename;
+  renderCandidates();
+}
+
+function submitCandidateSelections() {
+  const groups = DATA.candidates.groups || [];
+  const groupsWithImages = groups.filter(g => (g.images || []).length > 0);
+
+  const missing = groupsWithImages.filter(g => !candidateSelections[g.prompt_id]);
+  if (missing.length > 0) {
+    showToast(`아직 선택하지 않은 항목이 ${missing.length}개 있습니다`, 'error');
+    return;
+  }
+
+  const selections = groupsWithImages
+    .filter(g => candidateSelections[g.prompt_id] !== 'skip')
+    .map(g => ({ prompt_id: g.prompt_id, filename: candidateSelections[g.prompt_id] }));
+
+  const payload = {
+    date: DATA.candidates.date || null,
+    selections: selections,
+  };
+
+  const jsonText = '```json\n' + JSON.stringify(payload, null, 2) + '\n```';
+  const title = encodeURIComponent('[candidate-selection] 선택 결과');
+  const body = encodeURIComponent(jsonText);
+  const labels = encodeURIComponent('candidate-selection');
+
+  const url = `https://github.com/stockpipeline/stockpipeline/issues/new?title=${title}&body=${body}&labels=${labels}`;
+  window.open(url, '_blank');
+  showToast('새 탭에서 GitHub Issue 내용을 확인하고 Submit 버튼을 눌러주세요', 'success');
+}
+
 // ══════════════ 검수 ══════════════
 function renderReview() {
   const items = DATA.reviewQueue.items || [];
@@ -550,7 +683,7 @@ function renderReview() {
     return;
   }
 
-  const tagLabels = {food:'🍜 음식',fantasy:'🐉 판타지',nature:'🌿 자연',business:'💼 비즈니스',abstract:'🎨 추상',other:'📦 기타'};
+  const tagLabels = {food:'🍜 음식',fantasy:'🐉 판타지',nature:'🌿 자연',business:'💼 비즈니스',abstract:'🎨 추상',illustration:'🎨 일러스트',other:'📦 기타'};
 
   grid.innerHTML = pending.map((item, idx) => {
     const thumb = item.thumb_orig
@@ -647,7 +780,7 @@ function renderPrompts() {
     return;
   }
 
-  const tagLabels = {food:'🍜 음식',fantasy:'🐉 판타지',nature:'🌿 자연',business:'💼 비즈니스',abstract:'🎨 추상',other:'📦 기타'};
+  const tagLabels = {food:'🍜 음식',fantasy:'🐉 판타지',nature:'🌿 자연',business:'💼 비즈니스',abstract:'🎨 추상',illustration:'🎨 일러스트',other:'📦 기타'};
 
   list.innerHTML = prompts.map((p, idx) => {
     const perf = DATA.performance[p.id] || {};

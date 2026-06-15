@@ -1,0 +1,84 @@
+name: Post-process Selected Images
+
+# 대시보드에서 candidate-selection Issue가 처리되어
+# data/selections.json이 갱신된 후, 수동으로 실행합니다.
+#   Actions 탭 -> "Post-process Selected Images" -> Run workflow
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  postprocess:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      PIPELINE_WORK_DIR: ${{ github.workspace }}/work
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+      GOOGLE_DRIVE_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_FOLDER_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt --break-system-packages
+
+      - name: Check selections.json exists and has items
+        id: check
+        run: |
+          COUNT=$(python3 -c "import json; print(len(json.load(open('data/selections.json')).get('selections', [])))")
+          echo "선택된 항목: ${COUNT}개"
+          if [ "$COUNT" -gt 0 ]; then
+            echo "has_items=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_items=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Step 3 - Upscale & cutout
+        if: steps.check.outputs.has_items == 'true'
+        run: python scripts/03_upscale_cutout.py
+
+      - name: Commit after Step 3
+        if: always()
+        run: |
+          git config user.name "stock-pipeline-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "chore: step3 upscale/cutout (post-process) $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase --autostash origin main || true
+          git push origin main || true
+
+      - name: Step 4 - Generate metadata
+        if: success()
+        run: python scripts/04_generate_metadata.py
+
+      - name: Commit after Step 4
+        if: always()
+        run: |
+          git config user.name "stock-pipeline-bot"
+          git config user.email "actions@github.com"
+          git add data/ thumbnails/
+          git diff --cached --quiet || git commit -m "chore: step4 metadata (post-process) $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase --autostash origin main || true
+          git push origin main || true
+
+      - name: Step 5 - Save to Drive & queue for review
+        if: success()
+        run: python scripts/05_save_and_queue.py
+
+      - name: Final commit
+        if: always()
+        run: |
+          git config user.name "stock-pipeline-bot"
+          git config user.email "actions@github.com"
+          git add data/ thumbnails/
+          git diff --cached --quiet && echo "no changes" && exit 0
+          git commit -m "chore: post-process run $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase --autostash origin main
+          git push origin main
