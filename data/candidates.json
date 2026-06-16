@@ -1,13 +1,4 @@
 {
-  "date": "20260615",
-  "test_mode": true,
-  "groups": [
-    {
-      "prompt_id": "auto_korean_food_001",
-      "tag": "food",
-      "platform_form": "jpg",
-      "prompt_text": "Korean Banchan side dishes assortment on small plates, close-up macro shot, natural window lighting, fresh garnish visible, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
-      "images": []
-    }
-  ]
+  "date": null,
+  "groups": []
 }
