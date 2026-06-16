@@ -139,6 +139,13 @@
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg"
+    },
+    {
+      "prompt_id": "custom_topic_001",
+      "text": "Professional studio food photography of a steaming bowl of authentic Korean Yukgaejang (spicy beef soup). The traditional ceramic bowl is filled with a rich, vibrant red spicy broth, tender shredded beef, fresh green scallions, and bean sprouts. High-end commercial styling, delicious steam rising gently, bright and clean studio lighting highlighting the rich textures, sharp focus, isolated on a seamless pure white background.",
+      "tag": "food",
+      "source": "custom_topic_dashboard",
+      "platform_form": "jpg_or_png"
     }
   ]
 }
