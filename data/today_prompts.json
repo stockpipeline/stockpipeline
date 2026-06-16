@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "A professional food photography shot of Korean Japchae, glossy sweet potato glass noodles tossed with colorful julienned carrots, spinach, shiitake mushrooms, and toasted sesame seeds, served in a modern white ceramic bowl, close-up macro angle, bright even studio lighting, subtle moisture droplets on fresh ingredients, shallow depth of field, ultra-sharp details, high commercial quality, isolated on a pure white background.",
+      "text": "Professional food photography of authentic Korean Doenjang Jjigae soybean paste stew bubbling hot inside a traditional black earthenware Ttukbaegi pot, garnished with fresh green scallions and red chili peppers, high-angle studio shot, soft shadows, condensation droplets, ultra-sharp detail, isolated on a clean white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "Professional food photography of Korean Sundubu Jjigae, a bubbling soft tofu stew with a vibrant red chili broth, served in a traditional red earthenware bowl, slightly elevated angle view, warm professional studio lighting with gentle rising steam, realistic texture of silky tofu and green onions, glossy surface, shallow depth of field, ultra-sharp commercial stock photo, isolated on a pure white background.",
+      "text": "Commercial food photography of grilled Korean Samgyeopsal pork belly slices, perfectly caramelized and glistening, served alongside fresh crisp green lettuce leaves and golden roasted garlic cloves, gentle steam rising, 45-degree angle, professional studio lighting, macro details, isolated on a pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "Glistening Korean Galbi grilled beef short ribs with distinct charcoal grill marks, arranged beautifully for a premium look, close-up macro shot, soft natural window lighting combined with professional studio highlights, rich caramelized glaze, sprinkled with sesame seeds and chopped green scallions, shallow depth of field, 85mm lens, commercial food styling, ultra-sharp details, isolated on a clean white background.",
+      "text": "Vibrant studio food photography of Korean Tteokbokki, chewy cylindrical rice cakes coated in a glossy, rich red spicy sauce, served in a minimalist white ceramic bowl, garnished with toasted sesame seeds and sliced scallions, 45-degree angle, soft professional diffused lighting, high-end commercial quality, isolated on a solid white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "An exquisite Korean Jokduri, a traditional bridal headpiece, featuring intricate colorful silk embroidery, delicate hanging beads, and golden ornaments, close-up detail shot, bright and even professional studio lighting, high-fidelity textures of the fabric and gems, sharp focus, culturally authentic, clean commercial studio photography, isolated on a seamless white background.",
+      "text": "Elegant commercial product shot of a traditional Korean tea set, featuring a minimalist white ceramic teapot and two delicate matching teacups on a clean surface, gentle steam rising, soft natural diffused light, exquisite ceramic texture, high-detail macro photography, isolated on a pure white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "A traditional Korean wooden lattice window frame (Hanok architecture) featuring intricate geometric patterns with translucent Hanji paper, shot at a 45-degree angle view, illuminated by warm afternoon sunlight casting soft shadows, highly detailed wood grain, commercial architectural photography, sharp focus, authentic cultural asset, isolated on a pure white background.",
+      "text": "An elegant architectural element of traditional Korean Hanok clay roof tiles with beautifully curved dark eaves, captured in warm golden afternoon sunlight, clean geometric lines, high-detail texture, studio-style clean presentation, isolated on a seamless white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "A minimalist flat vector illustration of a single traditional Korean mask (Tal) used for folk dance, profile side view, clean geometric shapes, minimalist graphic design, vibrant traditional color palette, no clutter, high-resolution commercial vector asset style, isolated on a plain solid white background.",
+      "text": "Minimalist flat vector illustration of a traditional Korean street food cart selling tteokbokki and odeng, clean graphic design, pastel color palette, simple geometric shapes, modern 2D vector style, no shadows, isolated on a solid white background.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "A clean flat design vector illustration of a traditional Korean mask (Tal), shown in a three-quarter view, minimalist graphic illustration style with smooth curves and distinct bold shapes, rich traditional colors, crisp lines, single subject with no clutter, high-resolution commercial design asset, isolated on a solid white background.",
+      "text": "A clean, minimalist flat vector illustration of a grand Korean palace gate inspired by Gyeongbokgung, centered composition, symmetric architectural design, vibrant traditional Dancheong colors, modern vector icon style, isolated on a plain white background.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "A modern minimalist abstract card with a smooth, vibrant gradient color transition, featuring a bold and warm color palette with subtle paper texture details, centered composition, professional graphic design asset, crisp sharp details, high resolution, isolated on a pure white background.",
+      "text": "A high-resolution commercial background of soft pastel bokeh lights, featuring delicate, semi-transparent blurred glowing circles fading elegantly into a pure white background, dreamy and ethereal aesthetic, perfect for graphic design overlays.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "A beautiful minimalist watercolor texture wash in soft pastel and muted earthy tones, artistic hand-painted splash with elegant paper grain texture, centered composition, professional seamless design asset, high-resolution details, print-ready, clean commercial look, isolated on a pure white background.",
+      "text": "An elegant monochrome bokeh background with soft, blurred circular light leaks in shades of grey, silver, and charcoal, centered composition fading gracefully towards the edges, clean professional design asset, isolated on a pure white background.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "A highly detailed digital art illustration of a cute baby fantasy fox sitting amidst a small pile of colorful autumn leaves, full-body view, soft magical glow highlighting its fluffy orange fur and expressive eyes, cinematic warm lighting, vivid colors, sharp focus, concept art quality, professionally rendered, isolated on a pure white background.",
+      "text": "A mesmerizing, highly-detailed magical floating crystal glowing with a soft internal celestial light and surrounded by tiny sparkling dust particles, 45-degree angle, vibrant magenta and teal hues, sharp facets reflecting light, 3D render concept art style, isolated on a pure white background.",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
