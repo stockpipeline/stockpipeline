@@ -1,0 +1,19 @@
+name: 즉석 주제 추가
+description: 대시보드의 프롬프트 탭에서 "이 주제로 생성 요청"을 누르면 이 양식이 자동으로 채워집니다. 내용을 확인하고 그대로 Submit 하세요.
+title: "[custom-topic-request] 즉석 주제 추가"
+labels:
+  - custom-topic-request
+body:
+  - type: markdown
+    attributes:
+      value: |
+        대시보드에서 자동으로 채워진 JSON입니다. 직접 수정하지 말고 그대로 제출해주세요.
+        today_prompts.json에 이 주제가 추가됩니다 (Colab에서 다음 실행 시 처리됨).
+  - type: textarea
+    id: topic
+    attributes:
+      label: 주제 요청 (JSON)
+      description: 자동으로 채워집니다.
+      render: json
+    validations:
+      required: true

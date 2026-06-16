@@ -294,6 +294,28 @@
 
   <!-- ══════════ 프롬프트 ══════════ -->
   <div class="page" id="page-prompts">
+
+    <!-- 즉석 주제 요청 (today_prompts.json에 바로 추가, 다음 Colab 실행에 반영) -->
+    <div class="card" style="border:2px solid var(--accent);margin-bottom:16px">
+      <div class="card-title">⚡ 즉석 주제 요청</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px">
+        지금 당장 생성하고 싶은 주제를 입력하세요. GitHub Issue 제출 후 today_prompts.json에 즉시 추가됩니다.
+        다음 Colab 실행 시 이 주제가 포함됩니다.
+      </div>
+      <div class="add-form">
+        <textarea id="customTopic" placeholder="한글/영문 모두 가능&#10;예: 사이버펑크 스타일의 한강 야경&#10;예: A single bowl of doenjang-jjigae, top-down view" style="height:80px"></textarea>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <select class="setting-input" id="customTopicTag" style="width:120px;font-size:12px;padding:9px 10px">
+            <option value="food">🍜 음식</option>
+            <option value="illustration">🎨 일러스트</option>
+            <option value="fantasy">🐉 판타지</option>
+            <option value="other">📦 기타</option>
+          </select>
+          <button class="btn btn-primary" onclick="submitCustomTopic()">즉석 요청 →</button>
+        </div>
+      </div>
+    </div>
+
     <div class="card">
       <div class="card-title">설정</div>
       <div style="display:flex;gap:16px;flex-wrap:wrap">
@@ -305,7 +327,10 @@
     </div>
 
     <div class="card">
-      <div class="card-title">프롬프트 추가</div>
+      <div class="card-title">정규 프롬프트 추가 (반영구 등록)</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:8px">
+        매일 자동 선택 풀에 넣을 프롬프트입니다. 아직 GitHub 자동 반영은 미구현입니다.
+      </div>
       <div class="add-form">
         <textarea id="newPrompt" placeholder="새 프롬프트 입력 (영문)&#10;예: Top-down view of Korean Bibimbap in white bowl, isolated white background, commercial food photography, photorealistic"></textarea>
         <div style="display:flex;flex-direction:column;gap:8px">
@@ -315,6 +340,7 @@
             <option value="nature">🌿 자연</option>
             <option value="business">💼 비즈니스</option>
             <option value="abstract">🎨 추상</option>
+            <option value="illustration">🎨 일러스트</option>
             <option value="other">📦 기타</option>
           </select>
           <button class="btn btn-primary" onclick="addPrompt()">추가</button>
@@ -908,6 +934,23 @@ function renderPrompts() {
       </div>
     </div>`;
   }).join('');
+}
+
+function submitCustomTopic() {
+  const topic = document.getElementById('customTopic').value.trim();
+  const tag = document.getElementById('customTopicTag').value;
+  if (!topic) { showToast('주제를 입력해주세요', 'error'); return; }
+
+  const payload = { topic, tag };
+  const jsonText = '```json\n' + JSON.stringify(payload, null, 2) + '\n```';
+  const title = encodeURIComponent('[custom-topic-request] 즉석 주제 추가');
+  const body = encodeURIComponent(jsonText);
+  const labels = encodeURIComponent('custom-topic-request');
+
+  const url = `https://github.com/stockpipeline/stockpipeline/issues/new?title=${title}&body=${body}&labels=${labels}`;
+  window.open(url, '_blank');
+  showToast('새 탭에서 GitHub Issue를 확인하고 Submit 버튼을 눌러주세요', 'success');
+  document.getElementById('customTopic').value = '';
 }
 
 function addPrompt() {
