@@ -153,17 +153,6 @@ def write_csvs(items: list, out_dir: Path):
                 "", "No", "No", m["ai_generated"],
             ])
 
-    # Shutterstock CSV
-    with open(out_dir / "shutterstock.csv", "w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
-        w.writerow(["Filename", "Description", "Keywords", "Categories", "Editorial", "Mature Content", "Illustration", "Ai_generated"])
-        for it in items:
-            m = it["metadata"]["shutterstock"]
-            w.writerow([
-                it["orig_jpg"], m["title"], ", ".join(m["keywords"]),
-                "", "no", "no", "yes", m["ai_generated"],
-            ])
-
     # Freepik CSV
     with open(out_dir / "freepik.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
@@ -173,6 +162,8 @@ def write_csvs(items: list, out_dir: Path):
             w.writerow([
                 it["cutout_png"], m["title"], ", ".join(m["keywords"]), "true",
             ])
+
+    # Shutterstock: 2025-07-16부터 AI 생성 콘텐츠 전면 거부 - CSV 생성 생략
 
 
 # ── 메인 ──────────────────────────────────────────────

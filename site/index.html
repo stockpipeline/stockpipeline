@@ -247,6 +247,8 @@
   <!-- ══════════ 대시보드 ══════════ -->
   <div class="page active" id="page-dashboard">
 
+    <div id="nextStep"></div>
+
     <div id="statusBanner"></div>
 
     <div class="stat-grid" id="dashboardStats"></div>
@@ -581,6 +583,31 @@ function renderDashboard() {
   }
   document.getElementById('policyStatus').innerHTML = policyHtml || '<div style="color:var(--muted);font-size:12px">아직 확인된 정보가 없습니다</div>';
 
+  // 다음 단계 안내
+  const candidateGroups = DATA.candidates.groups || [];
+  const hasCandidates = candidateGroups.some(g => (g.images||[]).length > 0);
+  const hasPendingReview = pending > 0;
+  const hasSelections = Object.keys(candidateSelections).filter(k => candidateSelections[k] !== 'skip').length > 0;
+  const todayPromptCount = (DATA.prompts && DATA.runLog.latest) ? '확인됨' : null;
+
+  let nextStepHtml = '';
+  if (hasPendingReview) {
+    nextStepHtml = `<div style="background:rgba(79,209,197,.08);border:1px solid var(--accent2);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px">
+      <b>👉 다음 단계:</b> <span style="color:var(--accent2)">검수 탭</span>에서 ${pending}개 항목을 승인/반려하세요. 완료 후 "검수 완료" 버튼으로 Issue 제출 → "Upload Approved Items" 워크플로우 실행.
+    </div>`;
+  } else if (hasCandidates) {
+    nextStepHtml = `<div style="background:rgba(124,106,247,.08);border:1px solid var(--accent);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px">
+      <b>👉 다음 단계:</b> <span style="color:var(--accent)">후보 선택 탭</span>에서 이미지를 선택하세요. 완료 후 "선택 완료" Issue 제출 → Actions 탭에서 "Post-process Selected Images" 실행.
+    </div>`;
+  } else {
+    nextStepHtml = `<div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--muted)">
+      <b>👉 다음 단계:</b> Colab 노트북을 실행해서 이미지를 생성하세요.<br>
+      <a href="https://colab.research.google.com/github/stockpipeline/stockpipeline/blob/main/colab/generate_images.ipynb" target="_blank" style="color:var(--accent)">generate_images.ipynb 열기 →</a>
+    </div>`;
+  }
+
+  document.getElementById('nextStep').innerHTML = nextStepHtml;
+
   // 최근 로그
   const logs = latest ? (latest.logs || []) : [];
   document.getElementById('recentLogs').innerHTML = logs.length
@@ -623,24 +650,36 @@ function renderCandidates() {
   const grid = document.getElementById('candidatesGrid');
 
   if (!groups.length) {
-    grid.innerHTML = `<div class="empty"><div class="empty-icon">🖼</div><div>아직 생성된 후보가 없습니다. Colab 노트북을 실행해주세요.</div></div>`;
+    grid.innerHTML = `<div class="empty"><div class="empty-icon">🖼</div><div>아직 생성된 후보가 없습니다.<br>Colab 노트북을 실행해주세요.</div></div>`;
     return;
   }
 
-  grid.innerHTML = groups.map(g => {
+  const withImages = groups.filter(g => (g.images || []).length > 0);
+  const emptyGroups = groups.filter(g => !(g.images || []).length);
+  const selectedCount = Object.keys(candidateSelections).filter(k => candidateSelections[k] !== 'skip').length;
+  const totalCount = withImages.length;
+
+  const stats = `
+    <div class="card" style="margin-bottom:12px;padding:10px 16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+        <div style="font-size:13px">
+          <b>${withImages.length}개</b> 프롬프트 후보 있음 &nbsp;·&nbsp;
+          <b>${groups.reduce((s,g)=>(s+(g.images||[]).length),0)}장</b> 생성됨 &nbsp;·&nbsp;
+          <b style="color:var(--accent)">${selectedCount}/${totalCount}</b> 선택됨
+          ${emptyGroups.length ? ` &nbsp;·&nbsp; <span style="color:var(--muted)">${emptyGroups.length}개 필터 탈락</span>` : ''}
+        </div>
+        <div style="display:flex;gap:6px">
+          <button class="btn" style="font-size:11px;padding:4px 10px" onclick="skipAllCandidates()">전체 스킵</button>
+          <button class="btn" style="font-size:11px;padding:4px 10px" onclick="clearAllSelections()">선택 초기화</button>
+        </div>
+      </div>
+    </div>`;
+
+  const groupsHtml = withImages.map(g => {
     const images = g.images || [];
     const tagLabel = TAG_LABELS_ALL[g.tag] || g.tag;
-
-    if (!images.length) {
-      return `
-      <div class="card" style="margin-bottom:16px">
-        <div class="card-title">${esc(g.prompt_id)} <span class="tag tag-${g.tag}">${tagLabel}</span></div>
-        <div style="font-size:12px;color:var(--muted);margin-bottom:8px">${esc(g.prompt_text || '')}</div>
-        <div class="empty" style="padding:20px"><div>이 프롬프트는 필터를 통과한 후보가 없습니다 (자동 스킵)</div></div>
-      </div>`;
-    }
-
     const selected = candidateSelections[g.prompt_id];
+    const isComplete = !!selected;
 
     const optionsHtml = images.map(img => {
       const isSelected = selected === img.filename;
@@ -672,9 +711,15 @@ function renderCandidates() {
     const skipSelected = selected === 'skip';
 
     return `
-    <div class="card" style="margin-bottom:16px">
-      <div class="card-title">${esc(g.prompt_id)} <span class="tag tag-${g.tag}">${tagLabel}</span></div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:8px">${esc(g.prompt_text || '')}</div>
+    <div class="card" style="margin-bottom:12px;${isComplete ? 'opacity:0.75' : ''}">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+        <div>
+          <span class="card-title" style="margin:0">${esc(g.prompt_id)}</span>
+          <span class="tag tag-${g.tag}" style="margin-left:6px">${tagLabel}</span>
+          ${isComplete ? `<span style="font-size:11px;color:var(--accent);margin-left:8px">${selected === 'skip' ? '⏭ 스킵' : '✅ 선택됨'}</span>` : ''}
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.4">${esc((g.prompt_text || '').slice(0, 120))}${(g.prompt_text||'').length > 120 ? '...' : ''}</div>
       <div class="candidate-options">
         ${optionsHtml}
         <label class="candidate-option candidate-skip ${skipSelected ? 'selected' : ''}" onclick="selectCandidate('${esc(g.prompt_id)}','skip')">
@@ -684,6 +729,37 @@ function renderCandidates() {
       </div>
     </div>`;
   }).join('');
+
+  // 탈락 그룹 접힌 형태로 표시
+  const emptyHtml = emptyGroups.length ? `
+    <details style="margin-top:8px">
+      <summary style="cursor:pointer;font-size:12px;color:var(--muted);padding:8px">
+        필터 탈락 ${emptyGroups.length}개 프롬프트 (펼치기)
+      </summary>
+      ${emptyGroups.map(g => `
+        <div style="font-size:12px;color:var(--muted);padding:6px 12px">
+          ❌ ${esc(g.prompt_id)} — ${esc((g.prompt_text||'').slice(0,60))}...
+        </div>`).join('')}
+    </details>` : '';
+
+  grid.innerHTML = stats + groupsHtml + emptyHtml;
+}
+
+function skipAllCandidates() {
+  const groups = DATA.candidates.groups || [];
+  groups.forEach(g => {
+    if ((g.images || []).length > 0 && !candidateSelections[g.prompt_id]) {
+      candidateSelections[g.prompt_id] = 'skip';
+    }
+  });
+  renderCandidates();
+  showToast('선택 안 된 항목 전체 스킵 처리됨', 'success');
+}
+
+function clearAllSelections() {
+  candidateSelections = {};
+  renderCandidates();
+  showToast('선택 초기화됨', 'success');
 }
 
 function selectCandidate(promptId, filename) {
@@ -794,9 +870,11 @@ function renderReview() {
         <div class="review-title">${esc(item.title || item.prompt_id)}</div>
         <div class="review-meta">
           <span class="tag tag-${item.tag}">${tagLabels[item.tag]||item.tag}</span>
-          <span class="platform-pill">Adobe/SS: 원본</span>
-          <span class="platform-pill">Freepik: 누끼</span>
+          <span class="platform-pill">Adobe: JPG</span>
+          <span class="platform-pill">Freepik: PNG</span>
+          ${item.review_issue_number ? `<a href="https://github.com/stockpipeline/stockpipeline/issues/${item.review_issue_number}" target="_blank" style="font-size:11px;color:var(--accent)">#${item.review_issue_number}</a>` : ''}
         </div>
+        ${(item.keywords||[]).length ? `<div style="font-size:10px;color:var(--muted);margin-bottom:6px;line-height:1.4">${esc(item.keywords.slice(0,10).join(', '))}${item.keywords.length>10?' ...':''}</div>` : ''}
         <div class="review-actions">
           <button class="btn btn-success btn-sm" onclick="reviewAction(${idx},'approved')">✓ 승인</button>
           <button class="btn btn-danger btn-sm" onclick="openReasonModal(${idx})">✗ 반려</button>
