@@ -565,7 +565,7 @@ function renderDashboard() {
 
   // 정책 현황
   const pages = DATA.policy.pages || {};
-  const platformNames = { adobe: 'Adobe Stock', shutterstock: 'Shutterstock', freepik: 'Freepik' };
+  const platformNames = { adobe: 'Adobe Stock', freepik: 'Freepik' };
   let policyHtml = '';
   for (const [key, name] of Object.entries(platformNames)) {
     const info = pages[key];
@@ -1059,13 +1059,26 @@ function deletePrompt(idx) {
 // ══════════════ 플랫폼 ══════════════
 function renderPlatforms() {
   const platforms = DATA.config.platforms || {};
-  const names = { freepik: 'Freepik', shutterstock: 'Shutterstock', adobe: 'Adobe Stock' };
+  const names = { freepik: 'Freepik', adobe: 'Adobe Stock', shutterstock: 'Shutterstock' };
   const grid = document.getElementById('platformGrid');
 
   grid.innerHTML = Object.entries(names).map(([key, name]) => {
     const p = platforms[key] || {};
     const rate = p.approval_rate || 0;
     const threshold = p.unlock_threshold || 0;
+
+    // Shutterstock: 영구 비활성화 (AI 콘텐츠 전면 거부)
+    if (p._disabled_reason) {
+      return `
+      <div class="platform-card" style="opacity:0.5">
+        <div class="platform-head">
+          <div class="platform-name">${name}</div>
+          <div class="platform-status locked">영구 제외</div>
+        </div>
+        <div class="platform-progress"><div class="platform-progress-fill" style="width:0%"></div></div>
+        <div class="platform-detail" style="font-size:11px">${esc(p._disabled_reason)}</div>
+      </div>`;
+    }
 
     let statusCls = 'locked', statusText = '대기 중';
     if (p.enabled) { statusCls = 'active'; statusText = '운영 중'; }
@@ -1087,6 +1100,19 @@ function renderPlatforms() {
     }
 
     const progressPct = p.enabled ? Math.round(rate*100) : Math.round(((platforms[p.unlock_after]||{}).approval_rate||0) / (threshold||1) * 100);
+
+    return `
+    <div class="platform-card">
+      <div class="platform-head">
+        <div class="platform-name">${name}</div>
+        <div class="platform-status ${statusCls}">${statusText}</div>
+      </div>
+      <div class="platform-progress"><div class="platform-progress-fill" style="width:${Math.min(progressPct,100)}%"></div></div>
+      <div class="platform-detail">${detail}</div>
+      ${actionBtn}
+    </div>`;
+  }).join('');
+}
 
     return `
     <div class="platform-card">

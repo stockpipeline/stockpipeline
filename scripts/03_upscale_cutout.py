@@ -132,6 +132,7 @@ def process_one_image(item: dict, config: dict, logger) -> dict:
     return {
         "prompt_id": item["prompt_id"],
         "tag": item["tag"],
+        "platform_form": item.get("platform_form", "jpg_or_png"),
         "orig_jpg": jpg_filename,
         "cutout_png": png_filename,
         "prompt_text": item.get("prompt_text", ""),

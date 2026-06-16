@@ -2,14 +2,14 @@
 7단계: 플랫폼 결과 확인 (승인/반려 이메일 파싱)
 
 흐름:
-  1. 전용 Gmail 계정에서 Adobe/Shutterstock/Freepik의 승인/반려 알림 메일을 읽음
+  1. 전용 Gmail 계정에서 Adobe/Freepik의 승인/반려 알림 메일을 읽음
+     (Shutterstock: 2025-07-16부터 AI 생성 콘텐츠 전면 거부 - 제외)
   2. 파싱 성공 시 prompt_performance.json 업데이트
      - approved / rejected 카운트
      - 반려 3회 누적 시 해당 프롬프트 자동 비활성화 (prompts.json active=false)
   3. 플랫폼별 승인율 계산 → config.json platforms.*.approval_rate 갱신
   4. 승인율이 unlock_threshold를 넘으면 다음 플랫폼 enabled 후보로 표시
-     (실제 활성화는 관리 페이지에서 사람이 버튼 클릭)
-  5. 이메일 파싱 실패 시에도 파이프라인은 정상 종료 (수동 입력으로 보완 가능하도록)
+  5. 이메일 파싱 실패 시에도 파이프라인은 정상 종료
 """
 
 import base64
@@ -28,16 +28,12 @@ PERF_PATH = DATA_DIR / "prompt_performance.json"
 PROMPTS_PATH = DATA_DIR / "prompts.json"
 
 # 플랫폼별 이메일 패턴 (제목/발신자 기준으로 단순 키워드 매칭)
+# Shutterstock: AI 생성 콘텐츠 전면 거부(2025-07-16) - 제외
 EMAIL_PATTERNS = {
     "adobe": {
         "from_contains": "stock.adobe.com",
         "approved_subject": ["approved", "has been accepted"],
         "rejected_subject": ["rejected", "not approved", "declined"],
-    },
-    "shutterstock": {
-        "from_contains": "shutterstock.com",
-        "approved_subject": ["approved", "accepted"],
-        "rejected_subject": ["rejected", "declined"],
     },
     "freepik": {
         "from_contains": "freepik.com",

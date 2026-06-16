@@ -124,16 +124,13 @@ def build_platform_metadata(title: str, keywords: list, config: dict) -> dict:
         adobe_keywords = adobe_keywords[:-1] + ["generative ai"]
     adobe_title = f"{title} | AI Generated"
 
-    ss_keywords = keywords[:meta_cfg["tag_count_shutterstock"]]
-    ss_title = title
-
     fp_keywords = keywords[:meta_cfg["tag_count_freepik"]]
     if "_ai_generated" not in fp_keywords:
         fp_keywords = fp_keywords[:-1] + ["_ai_generated"]
 
+    # Shutterstock: 2025-07-16부터 AI 생성 콘텐츠 전면 거부 - 메타데이터 제외
     return {
         "adobe": {"title": adobe_title, "keywords": adobe_keywords, "ai_generated": "Yes"},
-        "shutterstock": {"title": ss_title, "keywords": ss_keywords, "ai_generated": "true"},
         "freepik": {"title": title, "keywords": fp_keywords, "ai_generated": True},
     }
 

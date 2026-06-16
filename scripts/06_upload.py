@@ -3,12 +3,10 @@
 
 - review_queue.json에서 review_status == "approved" 인 항목만 처리
 - 플랫폼 활성화 여부(config.json platforms.*.enabled)에 따라 분기
-- Adobe Stock / Shutterstock: FTP 업로드 (이미지 + CSV)
+- Adobe Stock: FTP 업로드 (이미지 + CSV)
 - Freepik: Sell Content API 업로드
+- Shutterstock: 2025-07-16부터 AI 생성 콘텐츠 전면 거부 - 영구 제외
 - 업로드 완료 후 review_queue에서 해당 항목 상태를 "uploaded"로 변경
-- 프롬프트 성과(prompt_performance.json)는 실제 승인/반려 결과가
-  이메일로 들어오는 7단계(check_platform_results)에서 갱신됨.
-  여기서는 "제출 완료" 사실만 기록.
 """
 
 import csv
@@ -28,10 +26,6 @@ from common import (
 ADOBE_FTP_HOST = os.environ.get("ADOBE_FTP_HOST", "ftp.contributor.adobestock.com")
 ADOBE_FTP_USER = os.environ.get("ADOBE_FTP_USER", "")
 ADOBE_FTP_PASS = os.environ.get("ADOBE_FTP_PASS", "")
-
-SHUTTERSTOCK_FTP_HOST = os.environ.get("SHUTTERSTOCK_FTP_HOST", "ftp.shutterstock.com")
-SHUTTERSTOCK_FTP_USER = os.environ.get("SHUTTERSTOCK_FTP_USER", "")
-SHUTTERSTOCK_FTP_PASS = os.environ.get("SHUTTERSTOCK_FTP_PASS", "")
 
 FREEPIK_API_KEY = os.environ.get("FREEPIK_API_KEY", "")
 FREEPIK_API_URL = "https://api.freepik.com/v1/resources"
@@ -115,30 +109,23 @@ def main():
     csv_dir = DATA_DIR / "csv_output" / date_str
 
     adobe_rows = load_csv_rows(csv_dir / "adobe_stock.csv")
-    ss_rows = load_csv_rows(csv_dir / "shutterstock.csv")
     fp_rows = load_csv_rows(csv_dir / "freepik.csv")
+    # Shutterstock: 2025-07-16부터 AI 생성 콘텐츠 전면 거부 - 업로드 불가
 
-    counts = {"adobe": 0, "shutterstock": 0, "freepik": 0}
+    counts = {"adobe": 0, "freepik": 0}
 
     for item in approved:
         orig_jpg = item["orig_jpg"]
         cutout_png = item["cutout_png"]
 
-        # Adobe Stock
+        # Adobe Stock (FTP)
         if platforms["adobe"]["enabled"]:
             path = UPSCALED_DIR / orig_jpg
             if path.exists() and orig_jpg in adobe_rows:
                 if ftp_upload(ADOBE_FTP_HOST, ADOBE_FTP_USER, ADOBE_FTP_PASS, path, logger):
                     counts["adobe"] += 1
 
-        # Shutterstock
-        if platforms["shutterstock"]["enabled"]:
-            path = UPSCALED_DIR / orig_jpg
-            if path.exists() and orig_jpg in ss_rows:
-                if ftp_upload(SHUTTERSTOCK_FTP_HOST, SHUTTERSTOCK_FTP_USER, SHUTTERSTOCK_FTP_PASS, path, logger):
-                    counts["shutterstock"] += 1
-
-        # Freepik
+        # Freepik (API)
         if platforms["freepik"]["enabled"]:
             path = CUTOUT_DIR / cutout_png
             if path.exists() and cutout_png in fp_rows:
@@ -149,16 +136,14 @@ def main():
 
         item["review_status"] = "uploaded"
 
-    # CSV 파일들도 FTP로 함께 전송 (Adobe/Shutterstock 메타데이터 일괄 매칭용)
+    # Adobe CSV도 FTP로 함께 전송 (메타데이터 일괄 매칭용)
     if platforms["adobe"]["enabled"] and (csv_dir / "adobe_stock.csv").exists():
         ftp_upload_csv_row(ADOBE_FTP_HOST, ADOBE_FTP_USER, ADOBE_FTP_PASS, csv_dir / "adobe_stock.csv", logger)
-    if platforms["shutterstock"]["enabled"] and (csv_dir / "shutterstock.csv").exists():
-        ftp_upload_csv_row(SHUTTERSTOCK_FTP_HOST, SHUTTERSTOCK_FTP_USER, SHUTTERSTOCK_FTP_PASS, csv_dir / "shutterstock.csv", logger)
 
     save_json(DATA_DIR / "review_queue.json", queue)
 
     logger.success(
-        f"업로드 완료 - Adobe:{counts['adobe']} Shutterstock:{counts['shutterstock']} Freepik:{counts['freepik']}"
+        f"업로드 완료 - Adobe:{counts['adobe']} Freepik:{counts['freepik']}"
     )
 
     logger.finalize("success", {

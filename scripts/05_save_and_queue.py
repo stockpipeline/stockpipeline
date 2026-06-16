@@ -170,8 +170,8 @@ def main():
             "drive_ids": drive_ids,
             "upload_targets": {
                 "adobe": "orig_jpg",
-                "shutterstock": "orig_jpg",
                 "freepik": "cutout_png",
+                # shutterstock: 2025-07-16 AI 생성 콘텐츠 전면 거부 - 제외
             },
             "review_status": "pending",  # pending | approved | rejected
             "reject_reason": None,
