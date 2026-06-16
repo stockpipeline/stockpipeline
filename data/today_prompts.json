@@ -2,140 +2,140 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "Korean Banchan side dishes assortment on small plates, close-up macro shot, natural window lighting, fresh garnish visible, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "Top-down professional food photography of authentic Korean Kimchi in a clean white ceramic dish. Vibrant red fermented napa cabbage, glistening with chili oil and sesame seeds, subtle moisture droplets, fresh and appetizing. Warm studio lighting with soft shadows, shot on an 85mm lens, ultra-sharp focus, shallow depth of field, high-end commercial grade food styling, isolated on a pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "Korean Jeon savory pancakes stacked on a white plate, 45 degree angle view, bright even lighting, rustic ceramic texture, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "Top-down professional food photography of piping hot Korean Sundubu Jjigae (soft tofu stew) in a traditional red earthenware bowl. Silken tofu, green onions, and red chili oil shimmering on the surface with rising steam, appetizing glossy textures. Warm dramatic studio lighting, shot on 85mm lens, shallow depth of field, commercial food styling, ultra-sharp detail, isolated on a clean white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "Korean Banchan side dishes assortment on small plates, 45 degree angle view, soft diffused lighting, fresh garnish visible, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "High-end commercial food photography of Korean Naengmyeon (cold buckwheat noodles) served in a chilled brass metal bowl, slightly elevated angle view. Hand-stretched noodles topped with cucumber julienne, boiled egg, beef slice, and ice-cold broth with condensation droplets on the bowl. Soft natural window lighting, 85mm lens, shallow depth of field, appetizing glossy finish, ultra-sharp details, isolated on a seamless white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_004",
-      "text": "Korean Jeon savory pancakes stacked on a white plate, overhead flat lay shot, natural window lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "Overhead flat lay studio shot of Korean Doenjang Jjigae (fermented soybean paste stew) bubbling in a black earthen Ttukbaegi pot. Visible cubes of tofu, zucchini, mushrooms, and scallions in a rich, savory broth. Soft natural window-style lighting, professional food photography, 85mm lens, shallow depth of field, pristine commercial food styling, isolated on a solid white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_005",
-      "text": "Korean Banchan side dishes assortment on small plates, close-up macro shot, warm studio lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "Close-up macro food photography of a Korean Bingsu shaved ice dessert piled high in a modern ceramic bowl. Fluffy milk snow ice topped with sweet red beans, chewy tteok rice cakes, and a drizzle of condensed milk. Bright even studio lighting, 85mm lens, shallow depth of field, crisp appetizing details, commercial stock photo, isolated on a pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_006",
-      "text": "Korean Banchan side dishes assortment on small plates, slightly elevated angle view, warm studio lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "Close-up macro shot of a golden-brown Korean Hotteok sweet griddle pancake neatly sliced in half, revealing the oozing, glossy melted brown sugar, cinnamon, and peanut filling. Crispy dough texture, warm appetizing glow. Bright even studio lighting, professional food styling, 85mm lens, ultra-sharp focus, shallow depth of field, commercial grade, isolated on a clean white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
-      "prompt_id": "auto_korean_food_007",
-      "text": "Korean Galbi grilled short ribs with charcoal grill marks, close-up macro shot, bright even lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
-      "tag": "food",
+      "prompt_id": "auto_korean_culture_007",
+      "text": "Studio commercial product photography of an elegant Korean traditional tea set, featuring a minimalist white ceramic teapot and two matching cups, arranged in a balanced composition at a 45-degree angle. Gentle diffused natural light casting soft shadows, highlighting the delicate matte texture of the ceramic. High-detail sharp focus, elegant zen-like aesthetic, isolated on a seamless white background.",
+      "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_008",
-      "text": "Korean traditional tea set, white ceramic teapot and cups, top-down view, bright even studio lighting, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
+      "text": "Minimalist commercial photography of a traditional Korean Hanok courtyard layout, showcasing a clean gray stone pathway, wooden pillars, and tiled patterns. Top-down overhead flat lay perspective, bright even soft-shadow studio lighting, capturing intricate textures of wood and stone with cultural authenticity. Sharp focus, high-end architectural layout style, isolated on a crisp white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_009",
-      "text": "Korean Jokduri traditional headpiece with embroidery, 45 degree angle view, soft natural lighting, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
+      "text": "Studio product photograph of a traditional Korean folding fan (Hapjukseon) partially opened, displaying an elegant hand-painted ink landscape. Shot at a 45-degree angle to showcase the texture of the Hanji (Korean mulberry paper) and bamboo ribs. Bright even soft studio lighting, sharp focus, high-detail cultural heritage commercial shot, isolated on a pure white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_010",
-      "text": "Korean Hanbok fabric folded neatly, vibrant silk colors, top-down view, gentle diffused light, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
+      "text": "Commercial high-detail photograph of a structural segment of traditional Korean Hanok dark-grey clay roof tiles (Giwa) and curved eaves, top-down flat perspective. Soft, diffused natural studio lighting accentuating the smooth elegant curves and clay texture of the architecture. Crisp sharp focus, architectural element asset, isolated on a solid white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
-      "prompt_id": "auto_korean_culture_011",
-      "text": "Korean Dancheong traditional pattern on wooden beam, overhead flat lay shot, warm afternoon light, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
-      "tag": "other",
-      "source": "template",
-      "platform_form": "jpg"
-    },
-    {
-      "prompt_id": "auto_light_stock_012",
-      "text": "abstract fluid art texture, marbled pattern, centered composition, vibrant bold color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
-      "tag": "abstract",
+      "prompt_id": "auto_korean_illustration_011",
+      "text": "Flat vector illustration of a single bowl of Korean Japchae glass noodles with colorful vegetables, three-quarter view. Minimalist graphic design icon, clean shapes, vibrant colors, modern flat style, no clutter, single subject centered, high-resolution commercial design asset, isolated on a solid light gray background.",
+      "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
-      "prompt_id": "auto_light_stock_013",
-      "text": "polka dot pattern background, soft colors, full frame texture view, muted earthy color palette, smooth clean finish, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
-      "tag": "abstract",
+      "prompt_id": "auto_korean_illustration_012",
+      "text": "Minimalist flat vector illustration of a single plate of Korean Kimchi cabbage, flat lay view from directly above. Clean graphic shapes, modern flat icon design style, bold stylized colors of red and green, crisp vector lines, commercial design asset, isolated on a solid light cream background.",
+      "tag": "illustration",
+      "source": "template",
+      "platform_form": "jpg_or_png"
+    },
+    {
+      "prompt_id": "auto_korean_illustration_013",
+      "text": "Centered modern flat vector illustration of a single Korean traditional ceramic tea cup filled with steaming green tea. Clean minimalist graphic design style, elegant simple shapes, soft pastel colors, no clutter, professional vector design icon, high-resolution commercial asset, isolated on a solid plain background.",
+      "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_014",
-      "text": "simple frame border decoration element, flat design view, vibrant bold color palette, high resolution print quality, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
+      "text": "High-resolution abstract fluid art texture with a marble pattern, flowing soft waves of beige, terracotta, and soft grey in a muted earthy color palette. Seamless tileable design asset, high-quality liquid acrylic pour pattern, elegant and minimalist, sharp details, commercial stock background, isolated on a pure white background frame.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_015",
-      "text": "minimalist watercolor texture background, soft pastel tones, full frame texture view, muted earthy color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
+      "text": "High-resolution minimal design stripe pattern, featuring clean vertical stripes in a vibrant and bold modern color palette. Perfectly centered composition, sharp graphic lines, seamless tileable design, professional commercial background asset, print-ready quality, isolated on a clean white background.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
-      "prompt_id": "auto_fantasy_animal_016",
-      "text": "majestic white unicorn in a misty enchanted forest, centered character portrait, bright cheerful lighting, digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
-      "tag": "fantasy",
+      "prompt_id": "auto_light_stock_016",
+      "text": "Minimalist watercolor texture background featuring soft pastel watercolor washes in a gentle monochrome pale blue and grey palette. Delicate paper grain texture, soft edges, flat design perspective, seamless abstract design asset, high-resolution sharp details, commercial graphic design background, isolated on a pure white border.",
+      "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_017",
-      "text": "cat character in a wizard robe with a small hat, close-up character shot, soft magical glow lighting, digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
+      "text": "Majestic white unicorn with a shimmering pearlescent horn standing in a 45-degree angle profile. Soft cinematic misty enchanted forest hints in a dreamlike ethereal style, warm golden hour lighting casting a magical glow. High-detail digital fantasy concept art, vivid highlights, sharp focus, commercial studio asset, isolated on a pure white background.",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_018",
-      "text": "magical floating crystal with sparkles, full body view, isolated, soft magical glow lighting, digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
+      "text": "Cute fluffy white rabbit character wearing a tiny, ornate gold crown, close-up portrait shot. Soft magical glow lighting accentuating the soft fur texture, expressive big eyes. Highly detailed digital character art, vibrant pastel tones, cinematic lighting, ultra-sharp focus, commercial fantasy illustration asset, isolated on a clean white background.",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_abstract_019",
-      "text": "abstract fluid color texture, marbled paint pattern, seamless tileable pattern, cool blue and teal tones, rich layered depth, high resolution texture, seamless pattern, professional design asset, sharp details, print ready, commercial use",
+      "text": "Full-frame texture of an abstract fluid acrylic painting with a marble pattern, featuring swirling metallic gold, bronze, and deep charcoal black tones. Shimmering reflective textures, high-resolution seamless pattern, sharp metallic details, luxury commercial background design asset, print-ready, high-end aesthetic.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_abstract_020",
-      "text": "abstract smoke texture, soft flowing forms, centered abstract composition, metallic gold and bronze tones, rich layered depth, high resolution texture, seamless pattern, professional design asset, sharp details, print ready, commercial use",
+      "text": "Modern abstract composition of geometric shapes like circles, arches, and triangles, full-frame texture view. Sophisticated soft pastel color palette with a fine, high-resolution matte paper texture. Clean vector-like layouts, seamless design, professional commercial wallpaper asset, minimalist graphic art style.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg"

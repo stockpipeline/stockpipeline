@@ -1,6 +1,43 @@
 {
   "history": [
     {
+      "timestamp": "2026-06-16T09:16:16.610293+09:00",
+      "status": "success",
+      "summary": {
+        "stage": "prompt_generation",
+        "total_prompts": 20,
+        "from_user": 0,
+        "from_template": 20
+      },
+      "logs": [
+        {
+          "time": "09:15:54",
+          "level": "info",
+          "message": "오늘의 프롬프트 20개 생성 시작"
+        },
+        {
+          "time": "09:15:54",
+          "level": "info",
+          "message": "사용자 프롬프트 0개 선택됨"
+        },
+        {
+          "time": "09:15:54",
+          "level": "info",
+          "message": "템플릿 기반으로 20개 추가 생성"
+        },
+        {
+          "time": "09:15:54",
+          "level": "info",
+          "message": "Gemini 배치 보정 시작 (20개, 1회 호출)"
+        },
+        {
+          "time": "09:16:16",
+          "level": "info",
+          "message": "총 20개 프롬프트 준비 완료"
+        }
+      ]
+    },
+    {
       "timestamp": "2026-06-15T07:55:57.846450+09:00",
       "status": "success",
       "summary": {
@@ -929,28 +966,39 @@
     }
   ],
   "latest": {
-    "timestamp": "2026-06-15T07:55:57.846450+09:00",
+    "timestamp": "2026-06-16T09:16:16.610293+09:00",
     "status": "success",
     "summary": {
-      "stage": "weekly_tasks",
-      "backup_ok": false,
-      "policy_changed": []
+      "stage": "prompt_generation",
+      "total_prompts": 20,
+      "from_user": 0,
+      "from_template": 20
     },
     "logs": [
       {
-        "time": "07:55:36",
-        "level": "warn",
-        "message": "Drive 백업 실패: <HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id&alt=json&uploadType=multipart returned \"Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.\". Details: \"[{'message': 'Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.', 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
-      },
-      {
-        "time": "07:55:56",
-        "level": "warn",
-        "message": "adobe 정책 페이지 확인 실패: HTTPSConnectionPool(host='helpx.adobe.com', port=443): Read timed out. (read timeout=20)"
-      },
-      {
-        "time": "07:55:57",
+        "time": "09:15:54",
         "level": "info",
-        "message": "freepik 정책 페이지 변경 없음"
+        "message": "오늘의 프롬프트 20개 생성 시작"
+      },
+      {
+        "time": "09:15:54",
+        "level": "info",
+        "message": "사용자 프롬프트 0개 선택됨"
+      },
+      {
+        "time": "09:15:54",
+        "level": "info",
+        "message": "템플릿 기반으로 20개 추가 생성"
+      },
+      {
+        "time": "09:15:54",
+        "level": "info",
+        "message": "Gemini 배치 보정 시작 (20개, 1회 호출)"
+      },
+      {
+        "time": "09:16:16",
+        "level": "info",
+        "message": "총 20개 프롬프트 준비 완료"
       }
     ]
   }
