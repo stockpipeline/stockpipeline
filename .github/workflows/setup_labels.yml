@@ -1,0 +1,48 @@
+name: Setup Labels
+
+# 이 워크플로우는 처음 한 번만 실행하면 됩니다.
+# Actions 탭 → "Setup Labels" → Run workflow
+
+on:
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  create-labels:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create required labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labels = [
+              { name: 'candidate-selection', color: '0075ca', description: '후보 이미지 선택 결과 제출' },
+              { name: 'favorite-add',        color: 'e4e669', description: '즐겨찾기 추가 (프롬프트+시드 저장)' },
+              { name: 'refine-request',      color: 'd93f0b', description: '같은 프롬프트/시드로 정밀 재생성 요청' },
+              { name: 'review-decision',     color: '0e8a16', description: '검수 결과 제출 (대시보드 방식)' },
+              { name: 'review-decision-item',color: '006b75', description: '검수 대기 항목 (Issue 알림 방식)' },
+              { name: 'custom-topic-request',color: 'b60205', description: '즉석 주제 추가 요청' },
+            ];
+
+            for (const label of labels) {
+              try {
+                await github.rest.issues.createLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: label.name,
+                  color: label.color,
+                  description: label.description,
+                });
+                console.log(`✅ 생성됨: ${label.name}`);
+              } catch (e) {
+                if (e.status === 422) {
+                  console.log(`⚠️ 이미 존재: ${label.name}`);
+                } else {
+                  console.error(`❌ 실패: ${label.name} - ${e.message}`);
+                }
+              }
+            }
+
+            console.log('라벨 설정 완료!');
