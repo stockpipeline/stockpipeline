@@ -2,6 +2,12 @@ name: Deploy Dashboard
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'data/*.json'
+      - 'config.json'
 
 permissions:
   contents: read
@@ -48,6 +54,7 @@ jobs:
         run: |
           mkdir -p site/data site/thumbnails
           cp -r data/*.json site/data/ 2>/dev/null || true
+          cp config.json site/data/config.json 2>/dev/null || true
           cp -r thumbnails/* site/thumbnails/ 2>/dev/null || true
 
       - name: Setup Pages

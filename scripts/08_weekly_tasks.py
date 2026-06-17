@@ -25,7 +25,8 @@ BACKUP_FILES = [
     "prompt_performance.json",
     "phash_db.json",
     "review_queue.json",
-    "tag_blacklist.json",
+    "favorites.json",
+    "prompt_templates.json",
 ]
 
 POLICY_URLS = {
