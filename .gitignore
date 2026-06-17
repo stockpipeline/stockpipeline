@@ -3,3 +3,6 @@ work/
 __pycache__/
 .DS_Store
 *.log
+lora/*.safetensors
+lora/*.bin
+*.safetensors
