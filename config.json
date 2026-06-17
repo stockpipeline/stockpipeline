@@ -7,9 +7,19 @@
     "_comment": "이미지 생성은 colab/generate_images.ipynb에서 처리 (GitHub Actions 밖)",
     "inference_steps": 4,
     "guidance_scale": 1.5,
-    "negative_prompt": "multiple bowls, many small dishes, grid of plates, banchan spread, tiled composition, repeated pattern, collage, extra plates",
+    "negative_prompt": "multiple bowls, many small dishes, grid of plates, banchan spread, tiled composition, repeated pattern, collage, extra plates, side dishes array, korean table setting with many dishes, blurry, low quality, watermark, text, logo, deformed, ugly, oversaturated, unrealistic colors, cartoon, illustration style",
     "candidates_per_prompt": 5,
-    "size": "1024x1024"
+    "size": "1024x1024",
+    "img2img": {
+      "_comment": "img2img 설정. ref_urls에 레퍼런스 이미지 URL을 추가하면 해당 카테고리에 img2img 적용",
+      "enabled": false,
+      "strength": 0.5,
+      "ref_urls": {
+        "food": "",
+        "korean_culture": "",
+        "illustration": ""
+      }
+    }
   },
   "upscale": {
     "tool": "realesrgan",

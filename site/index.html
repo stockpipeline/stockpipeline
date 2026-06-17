@@ -547,6 +547,10 @@ function renderDashboard() {
   const pending = queue.filter(i => i.review_status === 'pending').length;
   const approved = queue.filter(i => i.review_status === 'approved' || i.review_status === 'uploaded').length;
   const activePrompts = (DATA.prompts.prompts || []).filter(p => p.active).length;
+  const todayPrompts = (DATA.candidates.groups || []).length > 0
+    ? (DATA.candidates.groups || []).length
+    : 0;
+  const candidateImages = (DATA.candidates.groups || []).reduce((s, g) => s + (g.images||[]).length, 0);
 
   let totalApproved = 0, totalRejected = 0;
   Object.values(DATA.performance).forEach(p => {
@@ -557,9 +561,9 @@ function renderDashboard() {
   const approvalRate = total > 0 ? Math.round((totalApproved / total) * 100) : 0;
 
   document.getElementById('dashboardStats').innerHTML = `
+    <div class="stat-box"><div class="num">${candidateImages}</div><div class="label">후보 이미지</div></div>
     <div class="stat-box"><div class="num">${pending}</div><div class="label">검수 대기</div></div>
     <div class="stat-box"><div class="num">${approved}</div><div class="label">업로드됨</div></div>
-    <div class="stat-box"><div class="num">${activePrompts}</div><div class="label">활성 프롬프트</div></div>
     <div class="stat-box"><div class="num">${approvalRate}%</div><div class="label">전체 승인율</div></div>
   `;
 
