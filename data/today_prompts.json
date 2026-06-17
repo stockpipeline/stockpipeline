@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "Professional food photography of authentic Korean Doenjang Jjigae soybean paste stew bubbling hot inside a traditional black earthenware Ttukbaegi pot, garnished with fresh green scallions and red chili peppers, high-angle studio shot, soft shadows, condensation droplets, ultra-sharp detail, isolated on a clean white background.",
+      "text": "A single earthenware pot of bubbling red kimchi stew with tofu and pork, one pot only, top-down view, soft studio lighting, commercial food photography, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "Commercial food photography of grilled Korean Samgyeopsal pork belly slices, perfectly caramelized and glistening, served alongside fresh crisp green lettuce leaves and golden roasted garlic cloves, gentle steam rising, 45-degree angle, professional studio lighting, macro details, isolated on a pure white background.",
+      "text": "One bowl only of clear ox bone soup with thin rice noodles and sliced beef, 45-degree view, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "Vibrant studio food photography of Korean Tteokbokki, chewy cylindrical rice cakes coated in a glossy, rich red spicy sauce, served in a minimalist white ceramic bowl, garnished with toasted sesame seeds and sliced scallions, 45-degree angle, soft professional diffused lighting, high-end commercial quality, isolated on a solid white background.",
+      "text": "Single plate of crispy fried chicken glazed with sticky sweet soy sauce, no other plates, top-down, soft studio lighting, commercial food photography, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "Elegant commercial product shot of a traditional Korean tea set, featuring a minimalist white ceramic teapot and two delicate matching teacups on a clean surface, gentle steam rising, soft natural diffused light, exquisite ceramic texture, high-detail macro photography, isolated on a pure white background.",
+      "text": "A single Korean wooden tea tray with one ceramic teacup and tea caddy, 45-degree view, soft studio lighting, commercial stock photography, sharp focus, isolated on pure white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "An elegant architectural element of traditional Korean Hanok clay roof tiles with beautifully curved dark eaves, captured in warm golden afternoon sunlight, clean geometric lines, high-detail texture, studio-style clean presentation, isolated on a seamless white background.",
+      "text": "A single Korean brass incense burner with openwork pattern, one item only, 45-degree angle, soft studio lighting, commercial photography, sharp focus, isolated on pure white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Minimalist flat vector illustration of a traditional Korean street food cart selling tteokbokki and odeng, clean graphic design, pastel color palette, simple geometric shapes, modern 2D vector style, no shadows, isolated on a solid white background.",
+      "text": "Flat vector illustration of a single traditional Korean dance mask, one item only, centered, minimalist design, clean shapes, high resolution, isolated on pure white background.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "A clean, minimalist flat vector illustration of a grand Korean palace gate inspired by Gyeongbokgung, centered composition, symmetric architectural design, vibrant traditional Dancheong colors, modern vector icon style, isolated on a plain white background.",
+      "text": "Flat vector illustration of a single Korean lantern, one item only, simple side view, clean lines, minimalist design, commercial graphic asset, isolated on pure white background.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "A high-resolution commercial background of soft pastel bokeh lights, featuring delicate, semi-transparent blurred glowing circles fading elegantly into a pure white background, dreamy and ethereal aesthetic, perfect for graphic design overlays.",
+      "text": "A single sheet of textured paper, subtle fiber detail, close-up flat lay, soft studio lighting, commercial stock photography, high resolution, isolated on pure white background.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "An elegant monochrome bokeh background with soft, blurred circular light leaks in shades of grey, silver, and charcoal, centered composition fading gracefully towards the edges, clean professional design asset, isolated on a pure white background.",
+      "text": "A single minimalist watercolor wash background, soft pastel tones, top-down view, soft studio lighting, high resolution, sharp focus, isolated on pure white background.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "A mesmerizing, highly-detailed magical floating crystal glowing with a soft internal celestial light and surrounded by tiny sparkling dust particles, 45-degree angle, vibrant magenta and teal hues, sharp facets reflecting light, 3D render concept art style, isolated on a pure white background.",
+      "text": "A single majestic white unicorn, one subject only, 45-degree angle view, soft studio lighting, sharp focus, high resolution 3D render, isolated on pure white background.",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
