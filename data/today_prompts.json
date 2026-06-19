@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "A single earthenware pot of bubbling red kimchi stew with tofu and pork, one pot only, top-down view, soft studio lighting, commercial food photography, isolated on pure white background.",
+      "text": "A single earthenware pot of bubbling red kimchi stew with tofu and pork, overhead flat lay shot, bright even lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "One bowl only of clear ox bone soup with thin rice noodles and sliced beef, 45-degree view, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background.",
+      "text": "A single plate of cylindrical rice rolls sliced into pieces showing colorful fillings inside, overhead flat lay shot, natural window lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "Single plate of crispy fried chicken glazed with sticky sweet soy sauce, no other plates, top-down, soft studio lighting, commercial food photography, isolated on pure white background.",
+      "text": "A single plate of crispy fried chicken pieces glazed with sticky sweet soy sauce, slightly elevated angle view, bright even lighting, subtle water droplets, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "A single Korean wooden tea tray with one ceramic teacup and tea caddy, 45-degree view, soft studio lighting, commercial stock photography, sharp focus, isolated on pure white background.",
+      "text": "A single Korean wooden tea tray with small ceramic teacup and tea caddy, top-down view, soft natural lighting, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "A single Korean brass incense burner with openwork pattern, one item only, 45-degree angle, soft studio lighting, commercial photography, sharp focus, isolated on pure white background.",
+      "text": "A single Korean wooden tea tray with small ceramic teacup and tea caddy, wide architectural view, warm afternoon light, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Flat vector illustration of a single traditional Korean dance mask, one item only, centered, minimalist design, clean shapes, high resolution, isolated on pure white background.",
+      "text": "A single bowl of Korean tteokbokki spicy rice cakes, one dish only, three-quarter view, modern flat icon style illustration, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "Flat vector illustration of a single Korean lantern, one item only, simple side view, clean lines, minimalist design, commercial graphic asset, isolated on pure white background.",
+      "text": "A single plate of Korean kimchi, one dish only, simple side view, clean line art illustration with flat colors, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "A single sheet of textured paper, subtle fiber detail, close-up flat lay, soft studio lighting, commercial stock photography, high resolution, isolated on pure white background.",
+      "text": "simple geometric pattern, clean lines, centered composition, vibrant bold color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "A single minimalist watercolor wash background, soft pastel tones, top-down view, soft studio lighting, high resolution, sharp focus, isolated on pure white background.",
+      "text": "floral line pattern, delicate botanical illustration, flat design view, muted earthy color palette, smooth clean finish, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "A single majestic white unicorn, one subject only, 45-degree angle view, soft studio lighting, sharp focus, high resolution 3D render, isolated on pure white background.",
+      "text": "small phoenix bird with glowing feathers, 45 degree angle view, warm golden hour lighting, digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
