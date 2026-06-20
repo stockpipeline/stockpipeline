@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "One bowl only of spicy Korean beef soup with shredded beef, fernbrake, bean sprouts. Single dish, top-down view, soft studio lighting, isolated on pure white background, commercial food photography.",
+      "text": "Single pot of Korean soybean paste stew with tofu, zucchini, mushrooms. One dish only, 45-degree angle, soft studio lighting, commercial food photography, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "A single bowl of spicy Korean beef soup, shredded beef, fernbrake, bean sprouts. One dish only, 45-degree angle, soft studio lighting, isolated on pure white background, commercial food photography.",
+      "text": "Single plate of Korean spicy rice cakes with fish cakes. One dish only, no other plates, top-down view, soft studio lighting, commercial food photography, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "One bowl only of spicy soft tofu stew with egg and seafood. Single dish, 45-degree angle, soft studio lighting, isolated on pure white background, commercial food photography, sharp focus.",
+      "text": "Single earthenware pot of Korean soybean paste stew with tofu, zucchini, mushrooms. One pot only, top-down view, soft studio lighting, commercial food photography, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "A single Korean hanji paper gift box with traditional pattern and silk ribbon. One item only, 45-degree angle, soft studio lighting, isolated on pure white background, commercial photography.",
+      "text": "Single pair of Korean silver metal chopsticks and a long-handled spoon. One set only, 45-degree angle, soft studio lighting, commercial photography, sharp focus, isolated on pure white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "A single Korean embroidered silk pouch with floral patchwork. One item only, top-down view, soft studio lighting, isolated on pure white background, commercial photography, sharp focus.",
+      "text": "Single Korean embroidered silk pouch with floral bojagi pattern. One pouch only, top-down view, soft studio lighting, commercial photography, sharp focus, isolated on pure white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "A single Korean hanji paper fan illustration. One item only, flat vector design, top-down view, soft studio lighting, isolated on pure white background, clean minimalist commercial graphic.",
+      "text": "Single bowl of Korean bibimbap with vegetables and egg. One dish only, flat vector illustration, clean line art, minimalist design, top-down view, bright lighting, isolated on pure white background.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "A single Korean celadon ceramic vase. One item only, minimalist flat vector illustration, front view, soft studio lighting, isolated on pure white background, commercial graphic, sharp focus.",
+      "text": "Single traditional Korean dance mask (tal). One item only, flat vector illustration, clean line art, minimalist design, top-down view, bright lighting, isolated on pure white background.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "A single sheet of polka dot pattern paper. One item only, flat lay top-down view, soft studio lighting, isolated on pure white background, commercial stock graphic, high resolution.",
+      "text": "Single geometric pattern design with clean lines, minimalist centered composition. One seamless pattern tile only, soft studio lighting, high resolution, isolated on pure white background.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "A single sheet of minimalist stripe pattern paper. One item only, flat lay top-down view, soft studio lighting, isolated on pure white background, commercial stock graphic, sharp focus.",
+      "text": "Single polka dot pattern backdrop, soft pastel colors. One seamless pattern tile only, flat layout, soft lighting, clean minimalist design, high resolution, isolated on pure white background.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "A single cute rabbit character wearing a tiny crown. One item only, front view, soft studio lighting, isolated on pure white background, commercial digital art, sharp focus, high resolution.",
+      "text": "Single cute panda character in a business suit holding a briefcase. One character only, full body view, soft studio lighting, high resolution, digital art, isolated on pure white background.",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
