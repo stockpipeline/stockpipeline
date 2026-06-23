@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "One plate only of Korean rice cakes, fish cakes in red gochujang sauce. Single dish, no other plates. 45-degree angle, soft studio lighting, commercial food photography, isolated on white background",
+      "text": "Single plate of thin sliced marinated beef with sesame and green onions. One plate only. 45-degree angle, soft studio lighting, isolated on pure white background, commercial food photography.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "One bowl only of clear ox bone broth soup with rice noodles and sliced beef. Single dish, 45-degree angle, soft studio lighting, commercial food photography, isolated on pure white background",
+      "text": "Single bowl of mixed rice, colorful vegetables, fried egg, gochujang. One bowl only. Top-down view, soft studio lighting, isolated on pure white background, commercial food photography, sharp.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "One plate only of crispy fried chicken glazed with sweet soy sauce. Single dish, 45-degree angle, soft studio lighting, commercial food photography, isolated on pure white background",
+      "text": "Single earthenware pot of soybean paste stew with tofu, zucchini, mushrooms. One pot only. 45-degree angle, soft studio lighting, isolated on pure white background, commercial food photography.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "One Korean brass incense burner with decorative openwork pattern. Single object only, 45-degree angle, soft studio lighting, commercial product photography, isolated on pure white background",
+      "text": "Single Korean hanji paper gift box with traditional pattern and silk ribbon. One box only. 45-degree angle, soft studio lighting, isolated on pure white background, commercial photography, sharp.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "One traditional Korean red and blue silk lantern with tassel. Single object, 45-degree angle, soft studio lighting, commercial product photography, isolated on pure white background",
+      "text": "Single Korean embroidered silk pouch, floral bojagi patchwork. One pouch only. Top-down view, soft studio lighting, isolated on pure white background, commercial product photography, sharp focus.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "A single Korean hanbok dress on a hanger, flat vector illustration style, top-down view, soft pastel colors, clean minimalist design, single subject only, isolated on pure white background",
+      "text": "Single Korean hanji paper fan. One item only. Top-down view, modern flat vector illustration style, minimalist design, isolated on pure white background, high resolution, clean commercial asset.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "A single plate of Korean kimchi, flat vector illustration style, 45-degree angle, clean lines, minimalist graphic design, single dish only, no clutter, isolated on pure white background",
+      "text": "Single Korean hanji paper fan. One item only. Three-quarter view, clean line art illustration, flat colors, minimalist design, isolated on pure white background, high resolution, commercial art.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "A single smooth pastel gradient background, minimal design, soft color transition, high resolution, professional commercial design asset, isolated on pure white background frame",
+      "text": "Single sheet of paper texture, subtle fiber details. Flat lay view, soft even lighting, isolated on pure white background, high resolution, sharp focus, seamless commercial design asset.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "A single seamless pastel stripe pattern background, minimalist design, soft colors, flat layout, high resolution, professional commercial design asset, isolated on pure white background",
+      "text": "Single sheet of monochrome paper texture, subtle fiber details. Flat lay view, soft studio lighting, isolated on pure white background, high resolution, commercial stock design texture.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "A single magical floating crystal with sparkling light. One item only, 45-degree angle, soft studio lighting, sharp focus, 3D render commercial asset, isolated on pure white background",
+      "text": "Single magical floating crystal with blue sparkles. One item only. 45-degree angle, soft studio lighting, isolated on pure white background, sharp focus, commercial design, high-resolution.",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
