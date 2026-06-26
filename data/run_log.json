@@ -1,6 +1,43 @@
 {
   "history": [
     {
+      "timestamp": "2026-06-27T06:58:07.127891+09:00",
+      "status": "success",
+      "summary": {
+        "stage": "prompt_generation",
+        "total_prompts": 10,
+        "from_user": 0,
+        "from_template": 10
+      },
+      "logs": [
+        {
+          "time": "06:57:41",
+          "level": "info",
+          "message": "오늘의 프롬프트 10개 생성 시작"
+        },
+        {
+          "time": "06:57:41",
+          "level": "info",
+          "message": "사용자 프롬프트 0개 선택됨"
+        },
+        {
+          "time": "06:57:41",
+          "level": "info",
+          "message": "템플릿 기반으로 10개 추가 생성"
+        },
+        {
+          "time": "06:57:41",
+          "level": "info",
+          "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
+        },
+        {
+          "time": "06:58:07",
+          "level": "info",
+          "message": "총 10개 프롬프트 준비 완료"
+        }
+      ]
+    },
+    {
       "timestamp": "2026-06-26T08:06:47.196655+09:00",
       "status": "success",
       "summary": {
@@ -1101,7 +1138,7 @@
     }
   ],
   "latest": {
-    "timestamp": "2026-06-26T08:06:47.196655+09:00",
+    "timestamp": "2026-06-27T06:58:07.127891+09:00",
     "status": "success",
     "summary": {
       "stage": "prompt_generation",
@@ -1111,42 +1148,27 @@
     },
     "logs": [
       {
-        "time": "08:02:19",
+        "time": "06:57:41",
         "level": "info",
         "message": "오늘의 프롬프트 10개 생성 시작"
       },
       {
-        "time": "08:02:19",
+        "time": "06:57:41",
         "level": "info",
         "message": "사용자 프롬프트 0개 선택됨"
       },
       {
-        "time": "08:02:19",
+        "time": "06:57:41",
         "level": "info",
         "message": "템플릿 기반으로 10개 추가 생성"
       },
       {
-        "time": "08:02:19",
+        "time": "06:57:41",
         "level": "info",
         "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
       },
       {
-        "time": "08:02:32",
-        "level": "warn",
-        "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/3)"
-      },
-      {
-        "time": "08:03:49",
-        "level": "warn",
-        "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (2/3)"
-      },
-      {
-        "time": "08:06:47",
-        "level": "warn",
-        "message": "배치 보정 실패(429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash\nPlease retry in 12.818733195s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.5-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 5\n}\n, retry_delay {\n  seconds: 12\n}\n]) - 원본 스켈레톤 그대로 사용"
-      },
-      {
-        "time": "08:06:47",
+        "time": "06:58:07",
         "level": "info",
         "message": "총 10개 프롬프트 준비 완료"
       }

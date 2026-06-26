@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "A single white plate of thin sliced marinated beef with sesame and green onions, close-up macro shot, bright even lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "One bowl only of spicy red soup with shredded beef, fernbrake, bean sprouts. Top-down view, soft studio lighting, isolated on pure white background. Commercial food photography, sharp focus.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "A single white plate of crispy pan-fried kimchi pancake golden brown on outside, close-up macro shot, soft diffused lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "One plate only of crispy fried chicken glazed in sweet soy sauce. 45-degree angle, soft studio lighting, isolated on pure white background. Commercial food photography, sharp focus, high res.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "A single earthenware pot of bubbling red kimchi stew with tofu and pork, close-up macro shot, bright even lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "One plate only of sliced Korean seaweed rice rolls showing colorful fillings. 45-degree angle, soft studio lighting, isolated on pure white background. Commercial food photography, sharp focus.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "A single Korean embroidered silk pouch with floral bojagi patchwork pattern, close-up detail shot, bright even studio lighting, vibrant traditional colors, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
+      "text": "One Korean brass incense burner with decorative openwork pattern. 45-degree angle, soft studio lighting, isolated on pure white background. Commercial product photography, sharp focus, high res.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "A single Korean brass incense burner with decorative openwork pattern, 45 degree angle view, gentle diffused light, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
+      "text": "One Korean traditional mask with bold painted expressions. Top-down view, soft studio lighting, isolated on pure white background. Commercial photography, sharp focus, high resolution.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "A single bowl of Korean japchae noodles, one dish only, flat lay from directly above, clean line art illustration with flat colors, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
+      "text": "Single illustration of a Korean hanbok dress on a hanger. Flat vector design, minimalist style, clean shapes, isolated on pure white background. Single subject only, commercial design asset.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "A single Korean mask (tal) for traditional dance, one item only, centered composition, clean line art illustration with flat colors, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
+      "text": "Single illustration of one plate of red spicy kimchi. Flat vector design, minimalist style, clean shapes, isolated on pure white background. Single subject only, commercial design asset.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "polka dot pattern background, soft colors, seamless tileable pattern, muted earthy color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
+      "text": "Single leaf illustration element, one item only. Flat vector design, bold colors, soft studio lighting, isolated on pure white background. Minimalist commercial graphic, sharp focus, high res.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "polka dot pattern background, soft colors, seamless tileable pattern, muted earthy color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
+      "text": "Single leaf illustration element, one item only. Centered composition, pastel colors, soft studio lighting, isolated on pure white background. Minimalist commercial graphic, sharp focus, high res.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "wise old owl wearing tiny glasses, full body view, isolated, warm golden hour lighting, expressive cute features, digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
+      "text": "One cute baby dragon sleeping on a pile of gold coins. 45-degree angle, soft studio lighting, isolated on pure white background. Commercial 3D render, sharp focus, high resolution.",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
