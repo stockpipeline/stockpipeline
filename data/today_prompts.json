@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "One bowl only of spicy red soup with shredded beef, fernbrake, bean sprouts. Top-down view, soft studio lighting, isolated on pure white background. Commercial food photography, sharp focus.",
+      "text": "Single plate of thin-sliced marinated beef with sesame and green onions, top-down angle, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background, one dish only",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "One plate only of crispy fried chicken glazed in sweet soy sauce. 45-degree angle, soft studio lighting, isolated on pure white background. Commercial food photography, sharp focus, high res.",
+      "text": "Single plate of crispy pan-fried kimchi pancake, 45-degree angle, soft studio lighting, commercial food photography, sharp focus, high resolution, isolated on pure white background, one dish only",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "One plate only of sliced Korean seaweed rice rolls showing colorful fillings. 45-degree angle, soft studio lighting, isolated on pure white background. Commercial food photography, sharp focus.",
+      "text": "Single plate of crispy fried chicken glazed with sticky sweet soy sauce, top-down, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background, one dish only",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "One Korean brass incense burner with decorative openwork pattern. 45-degree angle, soft studio lighting, isolated on pure white background. Commercial product photography, sharp focus, high res.",
+      "text": "Single Korean hanbok dress in vibrant silk, 45-degree angle, soft studio lighting, commercial photography, high resolution, sharp focus, isolated on pure white background, single item only",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "One Korean traditional mask with bold painted expressions. Top-down view, soft studio lighting, isolated on pure white background. Commercial photography, sharp focus, high resolution.",
+      "text": "Single set of Korean silver metal chopsticks and long spoon, 45-degree angle, soft studio lighting, commercial photography, sharp focus, isolated on pure white background, single item only",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Single illustration of a Korean hanbok dress on a hanger. Flat vector design, minimalist style, clean shapes, isolated on pure white background. Single subject only, commercial design asset.",
+      "text": "Single Korean celadon ceramic vase, side view, clean flat vector illustration, minimalist design, soft studio lighting, commercial design, high resolution, isolated on pure white background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "Single illustration of one plate of red spicy kimchi. Flat vector design, minimalist style, clean shapes, isolated on pure white background. Single subject only, commercial design asset.",
+      "text": "Single Korean hanbok dress on a hanger, top-down flat vector illustration, minimalist icon design, pastel colors, sharp focus, high resolution, isolated on pure white background, one item only",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "Single leaf illustration element, one item only. Flat vector design, bold colors, soft studio lighting, isolated on pure white background. Minimalist commercial graphic, sharp focus, high res.",
+      "text": "Single elegant frame border design element, top-down angle, muted earthy colors, soft studio lighting, commercial design asset, sharp focus, isolated on pure white background, one item only",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "Single leaf illustration element, one item only. Centered composition, pastel colors, soft studio lighting, isolated on pure white background. Minimalist commercial graphic, sharp focus, high res.",
+      "text": "Single sheet of textured paper, subtle fiber detail, bold color palette, 45-degree angle, soft studio lighting, commercial photography, sharp focus, isolated on pure white background, one item only",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "One cute baby dragon sleeping on a pile of gold coins. 45-degree angle, soft studio lighting, isolated on pure white background. Commercial 3D render, sharp focus, high resolution.",
+      "text": "Single cat character in wizard robe and small hat, 45-degree angle, soft studio lighting, highly detailed commercial 3D render, sharp focus, isolated on pure white background, one subject only",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"

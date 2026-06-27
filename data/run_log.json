@@ -1,6 +1,43 @@
 {
   "history": [
     {
+      "timestamp": "2026-06-28T06:44:02.345289+09:00",
+      "status": "success",
+      "summary": {
+        "stage": "prompt_generation",
+        "total_prompts": 10,
+        "from_user": 0,
+        "from_template": 10
+      },
+      "logs": [
+        {
+          "time": "06:43:47",
+          "level": "info",
+          "message": "오늘의 프롬프트 10개 생성 시작"
+        },
+        {
+          "time": "06:43:47",
+          "level": "info",
+          "message": "사용자 프롬프트 0개 선택됨"
+        },
+        {
+          "time": "06:43:47",
+          "level": "info",
+          "message": "템플릿 기반으로 10개 추가 생성"
+        },
+        {
+          "time": "06:43:47",
+          "level": "info",
+          "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
+        },
+        {
+          "time": "06:44:02",
+          "level": "info",
+          "message": "총 10개 프롬프트 준비 완료"
+        }
+      ]
+    },
+    {
       "timestamp": "2026-06-27T06:58:07.127891+09:00",
       "status": "success",
       "summary": {
@@ -1138,7 +1175,7 @@
     }
   ],
   "latest": {
-    "timestamp": "2026-06-27T06:58:07.127891+09:00",
+    "timestamp": "2026-06-28T06:44:02.345289+09:00",
     "status": "success",
     "summary": {
       "stage": "prompt_generation",
@@ -1148,27 +1185,27 @@
     },
     "logs": [
       {
-        "time": "06:57:41",
+        "time": "06:43:47",
         "level": "info",
         "message": "오늘의 프롬프트 10개 생성 시작"
       },
       {
-        "time": "06:57:41",
+        "time": "06:43:47",
         "level": "info",
         "message": "사용자 프롬프트 0개 선택됨"
       },
       {
-        "time": "06:57:41",
+        "time": "06:43:47",
         "level": "info",
         "message": "템플릿 기반으로 10개 추가 생성"
       },
       {
-        "time": "06:57:41",
+        "time": "06:43:47",
         "level": "info",
         "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
       },
       {
-        "time": "06:58:07",
+        "time": "06:44:02",
         "level": "info",
         "message": "총 10개 프롬프트 준비 완료"
       }
