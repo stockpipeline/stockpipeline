@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "Single plate of tteokbokki, chewy rice cakes in spicy gochujang sauce, fish cake. One plate only, 45-degree angle, soft studio lighting, food photography, isolated on pure white background.",
+      "text": "One bowl only of cold buckwheat noodles in dark broth with cucumber and egg. 45-degree angle, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "Single plate of bulgogi, sliced marinated beef, sesame, green onions. One dish only, 45-degree angle, soft studio lighting, commercial food photography, isolated on pure white background.",
+      "text": "One plate only of crispy pan-fried kimchi pancake. 45-degree angle, soft studio lighting, commercial food photography, sharp focus, high resolution, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "Single plate of crispy pan-fried kimchi pancake. One dish only, golden brown, 45-degree angle, soft studio lighting, commercial food photography, isolated on pure white background.",
+      "text": "One bowl only of Korean bibimbap mixed rice with vegetables and egg. Top-down, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "Single Korean hanji paper gift box, traditional pattern, silk ribbon. One item only, 45-degree angle, soft studio lighting, commercial photography, isolated on pure white background.",
+      "text": "Single item only, Korean brass incense burner with openwork pattern. 45-degree angle, soft studio lighting, commercial product photography, sharp focus, isolated on pure white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "Single Korean hanji paper gift box, intricate traditional texture, ribbon. One item only, 45-degree angle, soft studio lighting, commercial photography, isolated on pure white background.",
+      "text": "Single item only, Korean embroidered silk pouch with floral patchwork. 45-degree angle, soft studio lighting, commercial product photography, sharp focus, isolated on pure white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Single Korean lantern. One item only, flat vector illustration style, minimalist design, clean shapes, top-down angle, high resolution, sharp focus, isolated on pure white background.",
+      "text": "Single item only, flat vector illustration of a Korean celadon vase. Centered, minimalist design, soft studio lighting, sharp focus, high resolution, isolated on pure white background.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "Single Korean hanji paper fan. One item only, flat vector illustration, minimalist design, clean shapes, centered, top-down angle, high resolution, isolated on pure white background.",
+      "text": "Single item only, flat vector illustration of a Korean lantern. Centered, minimalist design, soft studio lighting, sharp focus, high resolution, isolated on pure white background.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "Single swatch of abstract fluid marbled texture, muted earthy colors. One canvas only, top-down angle, soft studio lighting, high resolution, sharp focus, isolated on pure white background.",
+      "text": "Single background of soft bokeh light circles. Centered composition, soft studio lighting, sharp focus, high resolution, commercial stock texture, isolated on pure white background.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "Single sheet of paper texture with subtle fibers, vibrant bold colors. One item only, top-down angle, soft studio lighting, high resolution texture, isolated on pure white background.",
+      "text": "Single seamless minimal stripe pattern background. Clean vector design, soft studio lighting, high resolution, commercial stock graphic, sharp focus, isolated on pure white background.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "Single cute baby fox sitting in autumn leaves. One animal only, 45-degree angle, soft magical studio lighting, cinematic digital art, sharp focus, isolated on pure white background.",
+      "text": "Single character only, cute cat in a wizard robe and small hat. 45-degree angle, soft studio lighting, commercial character design, sharp focus, isolated on pure white background.",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
