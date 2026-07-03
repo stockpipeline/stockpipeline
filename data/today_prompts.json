@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "One bowl only, single dish of spicy soup with shredded beef, fernbrake, bean sprouts. 45-degree angle, soft studio lighting, isolated on pure white background, commercial food photography.",
+      "text": "Single bowl only, spicy Korean beef soup with fernbrake and bean sprouts, 45-degree view, soft studio lighting, isolated on pure white background, commercial food photography, sharp focus",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "One plate only, single dish of thin sliced marinated beef with sesame and green onions. Top-down view, soft studio lighting, isolated on pure white background, commercial food photography.",
+      "text": "Single bowl only, Korean ox bone soup with noodles and sliced beef, top-down view, soft studio lighting, isolated on pure white background, commercial food photography, sharp focus, high res",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "One bowl only, single dish of Korean bibimbap mixed rice, vegetables, fried egg on top. 45-degree angle, soft studio lighting, isolated on pure white background, commercial food photography.",
+      "text": "Single bowl only, Korean cold buckwheat noodles with cucumber and boiled egg, top-down view, soft studio lighting, isolated on pure white background, commercial food photography, sharp focus",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "One item only, single Korean wooden tea tray with one ceramic cup. Top-down, soft studio lighting, sharp focus, high resolution, isolated on pure white background, commercial stock photo.",
+      "text": "Single item only, Korean traditional ink brush and inkstone on wooden stand, 45-degree angle, soft studio lighting, isolated on pure white background, commercial photography, sharp focus",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "One item only, single Korean embroidered silk pouch with floral bojagi patchwork. 45-degree angle, soft studio lighting, sharp focus, isolated on pure white background, commercial stock photo.",
+      "text": "Single item only, Korean embroidered silk pouch with bojagi patchwork, 45-degree angle, soft studio lighting, isolated on pure white background, commercial photography, sharp focus, high res",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "One item only, single Korean celadon ceramic vase flat vector illustration. Minimalist design, clean shapes, no clutter, 45-degree, sharp focus, isolated on pure white background, commercial.",
+      "text": "Single item only, flat vector illustration of one Korean hanbok dress on hanger, minimalist clean shapes, commercial design, isolated on pure white background, high resolution, sharp focus",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "One bowl only, single Korean bibimbap bowl flat vector illustration. Minimalist icon design, clean shapes, 45-degree angle, sharp focus, isolated on pure white background, commercial stock.",
+      "text": "Single item only, flat vector illustration of one Korean celadon ceramic vase, top-down view, minimalist clean shapes, commercial design, isolated on pure white background, high resolution",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "One item only, single minimalist green leaf flat vector illustration. Clean lines, minimalist design, sharp details, isolated on pure white background, commercial graphic design asset.",
+      "text": "Single item only, minimal striped pattern background paper, top-down view, muted earthy colors, soft studio lighting, isolated on pure white background, commercial stock photography, high res",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "One item only, single abstract geometric shape, clean lines. Minimalist vector design, soft lighting, high resolution, isolated on pure white background, commercial graphic asset.",
+      "text": "Single item only, abstract soft bokeh light background overlay panel, vibrant colors, centered composition, soft studio lighting, isolated on pure white background, commercial photography",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "One subject only, single cute baby dragon sleeping on a pile of gold coins. 45-degree angle, soft magical studio lighting, isolated on pure white background, commercial 3D render style.",
+      "text": "Single character only, cute rabbit wearing a tiny crown, front view portrait, soft studio lighting, isolated on pure white background, 3D render commercial art, sharp focus, high resolution",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
