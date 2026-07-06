@@ -1,6 +1,43 @@
 {
   "history": [
     {
+      "timestamp": "2026-07-07T07:46:08.272508+09:00",
+      "status": "success",
+      "summary": {
+        "stage": "prompt_generation",
+        "total_prompts": 10,
+        "from_user": 0,
+        "from_template": 10
+      },
+      "logs": [
+        {
+          "time": "07:45:55",
+          "level": "info",
+          "message": "오늘의 프롬프트 10개 생성 시작"
+        },
+        {
+          "time": "07:45:55",
+          "level": "info",
+          "message": "사용자 프롬프트 0개 선택됨"
+        },
+        {
+          "time": "07:45:55",
+          "level": "info",
+          "message": "템플릿 기반으로 10개 추가 생성"
+        },
+        {
+          "time": "07:45:55",
+          "level": "info",
+          "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
+        },
+        {
+          "time": "07:46:08",
+          "level": "info",
+          "message": "총 10개 프롬프트 준비 완료"
+        }
+      ]
+    },
+    {
       "timestamp": "2026-07-06T07:35:09.602628+09:00",
       "status": "success",
       "summary": {
@@ -1297,165 +1334,42 @@
           "message": "Gmail 연동 정보 없음 - 결과 자동 확인 스킵"
         }
       ]
-    },
-    {
-      "timestamp": "2026-06-14T12:03:37.538898+09:00",
-      "status": "success",
-      "summary": {
-        "stage": "prompt_generation",
-        "total_prompts": 20,
-        "from_user": 0,
-        "from_template": 20
-      },
-      "logs": [
-        {
-          "time": "11:40:34",
-          "level": "info",
-          "message": "오늘의 프롬프트 20개 생성 시작"
-        },
-        {
-          "time": "11:40:34",
-          "level": "info",
-          "message": "사용자 프롬프트 0개 선택됨"
-        },
-        {
-          "time": "11:40:34",
-          "level": "info",
-          "message": "템플릿 기반으로 20개 추가 생성"
-        },
-        {
-          "time": "11:40:38",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "11:41:47",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "11:42:56",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "11:44:05",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "11:45:14",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "11:46:24",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "11:47:33",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "11:48:42",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "11:49:51",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "11:51:00",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "11:52:09",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "11:53:19",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "11:54:28",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "11:55:37",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "11:56:46",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "11:57:55",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "11:59:04",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "12:00:14",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "12:01:23",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "12:02:32",
-          "level": "warn",
-          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/2)"
-        },
-        {
-          "time": "12:03:37",
-          "level": "info",
-          "message": "총 20개 프롬프트 준비 완료"
-        }
-      ]
     }
   ],
   "latest": {
-    "timestamp": "2026-07-06T07:35:09.602628+09:00",
+    "timestamp": "2026-07-07T07:46:08.272508+09:00",
     "status": "success",
     "summary": {
-      "stage": "weekly_tasks",
-      "backup_ok": false,
-      "policy_changed": [
-        "freepik"
-      ]
+      "stage": "prompt_generation",
+      "total_prompts": 10,
+      "from_user": 0,
+      "from_template": 10
     },
     "logs": [
       {
-        "time": "07:34:48",
-        "level": "warn",
-        "message": "Drive 백업 실패: <HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id&alt=json&uploadType=multipart returned \"Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.\". Details: \"[{'message': 'Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.', 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
+        "time": "07:45:55",
+        "level": "info",
+        "message": "오늘의 프롬프트 10개 생성 시작"
       },
       {
-        "time": "07:35:08",
-        "level": "warn",
-        "message": "adobe 정책 페이지 확인 실패: HTTPSConnectionPool(host='helpx.adobe.com', port=443): Read timed out. (read timeout=20)"
+        "time": "07:45:55",
+        "level": "info",
+        "message": "사용자 프롬프트 0개 선택됨"
       },
       {
-        "time": "07:35:09",
-        "level": "warn",
-        "message": "freepik 정책 페이지 변경 감지!"
+        "time": "07:45:55",
+        "level": "info",
+        "message": "템플릿 기반으로 10개 추가 생성"
+      },
+      {
+        "time": "07:45:55",
+        "level": "info",
+        "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
+      },
+      {
+        "time": "07:46:08",
+        "level": "info",
+        "message": "총 10개 프롬프트 준비 완료"
       }
     ]
   }
