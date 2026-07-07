@@ -1,6 +1,43 @@
 {
   "history": [
     {
+      "timestamp": "2026-07-08T07:21:58.456962+09:00",
+      "status": "success",
+      "summary": {
+        "stage": "prompt_generation",
+        "total_prompts": 10,
+        "from_user": 0,
+        "from_template": 10
+      },
+      "logs": [
+        {
+          "time": "07:21:45",
+          "level": "info",
+          "message": "오늘의 프롬프트 10개 생성 시작"
+        },
+        {
+          "time": "07:21:45",
+          "level": "info",
+          "message": "사용자 프롬프트 0개 선택됨"
+        },
+        {
+          "time": "07:21:45",
+          "level": "info",
+          "message": "템플릿 기반으로 10개 추가 생성"
+        },
+        {
+          "time": "07:21:45",
+          "level": "info",
+          "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
+        },
+        {
+          "time": "07:21:58",
+          "level": "info",
+          "message": "총 10개 프롬프트 준비 완료"
+        }
+      ]
+    },
+    {
       "timestamp": "2026-07-07T07:46:08.272508+09:00",
       "status": "success",
       "summary": {
@@ -1316,28 +1353,10 @@
           "message": "총 20개 프롬프트 준비 완료"
         }
       ]
-    },
-    {
-      "timestamp": "2026-06-14T12:18:29.747347+09:00",
-      "status": "success",
-      "summary": {
-        "stage": "platform_results",
-        "gmail_connected": false,
-        "approved": 0,
-        "rejected": 0,
-        "deactivated_prompts": []
-      },
-      "logs": [
-        {
-          "time": "12:18:29",
-          "level": "warn",
-          "message": "Gmail 연동 정보 없음 - 결과 자동 확인 스킵"
-        }
-      ]
     }
   ],
   "latest": {
-    "timestamp": "2026-07-07T07:46:08.272508+09:00",
+    "timestamp": "2026-07-08T07:21:58.456962+09:00",
     "status": "success",
     "summary": {
       "stage": "prompt_generation",
@@ -1347,27 +1366,27 @@
     },
     "logs": [
       {
-        "time": "07:45:55",
+        "time": "07:21:45",
         "level": "info",
         "message": "오늘의 프롬프트 10개 생성 시작"
       },
       {
-        "time": "07:45:55",
+        "time": "07:21:45",
         "level": "info",
         "message": "사용자 프롬프트 0개 선택됨"
       },
       {
-        "time": "07:45:55",
+        "time": "07:21:45",
         "level": "info",
         "message": "템플릿 기반으로 10개 추가 생성"
       },
       {
-        "time": "07:45:55",
+        "time": "07:21:45",
         "level": "info",
         "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
       },
       {
-        "time": "07:46:08",
+        "time": "07:21:58",
         "level": "info",
         "message": "총 10개 프롬프트 준비 완료"
       }
