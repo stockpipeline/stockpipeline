@@ -1,6 +1,58 @@
 {
   "history": [
     {
+      "timestamp": "2026-07-10T07:54:51.822538+09:00",
+      "status": "success",
+      "summary": {
+        "stage": "prompt_generation",
+        "total_prompts": 10,
+        "from_user": 0,
+        "from_template": 10
+      },
+      "logs": [
+        {
+          "time": "07:51:34",
+          "level": "info",
+          "message": "오늘의 프롬프트 10개 생성 시작"
+        },
+        {
+          "time": "07:51:34",
+          "level": "info",
+          "message": "사용자 프롬프트 0개 선택됨"
+        },
+        {
+          "time": "07:51:34",
+          "level": "info",
+          "message": "템플릿 기반으로 10개 추가 생성"
+        },
+        {
+          "time": "07:51:34",
+          "level": "info",
+          "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
+        },
+        {
+          "time": "07:52:08",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/3)"
+        },
+        {
+          "time": "07:53:26",
+          "level": "warn",
+          "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (2/3)"
+        },
+        {
+          "time": "07:54:51",
+          "level": "warn",
+          "message": "배치 보정 실패(429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.5-flash\nPlease retry in 8.186786486s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.5-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 20\n}\n, retry_delay {\n  seconds: 8\n}\n]) - 원본 스켈레톤 그대로 사용"
+        },
+        {
+          "time": "07:54:51",
+          "level": "info",
+          "message": "총 10개 프롬프트 준비 완료"
+        }
+      ]
+    },
+    {
       "timestamp": "2026-07-09T06:50:50.188185+09:00",
       "status": "success",
       "summary": {
@@ -1076,272 +1128,10 @@
           "message": "Gmail 연동 정보 없음 - 결과 자동 확인 스킵"
         }
       ]
-    },
-    {
-      "timestamp": "2026-06-14T13:06:00.434262+09:00",
-      "status": "failed",
-      "summary": {
-        "stage": "image_generation",
-        "generated": 0,
-        "attempted": 20,
-        "error": "no images passed all filters"
-      },
-      "logs": [
-        {
-          "time": "13:03:31",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2813-68ecf29643c6e03e6793dd0b;003d48ea-5e90-47e2-9c37-1e68d96e1357)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:03:36",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2818-0aea50a366586db11c3dc4cc;ceec7796-1036-4242-ad9a-db47be06da8a)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:03:41",
-          "level": "warn",
-          "message": "Flux 실패 → SDXL 폴백"
-        },
-        {
-          "time": "13:03:41",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e281d-38dee8ee0218d81a58e26a9f;45c54c75-aa61-4daf-8f45-3456707c61c9)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:03:47",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2823-4362d56a3da48f847874c5ea;e1ab82e4-6fe2-4f6b-bdb9-89fc9e20e488)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:03:52",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2828-052dc6277250278265b49092;d6eee512-a7c5-4d38-a21c-cc3058c517ed)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:03:57",
-          "level": "warn",
-          "message": "[auto_abstract_019] 이미지 생성 실패 (생성 API 문제)"
-        },
-        {
-          "time": "13:03:57",
-          "level": "info",
-          "message": "[auto_abstract_019] 생성 시도 3/3"
-        },
-        {
-          "time": "13:03:57",
-          "level": "info",
-          "message": "Flux.1 Schnell 생성 시도"
-        },
-        {
-          "time": "13:03:57",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e282d-10f2305700e414e87417606d;1b2583ca-c73e-45d5-8c0d-06f5509fd9ab)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:04:02",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2832-783903f077990805528f8772;9aa3ff92-fc75-4b01-a328-05270d2dbc54)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:04:07",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2837-384350c968518c6a1cb5b6d3;1e1df928-b1d6-4de3-8def-05a9b93190ac)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:04:12",
-          "level": "warn",
-          "message": "Flux 실패 → SDXL 폴백"
-        },
-        {
-          "time": "13:04:12",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e283c-75bcea900b2cad77289ca3a7;89de2beb-f65b-4725-84ee-8fe5e0d83aa2)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:04:17",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2841-3c96e2f611515c0e5619b85d;63b24f09-cf14-498b-9275-367bc6b0766d)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:04:23",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2847-000d4098011a72f27aaa85b8;ceceeee3-305a-4cc5-ac96-77bec4b8557d)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:04:28",
-          "level": "warn",
-          "message": "[auto_abstract_019] 이미지 생성 실패 (생성 API 문제)"
-        },
-        {
-          "time": "13:04:28",
-          "level": "warn",
-          "message": "[auto_abstract_019] 3회 모두 실패 → 건너뜀"
-        },
-        {
-          "time": "13:04:28",
-          "level": "info",
-          "message": "[auto_abstract_020] 생성 시도 1/3"
-        },
-        {
-          "time": "13:04:28",
-          "level": "info",
-          "message": "Flux.1 Schnell 생성 시도"
-        },
-        {
-          "time": "13:04:28",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e284c-1ed51dfd7b3161c144cd2be8;21ec2894-9ffe-45fa-9638-b63d267787b7)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:04:33",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2851-0afd9bc77e5b072b123bbc2f;1313630f-a3a6-400f-8361-e9c049647a2e)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:04:38",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2856-3132a64d32e168eb76ecfbc4;44100a53-8c1f-4ee0-ba3d-3b86a3e6781d)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:04:43",
-          "level": "warn",
-          "message": "Flux 실패 → SDXL 폴백"
-        },
-        {
-          "time": "13:04:43",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e285b-0199f348219d4c2f339c7253;1bb5b770-6c00-40c1-ba06-6de2c349106b)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:04:48",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2860-7e314a743c9586202820425f;e950b2df-b869-4005-bb67-4ef1caafc907)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:04:53",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2865-0edef8690f5f56e173966e02;447a84e4-fbc6-4b6c-b0f7-f225c7c6f859)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:04:58",
-          "level": "warn",
-          "message": "[auto_abstract_020] 이미지 생성 실패 (생성 API 문제)"
-        },
-        {
-          "time": "13:04:58",
-          "level": "info",
-          "message": "[auto_abstract_020] 생성 시도 2/3"
-        },
-        {
-          "time": "13:04:58",
-          "level": "info",
-          "message": "Flux.1 Schnell 생성 시도"
-        },
-        {
-          "time": "13:04:59",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e286a-07a5a9f910b26c810ac2ca0a;215720b5-5cf1-47d8-b833-09d1c0ef558e)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:05:04",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2870-5cde10aa730a98cb5d9a3f09;ad46410e-0762-42b8-8aaa-9767c5be5728)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:05:09",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2875-0084d6be2f8df83535229f69;3c621127-f3e8-4b09-b47f-143e07992d51)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:05:14",
-          "level": "warn",
-          "message": "Flux 실패 → SDXL 폴백"
-        },
-        {
-          "time": "13:05:14",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e287a-1a492c2255cb44d028daba71;079b71bf-32b5-4440-be52-988f4d7efab1)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:05:19",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e287f-29661f7d4a3d109a04e350fe;bdde4cc1-afee-439a-8c70-642b3f822c40)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:05:24",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2884-586fb81f74fcc4cd38545563;16d1abd5-9798-42c0-a754-4d3dbd1dc4b1)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:05:29",
-          "level": "warn",
-          "message": "[auto_abstract_020] 이미지 생성 실패 (생성 API 문제)"
-        },
-        {
-          "time": "13:05:29",
-          "level": "info",
-          "message": "[auto_abstract_020] 생성 시도 3/3"
-        },
-        {
-          "time": "13:05:29",
-          "level": "info",
-          "message": "Flux.1 Schnell 생성 시도"
-        },
-        {
-          "time": "13:05:29",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2889-3018abdb4572a2eb401dfdaf;ccabbb3b-eec8-4ebe-99d0-8f6260436860)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:05:34",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e288e-6b87265930580c1529bee3e1;414a00de-9894-49ce-b3b8-115c6a757db7)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:05:40",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2893-155612f718a5856318f1e1d6;bcd0a347-986c-445a-8b28-02ad70920158)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:05:45",
-          "level": "warn",
-          "message": "Flux 실패 → SDXL 폴백"
-        },
-        {
-          "time": "13:05:45",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e2899-49496c3d4b69b6fe7ee7f8f0;5f8f025b-0ce0-4fb0-8ec6-ed77fd7d480b)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:05:50",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e289e-0d438385267d33907c260543;b61d6018-f660-4e17-a3e8-b83abb978b7d)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:05:55",
-          "level": "warn",
-          "message": "HF 응답 오류 402: Client error '402 Payment Required' for url 'https://router.huggingface.co/nscale/v1/images/generations' (Request ID: Root=1-6a2e28a3-224c1d5b5c9b7a495c7c6f67;b2fc6df7-342e-41aa-a492-696d7113284f)\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402\n\nYou have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage."
-        },
-        {
-          "time": "13:06:00",
-          "level": "warn",
-          "message": "[auto_abstract_020] 이미지 생성 실패 (생성 API 문제)"
-        },
-        {
-          "time": "13:06:00",
-          "level": "warn",
-          "message": "[auto_abstract_020] 3회 모두 실패 → 건너뜀"
-        },
-        {
-          "time": "13:06:00",
-          "level": "info",
-          "message": "이미지 생성 완료: 0/20"
-        }
-      ]
     }
   ],
   "latest": {
-    "timestamp": "2026-07-09T06:50:50.188185+09:00",
+    "timestamp": "2026-07-10T07:54:51.822538+09:00",
     "status": "success",
     "summary": {
       "stage": "prompt_generation",
@@ -1351,27 +1141,42 @@
     },
     "logs": [
       {
-        "time": "06:50:36",
+        "time": "07:51:34",
         "level": "info",
         "message": "오늘의 프롬프트 10개 생성 시작"
       },
       {
-        "time": "06:50:36",
+        "time": "07:51:34",
         "level": "info",
         "message": "사용자 프롬프트 0개 선택됨"
       },
       {
-        "time": "06:50:36",
+        "time": "07:51:34",
         "level": "info",
         "message": "템플릿 기반으로 10개 추가 생성"
       },
       {
-        "time": "06:50:36",
+        "time": "07:51:34",
         "level": "info",
         "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
       },
       {
-        "time": "06:50:50",
+        "time": "07:52:08",
+        "level": "warn",
+        "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (1/3)"
+      },
+      {
+        "time": "07:53:26",
+        "level": "warn",
+        "message": "Gemini 429 (분당 한도) - 65초 대기 후 재시도 (2/3)"
+      },
+      {
+        "time": "07:54:51",
+        "level": "warn",
+        "message": "배치 보정 실패(429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.5-flash\nPlease retry in 8.186786486s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.5-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 20\n}\n, retry_delay {\n  seconds: 8\n}\n]) - 원본 스켈레톤 그대로 사용"
+      },
+      {
+        "time": "07:54:51",
         "level": "info",
         "message": "총 10개 프롬프트 준비 완료"
       }
