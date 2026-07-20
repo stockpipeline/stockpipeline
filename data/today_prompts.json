@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "Single bowl only of mixed rice with beef, vegetables, fried egg, gochujang. Top-down, soft studio lighting, isolated on pure white background. Commercial food photography, sharp focus.",
+      "text": "A single bowl of mixed rice with colorful vegetables, fried egg and gochujang sauce on top, 45 degree angle view, warm studio lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "Single plate only of spicy Korean rice cakes and fish cakes in red sauce. 45-degree angle, soft studio lighting, isolated on pure white background. Commercial food photography, sharp focus.",
+      "text": "A single bowl of soft tofu sundubu-jjigae with egg and seafood in spicy red broth, close-up macro shot, warm studio lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "Single earthenware pot only of soybean paste stew with tofu, zucchini, mushrooms. Top-down, soft studio lighting, isolated on pure white background. Commercial food photography, sharp focus.",
+      "text": "A single bowl of cold buckwheat noodles in dark broth with cucumber slices and boiled egg, top-down view, warm studio lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "Single Korean hanbok dress only, vibrant silk flowing skirt. Top-down, soft studio lighting, isolated on pure white background. Commercial fashion photography, sharp focus, one item only.",
+      "text": "A single ornate Korean folding fan with painted floral pattern on hanji paper, overhead flat lay shot, warm afternoon light, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "Single pair of Korean silver metal chopsticks and spoon only. 45-degree angle, soft studio lighting, isolated on pure white background. Commercial product photography, sharp focus.",
+      "text": "A single Korean traditional ink brush and inkstone set on wooden stand, top-down view, warm afternoon light, intricate texture detail, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Single flat vector illustration of one Korean paper fan only, minimalist modern icon. Top-down, bright even lighting, isolated on pure white background. Commercial design asset, sharp focus.",
+      "text": "A single Korean mask (tal) for traditional dance, one item only, centered composition, modern flat icon style illustration, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "Single flat vector illustration of one Korean hanbok on hanger only, minimalist icon. Front view, bright even lighting, isolated on pure white background. Commercial design asset, sharp focus.",
+      "text": "A single Korean fan (hanji paper fan), one item only, flat lay from directly above, minimalist flat vector illustration, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "Single abstract fluid art canvas only, marbled pastel pattern. Top-down view, soft studio lighting, isolated on pure white background. Commercial stock photography, ultra sharp focus.",
+      "text": "simple geometric pattern, clean lines, full frame texture view, vibrant bold color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "Single sheet of handmade paper only, subtle fiber texture. Top-down view, soft studio lighting, isolated on pure white background. Commercial stock photography, ultra sharp focus.",
+      "text": "simple gradient background, smooth color transition, centered composition, monochrome color palette, high resolution print quality, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "Single cute baby fox figurine sitting in autumn leaves, one item only. 45-degree, soft studio lighting, isolated on pure white background. Commercial concept art, high resolution, sharp focus.",
+      "text": "small dragon curled around a treasure chest, full body view, isolated, warm golden hour lighting, digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
