@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "Single bowl of cold buckwheat noodles in dark broth with cucumber slices and boiled egg. One dish only, no other plates. 45-degree angle, soft studio lighting, isolated on pure white background.",
+      "text": "Single dish, one plate only, thin sliced marinated beef with sesame and green onions, top-down view, soft studio lighting, sharp focus, commercial food photography, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "Single bowl of bibimbap with carrots, spinach, bean sprouts, fried egg, gochujang sauce. One bowl only, no other plates. 45-degree angle, soft studio lighting, isolated on pure white background.",
+      "text": "Single dish, one plate only, crispy fried chicken glazed with sticky sweet soy sauce, top-down view, soft studio lighting, sharp focus, commercial food photography, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "Single bowl of spicy soft tofu stew with egg, clams, and scallions in red broth. One bowl only, no extra plates. Top-down view, soft studio lighting, sharp focus, isolated on pure white background.",
+      "text": "Single dish, one plate only, sliced seaweed rice rolls showing colorful fillings, top-down view, soft studio lighting, sharp focus, commercial food photography, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "Single Korean brass incense burner with intricate decorative openwork pattern. One item only, no clutter. Top-down view, soft studio lighting, sharp focus, isolated on pure white background.",
+      "text": "Single item, one set only, traditional Korean wooden tea tray with ceramic teacup and tea caddy, 45-degree angle view, soft studio lighting, sharp focus, isolated on pure white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "Single traditional Korean hanji paper gift box tied with silk ribbon. One box only, no other items. Top-down view, soft studio lighting, sharp focus, isolated on pure white background.",
+      "text": "Single item, one dress only, traditional Korean silk hanbok dress with graceful flowing skirt, 45-degree angle view, soft studio lighting, sharp focus, isolated on pure white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Flat vector illustration of a single plate of sliced kimchi. One dish only, single subject. Minimalist design, clean shapes, centered composition, isolated on pure white background.",
+      "text": "Single item, one dish only, flat vector illustration of Korean spicy kimchi, minimalist design, clean line art, bright colors, commercial asset, high resolution, isolated on pure white background.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "Flat vector illustration of a single traditional Korean lantern. One item only, single subject. 45-degree angle, clean minimalist design, sharp details, isolated on pure white background.",
+      "text": "Single building, one item only, minimalist flat vector illustration of traditional Korean palace gate, top-down view, clean lines, bold colors, commercial asset, isolated on pure white background.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "Single minimalist green leaf illustration element. One item only, no clutter. Centered top-down view, clean sharp edges, vibrant color, sharp focus, isolated on pure white background.",
+      "text": "Single texture element, soft smooth gradient background with earthy muted colors, minimal design, sharp focus, high resolution, professional commercial asset, isolated on pure white background.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "Single minimalist 3D gradient sphere design element, smooth color blend. One object only. 45-degree angle, soft studio lighting, high resolution, sharp focus, isolated on pure white background.",
+      "text": "Single texture element, minimalist watercolor background texture with soft pastel color washes, high resolution, professional commercial stock asset, sharp details, isolated on pure white background.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "Single small fantasy dragon curled around one treasure chest. One main subject only. 45-degree angle, soft studio lighting, detailed digital art, sharp focus, isolated on pure white background.",
+      "text": "Single subject only, tiny magical fairy sitting on a mushroom, 45-degree angle view, soft studio fantasy lighting, highly detailed digital art, sharp focus, isolated on pure white background.",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
