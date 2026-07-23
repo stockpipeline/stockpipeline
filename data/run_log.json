@@ -1,6 +1,43 @@
 {
   "history": [
     {
+      "timestamp": "2026-07-24T04:21:28.209443+09:00",
+      "status": "success",
+      "summary": {
+        "stage": "prompt_generation",
+        "total_prompts": 10,
+        "from_user": 0,
+        "from_template": 10
+      },
+      "logs": [
+        {
+          "time": "04:21:15",
+          "level": "info",
+          "message": "오늘의 프롬프트 10개 생성 시작"
+        },
+        {
+          "time": "04:21:15",
+          "level": "info",
+          "message": "사용자 프롬프트 0개 선택됨"
+        },
+        {
+          "time": "04:21:15",
+          "level": "info",
+          "message": "템플릿 기반으로 10개 추가 생성"
+        },
+        {
+          "time": "04:21:15",
+          "level": "info",
+          "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
+        },
+        {
+          "time": "04:21:28",
+          "level": "info",
+          "message": "총 10개 프롬프트 준비 완료"
+        }
+      ]
+    },
+    {
       "timestamp": "2026-07-23T04:24:16.052023+09:00",
       "status": "success",
       "summary": {
@@ -1101,47 +1138,10 @@
           "message": "총 10개 프롬프트 준비 완료"
         }
       ]
-    },
-    {
-      "timestamp": "2026-06-28T06:44:02.345289+09:00",
-      "status": "success",
-      "summary": {
-        "stage": "prompt_generation",
-        "total_prompts": 10,
-        "from_user": 0,
-        "from_template": 10
-      },
-      "logs": [
-        {
-          "time": "06:43:47",
-          "level": "info",
-          "message": "오늘의 프롬프트 10개 생성 시작"
-        },
-        {
-          "time": "06:43:47",
-          "level": "info",
-          "message": "사용자 프롬프트 0개 선택됨"
-        },
-        {
-          "time": "06:43:47",
-          "level": "info",
-          "message": "템플릿 기반으로 10개 추가 생성"
-        },
-        {
-          "time": "06:43:47",
-          "level": "info",
-          "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
-        },
-        {
-          "time": "06:44:02",
-          "level": "info",
-          "message": "총 10개 프롬프트 준비 완료"
-        }
-      ]
     }
   ],
   "latest": {
-    "timestamp": "2026-07-23T04:24:16.052023+09:00",
+    "timestamp": "2026-07-24T04:21:28.209443+09:00",
     "status": "success",
     "summary": {
       "stage": "prompt_generation",
@@ -1151,27 +1151,27 @@
     },
     "logs": [
       {
-        "time": "04:24:03",
+        "time": "04:21:15",
         "level": "info",
         "message": "오늘의 프롬프트 10개 생성 시작"
       },
       {
-        "time": "04:24:03",
+        "time": "04:21:15",
         "level": "info",
         "message": "사용자 프롬프트 0개 선택됨"
       },
       {
-        "time": "04:24:03",
+        "time": "04:21:15",
         "level": "info",
         "message": "템플릿 기반으로 10개 추가 생성"
       },
       {
-        "time": "04:24:03",
+        "time": "04:21:15",
         "level": "info",
         "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
       },
       {
-        "time": "04:24:16",
+        "time": "04:21:28",
         "level": "info",
         "message": "총 10개 프롬프트 준비 완료"
       }
