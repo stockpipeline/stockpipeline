@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "Single plate of Korean spicy tteokbokki rice cakes in red gochujang sauce with sliced fish cake, top-down view, soft studio lighting, sharp focus, isolated on pure white background.",
+      "text": "Single bowl of spicy soft tofu stew with egg and seafood, one bowl only, no other plates, 45-degree angle, soft studio lighting, isolated on pure white background, commercial food photography.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "Single bowl of cold buckwheat noodles in dark broth with sliced cucumber and half boiled egg, top-down view, soft studio lighting, sharp focus, isolated on pure white background.",
+      "text": "Single pot of Korean soybean paste stew with tofu, zucchini, mushrooms, one bowl only, no other plates, top-down view, soft studio lighting, isolated on pure white background, sharp focus.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "Single plate of spicy rice cakes in red gochujang sauce with fish cake, close-up 45-degree angle view, soft studio lighting, glossy texture, sharp focus, isolated on pure white background.",
+      "text": "Single pot of spicy kimchi stew with tofu and pork slices, one dish only, no other plates, 45-degree angle, soft studio lighting, isolated on pure white background, commercial food photo.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "Single set of silver Korean long-handled spoon and metal chopsticks, top-down view, soft studio lighting, ultra-sharp detail, commercial stock photography, isolated on pure white background.",
+      "text": "Single Korean traditional red silk lantern with tassel, one subject only, 45-degree angle, soft studio lighting, isolated on pure white background, commercial photography, sharp focus.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "Single traditional Korean silk hanbok dress, elegant flowing skirt, 45-degree view, soft studio lighting, commercial high resolution fashion stock photo, isolated on pure white background.",
+      "text": "Single Korean traditional ink brush and inkstone on wooden stand, one subject only, 45-degree angle, soft studio lighting, isolated on pure white background, commercial stock photography.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Single Korean traditional tal dance mask, clean vector flat design illustration, top-down view, minimalist style, bright vibrant colors, isolated on pure white background.",
+      "text": "Single Korean palace gate illustration, flat vector style, one building only, centered 45-degree view, soft pastel colors, isolated on pure white background, high resolution asset.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "Single traditional Korean silk lantern, minimalist flat vector illustration, top-down view, bold simple colors, clean graphic asset, print ready, isolated on pure white background.",
+      "text": "Single Korean street food cart with tteokbokki, modern flat vector illustration, one cart only, 45-degree angle, soft lighting, isolated on pure white background, commercial asset.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "Single elegant simple frame border graphic element, top-down view, soft pastel color palette, clean modern design, high resolution asset, sharp focus, isolated on pure white background.",
+      "text": "Single polka dot background design frame, soft pastel colors, one subject only, top-down view, soft studio lighting, isolated on pure white background, high resolution stock texture.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "Single polka dot pattern design texture, soft pastel color palette, flat lay top-down view, sharp focus, high resolution graphic asset, commercial design stock, pure white background.",
+      "text": "Single sheet of fiber textured handmade paper, one item only, top-down view, soft studio lighting, isolated on pure white background, sharp focus, commercial stock photography.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "Single majestic white unicorn, cute features, 45-degree angle portrait, soft studio lighting, digital concept art, vivid color, high resolution, isolated on pure white background.",
+      "text": "Single wise old owl wearing tiny glasses, one owl only, 45-degree angle view, soft studio lighting, detailed feather texture, isolated on pure white background, sharp focus, 8k resolution.",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
