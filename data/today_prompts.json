@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "Single bowl of soft tofu sundubu-jjigae with egg and seafood in spicy red broth, one bowl only, 45-degree angle, soft studio lighting, commercial photo, isolated on pure white background",
+      "text": "Single dish, one bowl only. Korean bibimbap mixed rice with colorful vegetables, fried egg, gochujang sauce. Top-down angle, soft studio lighting, sharp focus, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "Single white plate of thin sliced marinated beef with sesame and green onions, one dish only, top-down view, soft studio lighting, sharp focus, isolated on pure white background",
+      "text": "Single dish, one plate only. Korean tteokbokki chewy rice cakes in spicy gochujang sauce with fish cake. 45-degree angle, soft studio lighting, sharp focus, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "Single bowl of spicy red soup with shredded beef, fernbrake, bean sprouts, green onions, one bowl only, 45-degree angle, soft studio lighting, sharp focus, isolated on pure white background",
+      "text": "Single dish, one bowl only. Korean bibimbap mixed rice, colorful vegetables, fried egg, gochujang sauce. Top-down angle, soft studio lighting, high resolution, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "Single Korean traditional glowing red lantern with tassel, one item only, top-down view, soft studio lighting, high resolution commercial photo, sharp focus, isolated on pure white background",
+      "text": "Single item only, no extra objects. Korean traditional ink brush and inkstone set on wooden stand. 45-degree angle, soft studio lighting, sharp focus, high res, isolated on pure white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "Single Korean brass incense burner with openwork pattern, one item only, 45-degree angle, soft studio lighting, commercial photography, sharp focus, isolated on pure white background",
+      "text": "Single item only, one lantern. Korean traditional red lantern glowing warmly with tassel decoration. 45-degree angle, soft studio lighting, sharp focus, isolated on pure white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Single Korean lantern illustration, one item only, flat vector design, clean minimalist style, centered composition, high resolution graphic, isolated on pure white background",
+      "text": "Single item only, one cup. Flat vector illustration of a Korean traditional ceramic tea cup with green tea. Minimalist design, clean shapes, sharp focus, isolated on pure white background.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "Single bowl of Korean tteokbokki spicy rice cakes, one bowl only, flat vector illustration, minimalist style, 45-degree angle, clean lines, high res, isolated on pure white background",
+      "text": "Single dish, one bowl only. Flat vector illustration of Korean tteokbokki spicy rice cakes with fish cake. Minimalist design, clean vector art, high resolution, isolated on pure white background.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "Single soft bokeh light circle pattern, one element only, top-down view, soft studio lighting, high resolution texture, commercial quality, sharp focus, isolated on pure white background",
+      "text": "Single abstract fluid art element, marbled monochrome texture pattern. Top-down view, soft studio lighting, commercial quality, sharp focus, high resolution, isolated on pure white background.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "Single delicate floral botanical line art motif, one branch only, top-down view, clean vector style, high resolution texture, commercial stock, sharp focus, isolated on pure white background",
+      "text": "Single item only, one frame border. Simple decorative frame border element in muted earthy colors. Top-down view, soft studio lighting, sharp focus, print ready, isolated on pure white background.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "Single cute rabbit character wearing a tiny golden crown, one character only, 45-degree angle, soft studio lighting, high res fantasy digital art, sharp focus, isolated on pure white background",
+      "text": "Single subject, one small fantasy dragon curled around a tiny treasure chest. 45-degree angle, soft studio lighting, sharp focus, cinematic digital art, high res, isolated on pure white background.",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"

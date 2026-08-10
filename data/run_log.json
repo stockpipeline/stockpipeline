@@ -1,6 +1,43 @@
 {
   "history": [
     {
+      "timestamp": "2026-08-11T04:00:03.164818+09:00",
+      "status": "success",
+      "summary": {
+        "stage": "prompt_generation",
+        "total_prompts": 10,
+        "from_user": 0,
+        "from_template": 10
+      },
+      "logs": [
+        {
+          "time": "03:59:44",
+          "level": "info",
+          "message": "오늘의 프롬프트 10개 생성 시작"
+        },
+        {
+          "time": "03:59:44",
+          "level": "info",
+          "message": "사용자 프롬프트 0개 선택됨"
+        },
+        {
+          "time": "03:59:44",
+          "level": "info",
+          "message": "템플릿 기반으로 10개 추가 생성"
+        },
+        {
+          "time": "03:59:44",
+          "level": "info",
+          "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
+        },
+        {
+          "time": "04:00:03",
+          "level": "info",
+          "message": "총 10개 프롬프트 준비 완료"
+        }
+      ]
+    },
+    {
       "timestamp": "2026-08-10T04:29:11.004731+09:00",
       "status": "success",
       "summary": {
@@ -1066,70 +1103,42 @@
           "message": "총 10개 프롬프트 준비 완료"
         }
       ]
-    },
-    {
-      "timestamp": "2026-07-16T04:15:21.751522+09:00",
-      "status": "success",
-      "summary": {
-        "stage": "prompt_generation",
-        "total_prompts": 10,
-        "from_user": 0,
-        "from_template": 10
-      },
-      "logs": [
-        {
-          "time": "04:14:52",
-          "level": "info",
-          "message": "오늘의 프롬프트 10개 생성 시작"
-        },
-        {
-          "time": "04:14:52",
-          "level": "info",
-          "message": "사용자 프롬프트 0개 선택됨"
-        },
-        {
-          "time": "04:14:52",
-          "level": "info",
-          "message": "템플릿 기반으로 10개 추가 생성"
-        },
-        {
-          "time": "04:14:52",
-          "level": "info",
-          "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
-        },
-        {
-          "time": "04:15:21",
-          "level": "info",
-          "message": "총 10개 프롬프트 준비 완료"
-        }
-      ]
     }
   ],
   "latest": {
-    "timestamp": "2026-08-10T04:29:11.004731+09:00",
+    "timestamp": "2026-08-11T04:00:03.164818+09:00",
     "status": "success",
     "summary": {
-      "stage": "weekly_tasks",
-      "backup_ok": false,
-      "policy_changed": [
-        "freepik"
-      ]
+      "stage": "prompt_generation",
+      "total_prompts": 10,
+      "from_user": 0,
+      "from_template": 10
     },
     "logs": [
       {
-        "time": "04:28:50",
-        "level": "warn",
-        "message": "Drive 백업 실패: <HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id&alt=json&uploadType=multipart returned \"Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.\". Details: \"[{'message': 'Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.', 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
+        "time": "03:59:44",
+        "level": "info",
+        "message": "오늘의 프롬프트 10개 생성 시작"
       },
       {
-        "time": "04:29:10",
-        "level": "warn",
-        "message": "adobe 정책 페이지 확인 실패: HTTPSConnectionPool(host='helpx.adobe.com', port=443): Read timed out. (read timeout=20)"
+        "time": "03:59:44",
+        "level": "info",
+        "message": "사용자 프롬프트 0개 선택됨"
       },
       {
-        "time": "04:29:11",
-        "level": "warn",
-        "message": "freepik 정책 페이지 변경 감지!"
+        "time": "03:59:44",
+        "level": "info",
+        "message": "템플릿 기반으로 10개 추가 생성"
+      },
+      {
+        "time": "03:59:44",
+        "level": "info",
+        "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
+      },
+      {
+        "time": "04:00:03",
+        "level": "info",
+        "message": "총 10개 프롬프트 준비 완료"
       }
     ]
   }
