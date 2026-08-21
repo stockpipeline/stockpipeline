@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "One plate only, thin sliced marinated beef with sesame seeds, scallions, 45-degree angle, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background",
+      "text": "A single white plate of thin sliced marinated beef with sesame and green onions, slightly elevated angle view, soft diffused lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "Single dish only, top-down view of marinated beef with sesame and green onions, no other plates, soft studio lighting, sharp focus, commercial food photography, isolated on pure white background",
+      "text": "A single earthenware pot of bubbling red kimchi stew with tofu and pork, close-up macro shot, natural window lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "Single dish only, crispy golden-brown kimchi pancake on one white plate, top-down view, soft studio lighting, sharp focus, commercial food photography, isolated on pure white background",
+      "text": "A single earthenware pot of bubbling red kimchi stew with tofu and pork, top-down view, soft diffused lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "Single Korean hanji paper gift box with silk ribbon, one box only, 45-degree angle, soft studio lighting, commercial photography, sharp focus, isolated on pure white background",
+      "text": "A single Korean traditional brass rice bowl with fitted lid, wide architectural view, soft natural lighting, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "Single Korean folding fan with painted floral pattern on hanji paper, one item only, 45-degree angle, soft studio lighting, commercial photography, sharp focus, isolated on pure white background",
+      "text": "A single Korean embroidered silk pouch with floral bojagi patchwork pattern, close-up detail shot, warm afternoon light, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Single Korean hanji paper fan, one item only, top-down view, clean flat vector illustration, minimalist design, print ready commercial asset, isolated on pure white background",
+      "text": "A single plate of Korean kimchi, one dish only, centered composition, clean line art illustration with flat colors, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "Single bowl of bibimbap with egg and vegetables, one dish only, top-down view, clean flat vector illustration, minimalist style, commercial asset, isolated on pure white background",
+      "text": "A single Korean lantern, one item only, centered composition, clean line art illustration with flat colors, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "Single cluster of soft golden bokeh circles, central focus, subtle glow, 45-degree angle, soft studio lighting, commercial stock photo, sharp focus, isolated on pure white background",
+      "text": "polka dot pattern background, soft colors, full frame texture view, monochrome color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "Single silk ribbon and bow decoration, one item only, top-down view, soft studio lighting, commercial stock photography, sharp focus, high resolution, isolated on pure white background",
+      "text": "simple frame border decoration element, flat design view, muted earthy color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "One tiny fairy sitting on a single mushroom, centered portrait, 45-degree angle, soft studio lighting, highly detailed digital art, sharp focus, isolated on pure white background",
+      "text": "cat character in a wizard robe with a small hat, centered character portrait, warm golden hour lighting, digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
