@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "A single white plate of thin sliced marinated beef with sesame and green onions, slightly elevated angle view, soft diffused lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "One plate of sliced Korean gimbap rice rolls only, colorful fillings, 45-degree angle, soft studio lighting, isolated on pure white background, commercial food photography, sharp focus.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "A single earthenware pot of bubbling red kimchi stew with tofu and pork, close-up macro shot, natural window lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "Single plate of crispy Korean sweet soy glazed fried chicken only, 45-degree angle, soft studio lighting, isolated on pure white background, commercial food photography, sharp focus.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "A single earthenware pot of bubbling red kimchi stew with tofu and pork, top-down view, soft diffused lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "Single earthenware pot of Korean soybean stew with tofu, one bowl only, 45-degree angle, soft studio lighting, isolated on pure white background, commercial food photography, sharp focus.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "A single Korean traditional brass rice bowl with fitted lid, wide architectural view, soft natural lighting, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
+      "text": "Single Korean celadon ceramic bowl with crackle glaze, one item only, 45-degree angle, soft studio lighting, isolated on pure white background, commercial product photography, sharp focus.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "A single Korean embroidered silk pouch with floral bojagi patchwork pattern, close-up detail shot, warm afternoon light, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
+      "text": "Single traditional Korean brass rice bowl with lid, one item only, top-down angle, soft studio lighting, isolated on pure white background, commercial stock photography, sharp focus.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "A single plate of Korean kimchi, one dish only, centered composition, clean line art illustration with flat colors, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
+      "text": "Single traditional Korean lantern illustration, one item only, flat vector design, soft pastel colors, centered, isolated on pure white background, commercial stock graphic, clean sharp lines.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "A single Korean lantern, one item only, centered composition, clean line art illustration with flat colors, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
+      "text": "Single Korean palace gate illustration, one building only, flat vector design, soft pastel colors, 45-degree angle, isolated on pure white background, commercial graphic asset, sharp clean lines.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "polka dot pattern background, soft colors, full frame texture view, monochrome color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
+      "text": "Single minimalist green leaf illustration, one leaf only, top-down view, soft studio lighting, clean flat design, isolated on pure white background, commercial stock graphic, sharp focus.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "simple frame border decoration element, flat design view, muted earthy color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
+      "text": "Single minimal monochrome diagonal stripe pattern texture, top-down view, clean even lighting, isolated on pure white background, commercial graphic stock asset, sharp crisp lines.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "cat character in a wizard robe with a small hat, centered character portrait, warm golden hour lighting, digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
+      "text": "One cute baby fox sitting alone with autumn leaves, single animal only, 45-degree angle, soft studio lighting, isolated on pure white background, commercial digital art, sharp focus, 8k.",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
