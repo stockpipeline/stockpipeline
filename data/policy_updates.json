@@ -4,14 +4,14 @@
       "status": "fetch_failed",
       "error": "HTTPSConnectionPool(host='helpx.adobe.com', port=443): Read timed out. (read timeout=20)",
       "url": "https://helpx.adobe.com/stock/contributor/help/generative-ai-content.html",
-      "checked_at": "2026-08-17T04:18:08.518310+09:00"
+      "checked_at": "2026-08-24T04:18:57.967741+09:00"
     },
     "freepik": {
       "status": "changed",
-      "content_hash": "bb1fd623b1b41667e2cd211b9d281c0fe47024d7f2ecbabd93f4ceaf04db62d2",
+      "content_hash": "ecf127d1176859c2be8abf2f2a313854863827ecefe23ec0523bacf5151cf9cb",
       "url": "https://support.freepik.com/s/article/AI-generated-content-policy",
-      "checked_at": "2026-08-17T04:18:08.518310+09:00",
-      "last_changed_at": "2026-08-17T04:18:08.518310+09:00"
+      "checked_at": "2026-08-24T04:18:57.967741+09:00",
+      "last_changed_at": "2026-08-24T04:18:57.967741+09:00"
     }
   }
 }
