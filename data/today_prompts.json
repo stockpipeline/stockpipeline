@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "Single plate only, crispy fried chicken with sweet soy glaze, no other food, 45-degree angle, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background.",
+      "text": "Single plate of sliced kimbap seaweed rice rolls with vegetables and egg, one plate only, 45-degree angle, soft studio lighting, commercial food photography, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "Single plate only, Korean tteokbokki rice cakes in spicy red sauce, fish cakes, no other dishes, 45-degree angle, soft studio lighting, commercial food photo, isolated on pure white background.",
+      "text": "Single dish of crispy pan-fried kimchi pancake, one plate only, 45-degree angle, soft studio lighting, sharp focus, commercial food photography, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "One earthenware pot only, Korean soybean paste stew with tofu, zucchini, mushrooms, 45-degree angle, soft studio lighting, commercial food photography, isolated on pure white background.",
+      "text": "One bowl only, cold buckwheat noodles in chilled broth with cucumber and boiled egg, 45-degree angle, soft studio lighting, commercial food photography, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "Single Korean celadon ceramic bowl with crackle glaze, one bowl only, 45-degree angle, soft studio lighting, sharp focus, commercial stock photography, isolated on pure white background.",
+      "text": "Single Korean traditional wooden tal mask with colorful string, one object only, 45-degree angle, soft studio lighting, sharp focus, commercial photography, isolated on pure white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "Single Korean traditional Hahoe wooden mask, one item only, painted details, 45-degree angle, soft studio lighting, sharp focus, commercial stock photography, isolated on pure white background.",
+      "text": "Single Korean traditional calligraphy ink brush with inkstone set, one item only, 45-degree angle, soft studio lighting, sharp focus, commercial shot, isolated on pure white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Single Korean dance mask, one item only, clean flat vector illustration, minimalist icon design, sharp clean lines, commercial stock asset, isolated on pure white background.",
+      "text": "Single dish of Korean kimchi, one plate only, clean flat vector illustration, minimalist line art, 45-degree angle, commercial design asset, isolated on pure white background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "Single Korean silk lantern, one item only, modern flat vector illustration, clean lines, minimalist design, centered composition, commercial stock asset, isolated on pure white background.",
+      "text": "Single Korean traditional palace gate architecture, one building only, clean flat vector illustration, minimalist line art, 45-degree angle, isolated on pure white background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "Single minimalist polka dot seamless pattern, soft subtle pastel dots, high resolution clean texture, flat lay top-down view, commercial stock design, isolated on pure white background.",
+      "text": "Single abstract fluid acrylic paint marble texture, one swirl element, soft pastel colors, centered, sharp details, commercial stock photography, isolated on pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "Single high-resolution white paper texture with subtle fiber details, top-down flat lay view, even soft studio lighting, clean minimalist commercial stock, isolated on pure white background.",
+      "text": "Single minimalist decorative border frame, one frame only, muted earthy tones, centered composition, clean lines, high resolution design asset, isolated on pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "Single small fantasy phoenix bird, glowing golden feathers, full body view, one creature only, 45-degree angle, soft studio lighting, sharp focus, isolated on pure white background.",
+      "text": "Single small magical phoenix bird with glowing blue feathers, one creature only, 45-degree angle, cinematic soft studio lighting, 3D concept art, isolated on pure white background",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
