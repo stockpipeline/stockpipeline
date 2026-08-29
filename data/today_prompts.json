@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "Single bowl only of spicy beef soup with shredded beef, fernbrake, bean sprouts, no other plates. Top-down, soft studio lighting, commercial food photography, isolated on pure white background",
+      "text": "Single bowl only, mixed rice with vibrant vegetables, fried egg, gochujang, 45-degree angle, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "Single plate of crispy Korean fried chicken with sweet soy glaze, one plate only. 45-degree angle, soft studio lighting, sharp focus, commercial food photo, isolated on pure white background.",
+      "text": "Single bowl only, cold buckwheat noodles in chilled dark broth, cucumber, boiled egg, 45-degree angle, soft studio lighting, commercial food photography, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "One bowl only of spicy beef soup with shredded beef, fernbrake, bean sprouts, no other plates. 45-degree angle, soft studio lighting, sharp focus, photo, isolated on pure white background.",
+      "text": "Single plate only, chewy rice cakes and fish cakes in spicy red gochujang sauce, top-down view, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "Single Korean hanji paper gift box with silk ribbon, one item only. Top-down flat lay, soft studio lighting, sharp focus, commercial product photography, isolated on pure white background.",
+      "text": "Single Korean red lantern with hanging tassel, one item only, 45-degree angle, soft studio lighting, commercial stock photography, sharp focus, isolated on pure white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "Single Korean traditional painted mask with colorful strings, one item only. Front view, soft studio lighting, sharp focus, high detail, commercial photo, isolated on pure white background.",
+      "text": "Single set only, Korean traditional calligraphy ink brush on inkstone, top-down view, soft studio lighting, commercial stock photography, sharp focus, isolated on pure white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Single Korean dance mask, one item only, no clutter. Centered flat vector illustration, clean lines, minimalist commercial graphic asset, sharp detail, isolated on pure white background.",
+      "text": "Single Korean palace gate building only, flat vector illustration, minimalist clean lines, vibrant flat colors, top-down view, commercial design asset, isolated on pure white background.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "Single Korean traditional mask in side view, one item only. Pastel color flat vector illustration, minimalist clean design, commercial vector asset, isolated on pure white background.",
+      "text": "Single dish only, Korean spicy napa cabbage kimchi on a plate, minimalist flat vector icon illustration, clean lines, side view, commercial design asset, isolated on pure white background.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "Single seamless monochrome geometric pattern tile, clean lines, minimalist design, high resolution texture, sharp focus, commercial stock design asset, isolated on pure white background.",
+      "text": "Single centered geometric motif, one abstract shape only, minimalist clean lines, vibrant bold colors, soft studio lighting, commercial design asset, isolated on pure white background.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "Single decorative frame border element, one item only. Pastel flat vector design, clean lines, delicate detail, commercial graphic asset, sharp focus, isolated on pure white background.",
+      "text": "Single minimalist stripe pattern block, centered clean lines, soft pastel colors, modern elegant design, commercial graphic asset, sharp focus, isolated on pure white background.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "Single cute rabbit character wearing a tiny crown, one subject only. 45-degree angle, soft magical studio lighting, sharp focus, commercial 3D digital art, isolated on pure white background.",
+      "text": "Single tiny magical fairy sitting on one mushroom, full body, soft magical studio lighting, concept digital art, highly detailed, sharp focus, isolated on pure white background.",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
