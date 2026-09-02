@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "One bowl only of spicy Korean soft tofu sundubu-jjigae with egg and seafood, 45-degree angle, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background",
+      "text": "Single dish, one earthenware pot of red kimchi stew with sliced pork and tofu, 45-degree angle, soft studio lighting, sharp focus, commercial food photography, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "One bowl only of Korean bibimbap mixed rice with colorful vegetables fried egg and gochujang, top-down view, soft studio lighting, commercial food photography, isolated on pure white background",
+      "text": "Single plate only, chewy cylindrical rice cakes and fish cakes in spicy red gochujang sauce, 45-degree angle, soft studio lighting, sharp focus, food photography, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "Single plate only, sliced Korean kimbap rice rolls with colorful fillings, top-down flat lay, soft studio lighting, sharp focus, commercial food photography, isolated on pure white background",
+      "text": "One plate only, thin-sliced marinated beef bulgogi with sesame seeds and scallions, top-down view, soft studio lighting, sharp focus, commercial food photography, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "Single wooden Korean tea tray with one ceramic teacup and tea caddy, top-down view, soft studio lighting, high resolution commercial photography, sharp focus, isolated on pure white background",
+      "text": "Single item only, one traditional Korean brass rice bowl with lid, 45-degree angle, soft studio lighting, high resolution, sharp focus, commercial photography, isolated on pure white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "Single traditional Korean folding fan with painted floral hanji paper, 45-degree angle, soft studio lighting, sharp focus, commercial stock photography, isolated on pure white background",
+      "text": "Single dress only, one traditional Korean silk hanbok with flowing chima skirt, 45-degree angle, soft studio lighting, sharp focus, commercial stock photography, isolated on pure white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Single Korean traditional palace gate icon, one building only, 45-degree view, clean flat vector illustration, minimalist commercial design asset, sharp focus, isolated on pure white background",
+      "text": "Single bowl only, flat vector illustration of Korean bibimbap with egg and vegetables, top-down view, clean minimalist outline, commercial design asset, isolated on pure white background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "Single Korean celadon ceramic vase, one item only, 45-degree view, minimalist flat vector art illustration, soft pastel colors, commercial graphic asset, isolated on pure white background",
+      "text": "One bowl only, 45-degree angle, flat vector illustration of Korean bibimbap with seasoned vegetables, clean line art, bold colors, commercial design asset, isolated on pure white background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "Single seamless pastel polka dot pattern background, top-down flat lay view, soft studio lighting, minimalist modern texture, high resolution commercial design, isolated on pure white background",
+      "text": "Single sheet texture, subtle organic paper fiber details, top-down view, soft even studio lighting, high resolution, sharp focus, commercial design asset, isolated on pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "Single smooth monochrome gradient background texture, full frame flat view, soft lighting, clean minimalist design, high resolution commercial stock asset, isolated on pure white background",
+      "text": "Single centered watercolor wash, soft pastel tones, delicate paint texture, top-down view, soft studio lighting, high resolution, sharp focus, commercial asset, isolated on pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "Single wise old owl wearing tiny glasses, close-up 45-degree portrait, bright soft studio lighting, highly detailed digital concept art, sharp focus, isolated on pure white background",
+      "text": "Single character only, one wise old owl wearing tiny round spectacles, centered portrait, soft studio lighting, sharp focus, detailed digital art, 8k resolution, isolated on pure white background",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
