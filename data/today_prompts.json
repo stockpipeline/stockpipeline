@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "Single plate only, Korean fried chicken pieces with sweet soy glaze, 45-degree angle, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background",
+      "text": "One earthenware pot only, Korean doenjang stew with tofu, zucchini, mushroom, 45-degree angle, soft studio lighting, commercial food photo, sharp focus, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "One bowl only, Korean cold buckwheat noodles with sliced cucumber and egg, 45-degree angle, soft studio lighting, sharp focus, commercial food photography, isolated on pure white background",
+      "text": "Single plate only, no other dishes, crispy Korean fried chicken glazed in sweet soy sauce, 45-degree angle, soft studio lighting, commercial food photography, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "One bowl only, Korean spicy soft tofu stew with seafood and raw egg yolk, 45-degree angle, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background",
+      "text": "Single bowl only, spicy Korean soft tofu sundubu stew with egg and seafood, top-down view, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "Single brass rice bowl with lid only, Korean traditional bangjja yugi, 45-degree angle, soft studio lighting, commercial product photography, sharp focus, isolated on pure white background",
+      "text": "Single item only, traditional Korean brass rice bowl with fitted lid, top-down view, soft studio lighting, sharp focus, commercial stock photography, isolated on pure white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "Single celadon ceramic bowl only, traditional Korean jade crackle glaze, top-down view, soft studio lighting, commercial stock photography, sharp focus, isolated on pure white background",
+      "text": "Single object only, ornate Korean folding fan with painted floral pattern on hanji paper, 45-degree angle, soft studio lighting, sharp focus, commercial photo, isolated on pure white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Single Korean traditional dance mask only, 45-degree angle, flat vector illustration, minimalist clean lines, commercial design asset, sharp focus, isolated on pure white background",
+      "text": "Single item only, minimalist flat vector illustration of one Korean hanji paper fan, clean lines, sharp focus, commercial design asset, 45-degree angle, isolated on pure white background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "Single traditional Korean tea cup with green tea only, top-down view, flat vector illustration style, minimal clean design, commercial asset, isolated on pure white background",
+      "text": "Single cart only, one subject, flat vector illustration of Korean street food cart with spicy tteokbokki, top-down view, clean lines, commercial asset, isolated on pure white background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "Single glowing bokeh light flare, soft blurred circles, centered composition, soft studio lighting, commercial design asset, high resolution, isolated on pure white background",
+      "text": "Single bow only, elegant muted earthy ribbon bow decoration, 45-degree angle, soft studio lighting, high resolution, sharp focus, commercial stock photo, isolated on pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "Single abstract smooth gradient swatch, muted earthy tones, centered composition, soft studio lighting, high resolution, commercial stock asset, isolated on pure white background",
+      "text": "Single bokeh light glow burst, one cluster only, soft monochrome blur circles, top-down view, soft studio lighting, sharp focus, commercial design asset, isolated on pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "Single cute baby dragon curled on a wooden treasure chest, 45-degree angle, soft magical studio lighting, commercial 3D character art, sharp focus, isolated on pure white background",
+      "text": "Single character only, panda in a formal business suit holding a briefcase, full body, 45-degree angle, soft studio lighting, commercial 3D render, sharp focus, isolated on pure white background",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
