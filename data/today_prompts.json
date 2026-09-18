@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "Single dish, one plate only of sliced marinated beef with sesame and green onions, 45-degree angle, soft studio lighting, commercial food photography, isolated on pure white background",
+      "text": "Single plate of sliced gimbap rolls with vegetable fillings, 45-degree angle, soft studio lighting, sharp focus, commercial food photography, one dish only, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "Single dish, one earthenware pot only of red kimchi stew with tofu and pork, 45-degree angle, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background",
+      "text": "Single plate of marinated beef bulgogi with sesame seeds and scallions, top-down view, soft studio lighting, commercial food photography, sharp focus, one dish, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "Single dish, one bowl only, clear ox bone soup with sliced beef and noodles, top-down view, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background",
+      "text": "Single plate of crispy Korean fried chicken in sweet soy glaze, 45-degree angle, soft studio lighting, commercial food photography, sharp focus, one plate only, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "Single item, one Korean hanji paper gift box with silk ribbon, top-down view, soft studio lighting, commercial product photography, sharp focus, isolated on pure white background",
+      "text": "Single traditional Korean celadon bowl with jade crackle glaze, top-down view, soft studio lighting, commercial photography, sharp focus, exactly one item, isolated on pure white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "Single item, one Korean embroidered silk lucky pouch bojagi, 45-degree angle, soft studio lighting, commercial product photography, sharp focus, isolated on pure white background",
+      "text": "Single Korean celadon ceramic bowl with jade crackle glaze, 45-degree angle, soft studio lighting, commercial stock photography, sharp focus, one item only, isolated on pure white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Single item only, one traditional Korean hanbok dress on wooden hanger, side view, clean flat vector illustration, minimalist commercial design asset, isolated on pure white background",
+      "text": "Minimalist flat vector illustration of a single Korean celadon vase, 45-degree angle, clean lines, commercial design asset, sharp focus, single item only, isolated on pure white background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "Single dish, one bowl only of Korean japchae glass noodles with vegetables, top-down flat lay, clean minimalist flat vector illustration, commercial asset, isolated on pure white background",
+      "text": "Flat vector illustration of a single Korean hanbok dress on a hanger, clean lines, bold colors, commercial design asset, sharp focus, exactly one item, isolated on pure white background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "Single fluid art marble texture, monochrome liquid swirls, full frame top-down view, soft studio lighting, high resolution, sharp focus, commercial design, isolated on pure white background",
+      "text": "Single minimalist geometric pattern tile, clean pastel lines, soft studio lighting, top-down view, commercial design asset, sharp focus, high resolution, isolated on pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "Single minimal striped pattern graphic, muted earthy lines, clean flat design, top-down view, high resolution, sharp focus, modern commercial design asset, isolated on pure white background",
+      "text": "Single smooth monochrome gradient surface, subtle color transition, top-down flat lay, soft studio lighting, high resolution, commercial stock photography, isolated on pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "Single cute baby dragon sleeping on one pile of gold coins, 45-degree angle, soft studio lighting, 3D commercial character render, sharp focus, vivid colors, isolated on pure white background",
+      "text": "Single cute fantasy dragon curled around one small treasure chest, 45-degree angle, soft studio lighting, sharp focus, commercial 3D render, one subject only, isolated on pure white background",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
