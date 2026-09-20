@@ -1,6 +1,35 @@
 {
   "history": [
     {
+      "timestamp": "2026-09-21T06:09:03.840021+09:00",
+      "status": "success",
+      "summary": {
+        "stage": "weekly_tasks",
+        "backup_ok": false,
+        "policy_changed": [
+          "adobe",
+          "freepik"
+        ]
+      },
+      "logs": [
+        {
+          "time": "06:09:03",
+          "level": "warn",
+          "message": "Drive 백업 실패: <HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id&alt=json&uploadType=multipart returned \"Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.\". Details: \"[{'message': 'Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.', 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
+        },
+        {
+          "time": "06:09:03",
+          "level": "warn",
+          "message": "adobe 정책 페이지 변경 감지!"
+        },
+        {
+          "time": "06:09:03",
+          "level": "warn",
+          "message": "freepik 정책 페이지 변경 감지!"
+        }
+      ]
+    },
+    {
       "timestamp": "2026-09-21T05:29:16.669578+09:00",
       "status": "success",
       "summary": {
@@ -1065,79 +1094,34 @@
           "message": "총 10개 프롬프트 준비 완료"
         }
       ]
-    },
-    {
-      "timestamp": "2026-08-26T03:42:44.785762+09:00",
-      "status": "success",
-      "summary": {
-        "stage": "prompt_generation",
-        "total_prompts": 10,
-        "from_user": 0,
-        "from_template": 10
-      },
-      "logs": [
-        {
-          "time": "03:41:18",
-          "level": "info",
-          "message": "오늘의 프롬프트 10개 생성 시작"
-        },
-        {
-          "time": "03:41:18",
-          "level": "info",
-          "message": "사용자 프롬프트 0개 선택됨"
-        },
-        {
-          "time": "03:41:18",
-          "level": "info",
-          "message": "템플릿 기반으로 10개 추가 생성"
-        },
-        {
-          "time": "03:41:18",
-          "level": "info",
-          "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
-        },
-        {
-          "time": "03:42:44",
-          "level": "info",
-          "message": "총 10개 프롬프트 준비 완료"
-        }
-      ]
     }
   ],
   "latest": {
-    "timestamp": "2026-09-21T05:29:16.669578+09:00",
+    "timestamp": "2026-09-21T06:09:03.840021+09:00",
     "status": "success",
     "summary": {
-      "stage": "prompt_generation",
-      "total_prompts": 10,
-      "from_user": 0,
-      "from_template": 10
+      "stage": "weekly_tasks",
+      "backup_ok": false,
+      "policy_changed": [
+        "adobe",
+        "freepik"
+      ]
     },
     "logs": [
       {
-        "time": "05:29:06",
-        "level": "info",
-        "message": "오늘의 프롬프트 10개 생성 시작"
+        "time": "06:09:03",
+        "level": "warn",
+        "message": "Drive 백업 실패: <HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id&alt=json&uploadType=multipart returned \"Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.\". Details: \"[{'message': 'Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.', 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
       },
       {
-        "time": "05:29:06",
-        "level": "info",
-        "message": "사용자 프롬프트 0개 선택됨"
+        "time": "06:09:03",
+        "level": "warn",
+        "message": "adobe 정책 페이지 변경 감지!"
       },
       {
-        "time": "05:29:06",
-        "level": "info",
-        "message": "템플릿 기반으로 10개 추가 생성"
-      },
-      {
-        "time": "05:29:06",
-        "level": "info",
-        "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
-      },
-      {
-        "time": "05:29:16",
-        "level": "info",
-        "message": "총 10개 프롬프트 준비 완료"
+        "time": "06:09:03",
+        "level": "warn",
+        "message": "freepik 정책 페이지 변경 감지!"
       }
     ]
   }
