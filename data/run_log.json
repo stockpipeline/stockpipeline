@@ -1,6 +1,43 @@
 {
   "history": [
     {
+      "timestamp": "2026-09-29T08:02:08.286440+09:00",
+      "status": "success",
+      "summary": {
+        "stage": "prompt_generation",
+        "total_prompts": 10,
+        "from_user": 0,
+        "from_template": 10
+      },
+      "logs": [
+        {
+          "time": "08:01:47",
+          "level": "info",
+          "message": "오늘의 프롬프트 10개 생성 시작"
+        },
+        {
+          "time": "08:01:47",
+          "level": "info",
+          "message": "사용자 프롬프트 0개 선택됨"
+        },
+        {
+          "time": "08:01:47",
+          "level": "info",
+          "message": "템플릿 기반으로 10개 추가 생성"
+        },
+        {
+          "time": "08:01:47",
+          "level": "info",
+          "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
+        },
+        {
+          "time": "08:02:08",
+          "level": "info",
+          "message": "총 10개 프롬프트 준비 완료"
+        }
+      ]
+    },
+    {
       "timestamp": "2026-09-28T06:49:30.594934+09:00",
       "status": "success",
       "summary": {
@@ -1063,71 +1100,42 @@
           "message": "총 10개 프롬프트 준비 완료"
         }
       ]
-    },
-    {
-      "timestamp": "2026-09-03T05:41:57.439933+09:00",
-      "status": "success",
-      "summary": {
-        "stage": "prompt_generation",
-        "total_prompts": 10,
-        "from_user": 0,
-        "from_template": 10
-      },
-      "logs": [
-        {
-          "time": "05:41:45",
-          "level": "info",
-          "message": "오늘의 프롬프트 10개 생성 시작"
-        },
-        {
-          "time": "05:41:45",
-          "level": "info",
-          "message": "사용자 프롬프트 0개 선택됨"
-        },
-        {
-          "time": "05:41:45",
-          "level": "info",
-          "message": "템플릿 기반으로 10개 추가 생성"
-        },
-        {
-          "time": "05:41:45",
-          "level": "info",
-          "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
-        },
-        {
-          "time": "05:41:57",
-          "level": "info",
-          "message": "총 10개 프롬프트 준비 완료"
-        }
-      ]
     }
   ],
   "latest": {
-    "timestamp": "2026-09-28T06:49:30.594934+09:00",
+    "timestamp": "2026-09-29T08:02:08.286440+09:00",
     "status": "success",
     "summary": {
-      "stage": "weekly_tasks",
-      "backup_ok": false,
-      "policy_changed": [
-        "adobe",
-        "freepik"
-      ]
+      "stage": "prompt_generation",
+      "total_prompts": 10,
+      "from_user": 0,
+      "from_template": 10
     },
     "logs": [
       {
-        "time": "06:49:29",
-        "level": "warn",
-        "message": "Drive 백업 실패: <HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id&alt=json&uploadType=multipart returned \"Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.\". Details: \"[{'message': 'Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.', 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
+        "time": "08:01:47",
+        "level": "info",
+        "message": "오늘의 프롬프트 10개 생성 시작"
       },
       {
-        "time": "06:49:29",
-        "level": "warn",
-        "message": "adobe 정책 페이지 변경 감지!"
+        "time": "08:01:47",
+        "level": "info",
+        "message": "사용자 프롬프트 0개 선택됨"
       },
       {
-        "time": "06:49:30",
-        "level": "warn",
-        "message": "freepik 정책 페이지 변경 감지!"
+        "time": "08:01:47",
+        "level": "info",
+        "message": "템플릿 기반으로 10개 추가 생성"
+      },
+      {
+        "time": "08:01:47",
+        "level": "info",
+        "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
+      },
+      {
+        "time": "08:02:08",
+        "level": "info",
+        "message": "총 10개 프롬프트 준비 완료"
       }
     ]
   }
