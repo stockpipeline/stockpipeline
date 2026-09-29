@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "One plate only, no other dishes, crispy Korean fried chicken in sweet soy glaze, 45-degree angle, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background",
+      "text": "Single plate only, no other dishes, marinated beef with sesame seeds and green onions, 45-degree angle, soft studio lighting, sharp focus, commercial food photography, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "One bowl only, no other dishes, spicy red beef soup with fernbrake and bean sprouts, top-down view, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background",
+      "text": "Single pot only, one dish, bubbling red kimchi stew with tofu and pork, 45-degree angle, soft studio lighting, sharp focus, commercial food photography, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "One plate only, no other dishes, thin sliced marinated beef with sesame seeds, top-down view, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background",
+      "text": "Single bowl only, one dish, spicy Korean soup with shredded beef, fernbrake, bean sprouts, 45-degree, soft studio lighting, sharp focus, commercial food photo, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "Single item only, traditional Korean brass incense burner with openwork pattern, 45-degree angle, soft studio lighting, commercial photography, sharp focus, isolated on pure white background",
+      "text": "Single fan only, one item, ornate Korean folding fan with painted floral pattern on hanji paper, flat lay, soft studio lighting, sharp focus, commercial photography, isolated on pure white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "Single bowl only, no other items, Korean celadon ceramic bowl with crackle glaze, 45-degree angle, soft studio lighting, commercial photography, sharp focus, isolated on pure white background",
+      "text": "Single fan only, one item, ornate Korean folding fan with painted floral pattern on hanji paper, 45-degree angle, soft studio lighting, sharp focus, commercial photo, isolated on pure white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Single fan only, one item, centered minimalist flat vector illustration of Korean hanji paper fan, clean lines, modern icon style, commercial stock graphic, isolated on pure white background",
+      "text": "Single vase only, one item, Korean celadon ceramic vase, modern flat vector illustration, centered, clean minimalist design, soft studio lighting, commercial asset, isolated on pure white background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "Single dress only, one item, minimalist flat vector illustration of Korean hanbok on hanger, clean lines, modern icon style, commercial stock asset, isolated on pure white background",
+      "text": "Single building only, one gate, traditional Korean palace gate, modern flat vector illustration, 45-degree angle, pastel palette, clean minimalist design, commercial, isolated on pure white background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "Single leaf only, one item, minimalist botanical leaf illustration, soft pastel colors, top-down view, clean details, commercial design asset, sharp focus, isolated on pure white background",
+      "text": "Single leaf only, one item, minimalist botanical leaf illustration, muted earthy tone, top-down view, soft studio lighting, sharp focus, commercial design asset, isolated on pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "Single abstract fluid art marbling swirl, one element only, monochrome palette, soft studio lighting, commercial design asset, sharp focus, high resolution, isolated on pure white background",
+      "text": "Single glowing bokeh circle only, one element, soft monochrome blur, centered composition, soft studio lighting, sharp focus, clean commercial design asset, isolated on pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "Single bird only, one creature, small phoenix with glowing feathers, centered portrait, 45-degree angle, soft studio lighting, sharp focus, commercial 3D render, isolated on pure white background",
+      "text": "Single unicorn only, one animal, majestic white unicorn, 45-degree profile portrait, soft studio lighting, highly detailed concept digital art, sharp focus, isolated on pure white background",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
