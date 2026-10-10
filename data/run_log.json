@@ -1,6 +1,43 @@
 {
   "history": [
     {
+      "timestamp": "2026-10-11T06:20:49.281004+09:00",
+      "status": "success",
+      "summary": {
+        "stage": "prompt_generation",
+        "total_prompts": 10,
+        "from_user": 0,
+        "from_template": 10
+      },
+      "logs": [
+        {
+          "time": "06:18:14",
+          "level": "info",
+          "message": "오늘의 프롬프트 10개 생성 시작"
+        },
+        {
+          "time": "06:18:14",
+          "level": "info",
+          "message": "사용자 프롬프트 0개 선택됨"
+        },
+        {
+          "time": "06:18:14",
+          "level": "info",
+          "message": "템플릿 기반으로 10개 추가 생성"
+        },
+        {
+          "time": "06:18:14",
+          "level": "info",
+          "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
+        },
+        {
+          "time": "06:20:49",
+          "level": "info",
+          "message": "총 10개 프롬프트 준비 완료"
+        }
+      ]
+    },
+    {
       "timestamp": "2026-10-10T07:24:27.954994+09:00",
       "status": "success",
       "summary": {
@@ -1073,38 +1110,10 @@
           "message": "총 10개 프롬프트 준비 완료"
         }
       ]
-    },
-    {
-      "timestamp": "2026-09-14T06:13:50.548784+09:00",
-      "status": "success",
-      "summary": {
-        "stage": "weekly_tasks",
-        "backup_ok": false,
-        "policy_changed": [
-          "freepik"
-        ]
-      },
-      "logs": [
-        {
-          "time": "06:13:50",
-          "level": "warn",
-          "message": "Drive 백업 실패: <HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id&alt=json&uploadType=multipart returned \"Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.\". Details: \"[{'message': 'Service Accounts do not have storage quota. Leverage shared drives (https://developers.google.com/workspace/drive/api/guides/about-shareddrives), or use OAuth delegation (http://support.google.com/a/answer/7281227) instead.', 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
-        },
-        {
-          "time": "06:13:50",
-          "level": "info",
-          "message": "adobe 정책 페이지 변경 없음"
-        },
-        {
-          "time": "06:13:50",
-          "level": "warn",
-          "message": "freepik 정책 페이지 변경 감지!"
-        }
-      ]
     }
   ],
   "latest": {
-    "timestamp": "2026-10-10T07:24:27.954994+09:00",
+    "timestamp": "2026-10-11T06:20:49.281004+09:00",
     "status": "success",
     "summary": {
       "stage": "prompt_generation",
@@ -1114,27 +1123,27 @@
     },
     "logs": [
       {
-        "time": "07:24:06",
+        "time": "06:18:14",
         "level": "info",
         "message": "오늘의 프롬프트 10개 생성 시작"
       },
       {
-        "time": "07:24:06",
+        "time": "06:18:14",
         "level": "info",
         "message": "사용자 프롬프트 0개 선택됨"
       },
       {
-        "time": "07:24:06",
+        "time": "06:18:14",
         "level": "info",
         "message": "템플릿 기반으로 10개 추가 생성"
       },
       {
-        "time": "07:24:06",
+        "time": "06:18:14",
         "level": "info",
         "message": "Gemini 배치 보정 시작 (10개, 1회 호출)"
       },
       {
-        "time": "07:24:27",
+        "time": "06:20:49",
         "level": "info",
         "message": "총 10개 프롬프트 준비 완료"
       }
