@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "One bowl only, bibimbap with colorful vegetables, fried egg, gochujang. Single dish, 45-degree angle, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background.",
+      "text": "Single bowl only, no other plates, clear ox bone broth soup with noodles and beef slices, 45-degree angle, soft studio lighting, commercial food photo, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "Single plate of sliced kimbap seaweed rice rolls with vegetables and egg, no other plates. 45-degree angle, soft studio lighting, commercial food photography, isolated on pure white background.",
+      "text": "Single plate only, no other dishes, chewy rice cakes and fish cakes in red gochujang sauce, 45-degree angle, soft studio lighting, commercial food photo, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "Single earthenware pot only, bubbling kimchi stew with tofu and pork, no other dishes. Top-down, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background.",
+      "text": "Single pot only, no other dishes, bubbling red kimchi stew with tofu and sliced pork, 45-degree angle, soft studio lighting, commercial food photo, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "One set only, single pair of Korean silver metal chopsticks and spoon, no other items. 45-degree angle, soft studio lighting, commercial photography, sharp focus, isolated on pure white background.",
+      "text": "Single Korean silk pouch only, one item, floral bojagi patchwork pattern, 45-degree angle, soft studio lighting, commercial photography, sharp focus, isolated on pure white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "One bowl only, single Korean celadon ceramic bowl with crackle glaze, no other plates. 45-degree angle, soft studio lighting, commercial photography, sharp focus, isolated on pure white background.",
+      "text": "Single Korean hanbok dress only, one garment, vibrant silk fabric, flowing skirt, 45-degree angle, soft studio lighting, commercial photography, sharp focus, isolated on pure white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Single Korean hanji paper fan, one item only, flat vector illustration, minimalist clean line art, soft studio lighting, high resolution commercial asset, isolated on pure white background.",
+      "text": "Single Korean palace gate only, one building, Gyeongbokgung style, centered view, modern flat vector illustration, soft studio lighting, sharp focus, isolated on pure white background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "Single traditional Korean dance mask, one item only, three-quarter angle, minimalist flat vector illustration, pastel colors, clean design, sharp focus, isolated on pure white background.",
+      "text": "Single traditional Korean dance mask only, one tal mask, 45-degree angle, modern flat vector illustration, soft studio lighting, sharp focus, isolated on pure white background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "Single watercolor wash splash, one element only, soft pastel earthy tones, minimalist texture, soft studio lighting, high resolution, commercial design asset, isolated on pure white background.",
+      "text": "Single botanical flower stem only, one delicate branch, minimalist line art, top-down view, soft studio lighting, commercial design asset, sharp focus, isolated on pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "Single vibrant watercolor paint stain, one splash only, bold colorful tones, minimalist texture, flat composition, soft studio lighting, commercial quality, isolated on pure white background.",
+      "text": "Single sheet of textured paper only, one page with fiber details, top-down view, soft studio lighting, commercial stock photography, sharp focus, isolated on pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "Single cute fox character wearing a business suit, one subject only, full body, soft studio lighting, sharp focus, high resolution digital art, commercial, isolated on pure white background.",
+      "text": "Single friendly fox character only, one fox wearing a business suit, 45-degree angle, soft studio lighting, commercial digital art, sharp focus, isolated on pure white background",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
