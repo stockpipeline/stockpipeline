@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "Single plate of sliced gimbap rice rolls with colorful fillings, one dish only, 45-degree angle, soft studio lighting, sharp focus, commercial food photo, isolated on pure white background",
+      "text": "A single bowl of spicy red broth soup with shredded beef, fernbrake, bean sprouts and green onions, close-up macro shot, natural window lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "Macro shot of single plate of sliced gimbap rice rolls with fillings, one dish only, soft studio lighting, sharp focus, commercial food photography, isolated on pure white background",
+      "text": "A single earthenware pot of bubbling red kimchi stew with tofu and pork, slightly elevated angle view, warm studio lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "Single bowl of spicy red beef soup with fernbrake and bean sprouts, one bowl only, 45-degree angle, soft studio lighting, sharp focus, food photography, isolated on pure white background",
+      "text": "A single bowl of clear ox bone broth soup with thin rice noodles and sliced beef, top-down view, natural window lighting, glossy sauce reflection, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "Single Korean embroidered silk bojagi pouch with floral pattern, one item only, top-down angle, soft studio lighting, sharp focus, commercial photography, isolated on pure white background",
+      "text": "A single Korean hanji paper gift box with traditional pattern and silk ribbon, close-up detail shot, warm afternoon light, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "Single Korean brass incense burner with openwork lid, one item only, 45-degree angle, soft studio lighting, sharp focus, commercial stock photography, isolated on pure white background",
+      "text": "A single Korean traditional red lantern glowing warmly with tassel decoration, close-up detail shot, warm afternoon light, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "Single Korean palace gate illustration, traditional architecture, one building only, clean flat vector art, minimalist design, sharp focus, graphic asset, isolated on pure white background",
+      "text": "A single Korean mask (tal) for traditional dance, one item only, simple side view, minimalist flat vector illustration, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "Single Korean traditional hanji paper fan, one item only, top-down angle, modern flat vector illustration, minimalist clean design, sharp focus, asset isolated on pure white background",
+      "text": "A single Korean traditional tea cup with green tea, one item only, simple side view, minimalist flat vector illustration, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "Single minimalist watercolor paint splash in soft pastel tones, one element only, top-down, soft studio lighting, clean high resolution design asset, isolated on pure white background",
+      "text": "polka dot pattern background, soft colors, flat design view, monochrome color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "Single minimalist monochrome stripe pattern swatch, one element only, centered, soft studio lighting, clean graphic texture asset, sharp focus, isolated on pure white background",
+      "text": "minimalist watercolor texture background, soft pastel tones, flat design view, monochrome color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "Single tiny magical fairy sitting on one mushroom, no other figures, 45-degree angle, soft studio lighting, sharp focus, high resolution digital art, isolated on pure white background",
+      "text": "friendly fox character wearing a business suit, centered character portrait, bright cheerful lighting, digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
