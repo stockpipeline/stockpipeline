@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "Single plate only, crispy pan-fried kimchi pancake with scallions, top-down angle, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background.",
+      "text": "A single bowl of clear ox bone broth soup with thin rice noodles and sliced beef, close-up macro shot, bright even lighting, subtle water droplets, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "Single dish only, chewy rice cakes and fish cake in thick gochujang sauce, 45-degree angle, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background.",
+      "text": "A single bowl of spicy red broth soup with shredded beef, fernbrake, bean sprouts and green onions, overhead flat lay shot, warm studio lighting, rustic ceramic texture, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "One bowl only, rich ox bone soup with thin noodles and tender beef slices, 45-degree angle, soft studio lighting, commercial food photography, sharp focus, isolated on pure white background.",
+      "text": "A single bowl of soft tofu sundubu-jjigae with egg and seafood in spicy red broth, slightly elevated angle view, natural window lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "Single set only, traditional Korean flat metal chopsticks and long-handled spoon, 45-degree angle, soft studio lighting, commercial photography, sharp focus, isolated on pure white background.",
+      "text": "A single Korean traditional ink brush and inkstone set on wooden stand, 45 degree angle view, warm afternoon light, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "Single item only, Korean antique brass incense burner with openwork lid, 45-degree angle, soft studio lighting, commercial product photography, sharp focus, isolated on pure white background.",
+      "text": "A single traditional Korean celadon ceramic bowl with crackle glaze pattern, top-down view, soft natural lighting, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "One bowl only, single Korean bibimbap dish with vegetables and egg, clean flat vector illustration, minimalist line art, commercial design asset, sharp focus, isolated on pure white background.",
+      "text": "A single plate of Korean kimchi, one dish only, flat lay from directly above, flat design illustration style, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "One bowl only, single Korean japchae glass noodles with vegetables, clean flat vector illustration, minimalist line art, commercial design asset, sharp focus, isolated on pure white background.",
+      "text": "A single Korean celadon ceramic vase, one item only, flat lay from directly above, minimalist flat vector illustration, subtle geometric shapes in background, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "Single leaf only, minimalist botanical leaf illustration, soft pastel tones, clean modern vector art, centered composition, commercial design asset, high resolution, pure white background.",
+      "text": "abstract fluid art texture, marbled pattern, flat design view, vibrant bold color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "Single floral branch only, delicate botanical line art, soft earth tones, minimalist vector illustration, commercial design asset, sharp focus, high resolution, pure white background.",
+      "text": "bokeh light background, soft blurred circles, full frame texture view, muted earthy color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "Single character only, friendly fox wearing an elegant business suit, centered portrait, soft studio lighting, commercial 3D digital art, sharp focus, isolated on pure white background.",
+      "text": "magical floating crystal with sparkles, centered character portrait, bright cheerful lighting, digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
