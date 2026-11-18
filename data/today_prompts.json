@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "A single plate of chewy rice cakes in thick spicy red gochujang sauce with fish cake, overhead flat lay shot, soft diffused lighting, steam rising gently, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "Single bowl only, clear ox bone broth soup with thin rice noodles, sliced beef, no other plates, 45-degree angle, soft studio lighting, sharp focus, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "A single earthenware pot of bubbling red kimchi stew with tofu and pork, close-up macro shot, natural window lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "Single earthenware pot only, bubbling red kimchi stew with tofu and pork, no other plates, top-down view, soft studio lighting, sharp focus, commercial photography, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "A single earthenware pot of bubbling red kimchi stew with tofu and pork, close-up macro shot, natural window lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "Single bowl only, cold buckwheat noodles in dark broth, cucumber slices, boiled egg half, no other plates, 45-degree angle, soft studio lighting, sharp focus, isolated on pure white background.",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "A single Korean wooden tea tray with small ceramic teacup and tea caddy, 45 degree angle view, bright even studio lighting, intricate texture detail, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
+      "text": "Single traditional Korean brass rice bowl with fitted lid, one item only, no other dishes, top-down angle, soft studio lighting, sharp focus, commercial photography, isolated on pure white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "A single Korean hanji paper gift box with traditional pattern and silk ribbon, close-up detail shot, warm afternoon light, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
+      "text": "Single Korean celadon ceramic bowl, jade crackle glaze, one bowl only, no other objects, 45-degree angle, soft studio lighting, sharp focus, commercial photography, isolated on pure white background.",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "A single Korean palace gate (Gyeongbokgung style), one building, centered composition, flat design illustration style, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
+      "text": "Single bowl only, Korean bibimbap with vegetables and egg, one dish only, modern flat vector illustration, top-down view, clean minimalist design, high resolution, isolated on pure white background.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "A single bowl of Korean bibimbap, one dish only, flat lay from directly above, flat design illustration style, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
+      "text": "Single Korean ceramic tea cup with green tea, one cup only, no other items, 45-degree angle, modern minimalist flat vector illustration, clean lines, high resolution, isolated on pure white background.",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "abstract fluid art texture, marbled pattern, flat design view, monochrome color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
+      "text": "Single cluster of glowing pastel bokeh lights, one focal group only, centered composition, soft studio lighting, high resolution, commercial design asset, isolated on pure white background.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "simple ribbon and bow decoration element, flat design view, muted earthy color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
+      "text": "Single flat sheet of minimalist pastel polka dot pattern, one surface only, seamless design, even studio lighting, high resolution, sharp focus, isolated on pure white background.",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "small dragon curled around a treasure chest, full body view, isolated, warm golden hour lighting, digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
+      "text": "Single cute fantasy rabbit wearing a tiny golden crown, one animal only, 45-degree angle, soft studio lighting, sharp focus, high resolution digital art, isolated on pure white background.",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
