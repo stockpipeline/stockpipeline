@@ -2,17 +2,17 @@
   "pages": {
     "adobe": {
       "status": "changed",
-      "content_hash": "2be5af02aab0212ca6287f4d73a04de9c741c05f99a5a2fad504419053d98af9",
+      "content_hash": "e0338134811fdc5bddbbb56102192979e5d49dde58a0557acade2f28371734d7",
       "url": "https://helpx.adobe.com/stock/contributor/help/generative-ai-content.html",
-      "checked_at": "2026-11-16T08:18:22.909764+09:00",
-      "last_changed_at": "2026-11-16T08:18:22.909764+09:00"
+      "checked_at": "2026-11-23T08:58:06.002558+09:00",
+      "last_changed_at": "2026-11-23T08:58:06.002558+09:00"
     },
     "freepik": {
       "status": "changed",
-      "content_hash": "6c19c075d24205f647aaefaa2af15039ec1ea19575f1e5626c58cb3140bbc142",
+      "content_hash": "c1cd95c2b5d3e1031ec734fdf1184938f996f4b88bc1c0d56038f6c4c5d54eec",
       "url": "https://support.freepik.com/s/article/AI-generated-content-policy",
-      "checked_at": "2026-11-16T08:18:22.909764+09:00",
-      "last_changed_at": "2026-11-16T08:18:22.909764+09:00"
+      "checked_at": "2026-11-23T08:58:06.002558+09:00",
+      "last_changed_at": "2026-11-23T08:58:06.002558+09:00"
     }
   }
 }
