@@ -2,70 +2,70 @@
   "prompts": [
     {
       "prompt_id": "auto_korean_food_001",
-      "text": "A single white plate of thin sliced marinated beef with sesame and green onions, slightly elevated angle view, bright even lighting, glossy sauce reflection, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "Single bowl only, cold buckwheat noodles in dark broth, cucumber, boiled egg, no other plates, 45-degree angle, soft studio lighting, commercial food photography, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_002",
-      "text": "A single bowl of spicy red broth soup with shredded beef, fernbrake, bean sprouts and green onions, slightly elevated angle view, warm studio lighting, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "Single plate only, crispy fried chicken with sweet soy glaze, no other dishes, top-down view, soft studio lighting, sharp focus, commercial food photography, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_food_003",
-      "text": "A single bowl of cold buckwheat noodles in dark broth with cucumber slices and boiled egg, close-up macro shot, natural window lighting, glossy sauce reflection, professional food photography, studio lighting, 85mm lens, moisture droplets, glossy surface, shallow depth of field, commercial grade, ultra sharp, isolated white background",
+      "text": "One bowl only, clear ox bone soup with thin rice noodles and sliced beef, no other plates, 45-degree angle, soft studio lighting, commercial food photography, isolated on pure white background",
       "tag": "food",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_004",
-      "text": "A single Korean brass incense burner with decorative openwork pattern, close-up detail shot, warm afternoon light, intricate texture detail, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
+      "text": "Single set only, Korean silver metal chopsticks and long spoon, no other items, top-down view, soft studio lighting, commercial photography, sharp focus, isolated on pure white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_culture_005",
-      "text": "A single Korean traditional red lantern glowing warmly with tassel decoration, overhead flat lay shot, gentle diffused light, authentic cultural craftsmanship, high detail, soft natural lighting, commercial photography, sharp focus, isolated white background, cultural authenticity",
+      "text": "Single item only, Korean traditional brass rice bowl with fitted lid, no other plates, 45-degree angle, soft studio lighting, commercial photography, sharp focus, isolated on pure white background",
       "tag": "other",
       "source": "template",
       "platform_form": "jpg"
     },
     {
       "prompt_id": "auto_korean_illustration_006",
-      "text": "A single Korean lantern, one item only, three-quarter view, flat design illustration style, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
+      "text": "Single item only, one traditional Korean lantern, flat vector illustration icon, minimalist clean shapes, centered, soft studio lighting, commercial design asset, isolated on pure white background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_korean_illustration_007",
-      "text": "A single Korean palace gate (Gyeongbokgung style), one building, three-quarter view, minimalist flat vector illustration, flat vector illustration, minimalist design, clean shapes, single subject only, no clutter, simple flat background, high resolution, print ready, commercial design asset, isolated on plain background",
+      "text": "Single item only, Korean traditional tea cup with green tea, top-down flat vector illustration, minimalist clean design, no other cups, commercial design asset, isolated on pure white background",
       "tag": "illustration",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_008",
-      "text": "paper texture background, subtle fiber detail, centered composition, vibrant bold color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
+      "text": "Single seamless texture, polka dot pattern in soft muted earthy tones, top-down view, soft studio lighting, sharp focus, commercial design asset, high resolution, isolated on pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_light_stock_009",
-      "text": "abstract fluid art texture, marbled pattern, flat design view, vibrant bold color palette, high resolution texture, seamless design, professional design asset, sharp details, print ready, commercial use, pure white background",
+      "text": "Single seamless texture, polka dot pattern in vibrant bold colors, top-down view, soft studio lighting, sharp focus, commercial design asset, high resolution, isolated on pure white background",
       "tag": "abstract",
       "source": "template",
       "platform_form": "jpg_or_png"
     },
     {
       "prompt_id": "auto_fantasy_animal_010",
-      "text": "cat character in a wizard robe with a small hat, close-up character shot, bright cheerful lighting, expressive cute features, digital art, highly detailed, cinematic lighting, concept art quality, 8k resolution, sharp focus, vivid colors, isolated white background",
+      "text": "Single subject only, cute small dragon curled around one treasure chest, 45-degree angle, soft studio lighting, sharp focus, commercial concept art quality, isolated on pure white background",
       "tag": "fantasy",
       "source": "template",
       "platform_form": "jpg_or_png"
